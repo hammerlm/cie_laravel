@@ -1,3 +1,9 @@
 Rechtliches:
     -> http://rechtsanwalt-schwenke.de/der-copyright-hinweis-geschichte-notwendigkeit-und-praxistipps-teil-3/
-    
+
+Datetimepicker:
+    -> https://eonasdan.github.io/bootstrap-datetimepicker/
+
+Kalender:
+    -> http://bootstrap-calendar.azurewebsites.net/
+
