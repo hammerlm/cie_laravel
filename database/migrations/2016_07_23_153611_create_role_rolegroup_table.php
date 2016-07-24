@@ -12,7 +12,14 @@ class CreateRoleRolegroupTable extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('role_rolegroup', function(Blueprint $table)
+        {
+            $table->integer('rolegroup_id');
+            $table->integer('role_id');
+
+            $table->foreign('rolegroup_id')->references('id')->on('rolegroups')->onDelete('cascade');
+            $table->foreign('role_id')->references('id')->on('roles')->onDelete('cascade');
+        });
     }
 
     /**
@@ -22,6 +29,6 @@ class CreateRoleRolegroupTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('role_rolegroup');
     }
 }
