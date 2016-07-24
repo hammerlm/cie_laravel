@@ -19,6 +19,12 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
+            $table->integer('intelligence')->nullable();
+            $table->integer('sexappeal')->nullable();
+            $table->integer('alcoholconsumption')->nullable();
+            $table->integer('hockeyskills')->nullable();
+            $table->boolean('showplayercard');
+            $table->binary('picture');
         });
     }
 
