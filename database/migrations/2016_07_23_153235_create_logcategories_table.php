@@ -13,6 +13,7 @@ class CreateLogcategoriesTable extends Migration
     public function up()
     {
         Schema::create('logcategories', function (Blueprint $table) {
+            $table->engine = 'InnoDB';
             $table->increments('id');
             $table->string('name')->unique();
             $table->string('description');

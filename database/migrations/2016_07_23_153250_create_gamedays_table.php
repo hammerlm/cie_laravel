@@ -13,6 +13,7 @@ class CreateGamedaysTable extends Migration
     public function up()
     {
         Schema::create('gamedays', function (Blueprint $table) {
+            $table->engine = 'InnoDB';
             $table->increments('id');
             $table->string('notes');
             $table->dateTime('time');

@@ -13,9 +13,9 @@ class AddFkLogsTable extends Migration
     public function up()
     {
         Schema::table('logs', function ($table) {
-            $table->integer('user_id');
-            $table->integer('affecteduser_id');
-            $table->integer('logcategory_id');
+            $table->integer('user_id')->unsigned();
+            $table->integer('affecteduser_id')->unsigned();
+            $table->integer('logcategory_id')->unsigned();
 
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('affecteduser_id')->references('id')->on('users');

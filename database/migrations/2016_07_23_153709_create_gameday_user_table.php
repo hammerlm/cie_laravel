@@ -14,10 +14,11 @@ class CreateGamedayUserTable extends Migration
     {
         Schema::create('gameday_user', function(Blueprint $table)
         {
-            $table->integer('user_id');
-            $table->integer('gameday_id');
+            $table->engine = 'InnoDB';
+            $table->integer('user_id')->unsigned();
+            $table->integer('gameday_id')->unsigned();
 
-            $table->foreign('user_id')->references('id')->on('user_id')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('gameday_id')->references('id')->on('gamedays')->onDelete('cascade');
         });
     }

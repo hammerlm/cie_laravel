@@ -13,6 +13,7 @@ class CreateRolegroupsTable extends Migration
     public function up()
     {
         Schema::create('rolegroups', function (Blueprint $table) {
+            $table->engine = 'InnoDB';
             $table->increments('id');
             $table->string('name')->unique();
             $table->string('description');

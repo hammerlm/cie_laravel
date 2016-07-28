@@ -13,9 +13,9 @@ class AddFkNewsTable extends Migration
     public function up()
     {
         Schema::table('news', function ($table) {
-            $table->integer('creator_id');
-            $table->integer('modifier_id');
-            $table->integer('category_id');
+            $table->integer('creator_id')->unsigned();
+            $table->integer('modifier_id')->unsigned();
+            $table->integer('category_id')->unsigned();
 
             $table->foreign('creator_id')->references('id')->on('users');
             $table->foreign('modifier_id')->references('id')->on('users');

@@ -13,6 +13,7 @@ class CreateLogsTable extends Migration
     public function up()
     {
         Schema::create('logs', function (Blueprint $table) {
+            $table->engine = 'InnoDB';
             $table->increments('id');
             $table->string('description');
             $table->timestamps();

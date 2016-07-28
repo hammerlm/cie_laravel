@@ -13,7 +13,7 @@ class AddFkGamedaysTable extends Migration
     public function up()
     {
         Schema::table('gamedays', function ($table) {
-            $table->integer('locations_id');
+            $table->integer('locations_id')->unsigned();
 
             $table->foreign('locations_id')->references('id')->on('locations');
         });

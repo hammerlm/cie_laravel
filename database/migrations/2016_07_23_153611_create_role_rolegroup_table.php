@@ -14,8 +14,9 @@ class CreateRoleRolegroupTable extends Migration
     {
         Schema::create('role_rolegroup', function(Blueprint $table)
         {
-            $table->integer('rolegroup_id');
-            $table->integer('role_id');
+            $table->engine = 'InnoDB';
+            $table->integer('rolegroup_id')->unsigned();
+            $table->integer('role_id')->unsigned();
 
             $table->foreign('rolegroup_id')->references('id')->on('rolegroups')->onDelete('cascade');
             $table->foreign('role_id')->references('id')->on('roles')->onDelete('cascade');
