@@ -1,0 +1,2 @@
+start php-builtin-webserver:
+/usr/bin/php -S localhost:9999 -t /home/ituser/php-projects/cie_laravel/public /home/ituser/php-projects/cie_laravel/server.php
