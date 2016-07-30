@@ -1,6 +1,8 @@
 @extends('masterlayoutfiles.master')
 @section('leftcol_content')
-<p>This is my body content. (left - from the frontend-master-layout.blade.php - file)</p>
+<script type="text/javascript">
+
+</script>
 @stop
 @section('rightcol_content')
     @section('rightcol_content_lvl2')
