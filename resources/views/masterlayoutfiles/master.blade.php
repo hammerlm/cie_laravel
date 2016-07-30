@@ -98,12 +98,12 @@
         </div>
         <!-- /.row -->
         <div class="row">
-            <div class="col-lg-3">
+            <div class="col-lg-4">
                 @section('leftcol_content')
                     This is the left column of the contentarea.
                 @show
             </div>
-            <div class="col-lg-9">
+            <div class="col-lg-8">
                 @section('rightcol_content')
                     This is the right column of the contentarea.
                 @show
