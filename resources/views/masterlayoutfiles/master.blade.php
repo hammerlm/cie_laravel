@@ -30,6 +30,15 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+
+      <!-- Bootstrap core JavaScript
+    ================================================== -->
+      <!-- Placed at the beginning of the document -->
+      <script src="bootstrap-3.3.6-dist/js/jquery-2.2.4.min.js"></script>
+      <script src="bootstrap-3.3.6-dist/js/bootstrap.min.js"></script>
+      <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+      <script src="bootstrap-3.3.6-dist/js/ie10-viewport-bug-workaround.js"></script>
+      <script src="bootstrap-3.3.6-dist/js/offcanvas.js"></script>
   </head>
 
   <body>
@@ -116,15 +125,5 @@
             </footer>
         </div>
     </div><!--/.container-->
-
-
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="bootstrap-3.3.6-dist/js/jquery-2.2.4.min.js"></script>
-    <script src="bootstrap-3.3.6-dist/js/bootstrap.min.js"></script>
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="bootstrap-3.3.6-dist/js/ie10-viewport-bug-workaround.js"></script>
-    <script src="bootstrap-3.3.6-dist/js/offcanvas.jsffcanvas.js"></script>
   </body>
 </html>

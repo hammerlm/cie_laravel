@@ -79,6 +79,20 @@
             <!-- This is the end of the countdown-code -->
         </div>
     </div>
+    <!-- This is the beginning of the zabuto-calendar-code -->
+    <!-- include the calendar js and css files -->
+    <script src="bootstrap-3.3.6-dist/js/plugins/zabuto_calendar.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="bootstrap-3.3.6-dist/css/plugins/zabuto_calendar.min.css">
+
+    <!-- define the calendar element -->
+    <div id="my-calendar"></div>
+    <!-- initialize the calendar on ready -->
+    <script type="application/javascript">
+        $(document).ready(function () {
+            $("#my-calendar").zabuto_calendar();
+        });
+    </script>
+    <!-- This is the end of the zabuto-calendar-code -->
 @stop
 @section('rightcol_content')
     @section('rightcol_content_lvl2')
