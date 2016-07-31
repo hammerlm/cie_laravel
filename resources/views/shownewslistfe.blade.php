@@ -3,12 +3,12 @@
     <div class="row">
         <div class="col-lg-12">
             <div class="jumbotron">
-                <h2>Pläne für Trainingslager stehen fest! <span class="label label-default">New</span></h2>
+                <h2>Köpfe rauchten erfolgreich ! <span class="label label-default">New</span></h2>
                 <p class="jumbop">
                     Artikel vom 30.07.2016 - 06:00 Uhr
                 </p>
                 <p class="jumbop">
-                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor...
+                    Während die neue Reifeprüfung in standardisierter Form an den AHS dieses Jahr schon fast Routine war, fand die neue Reife- und Diplomprüfung an den BHS  zum ersten Mal flächendeckend statt.
                 </p>
                 <hr/>
                 <p class="jumbop">

@@ -12,15 +12,14 @@
 
     <!-- Bootstrap core CSS -->
     <link href="bootstrap-3.3.6-dist/css/bootstrap.min.css" rel="stylesheet">
-
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <link href="bootstrap-3.3.6-dist/assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
     <link href="bootstrap-3.3.6-dist/css/offcanvas.css" rel="stylesheet">
 
-      <!-- Custom styles generally -->
-      <link href="bootstrap-3.3.6-dist/css/custom.css" rel="stylesheet">
+    <!-- Custom styles generally -->
+    <link href="bootstrap-3.3.6-dist/css/custom.css" rel="stylesheet">
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
@@ -122,8 +121,7 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="bootstrap-3.3.6-dist/js/jquery-template.js"></script>
-    <script>window.jQuery || document.write('<script src="bootstrap-3.3.6-dist/js/jquery-3.1.0.js"><\/script>')</script>
+    <script src="bootstrap-3.3.6-dist/js/jquery-2.2.4.min.js"></script>
     <script src="bootstrap-3.3.6-dist/js/bootstrap.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="bootstrap-3.3.6-dist/js/ie10-viewport-bug-workaround.js"></script>

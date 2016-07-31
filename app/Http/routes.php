@@ -24,4 +24,12 @@ Route::get('/frontend', function () {
 Route::get('/home', function () {
     return view('shownewslistfe');
 });
+
+Route::get('/newssinglefe', function () {
+    return view('shownewssinglefe');
+});
+
+Route::get('/playercardsfe', function () {
+    return view('showplayercardlistfe');
+});
 // END #1

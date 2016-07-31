@@ -6,6 +6,7 @@ Datetimepicker:
 
 Kalender:
     -> http://bootstrap-calendar.azurewebsites.net/
+    -> http://zabuto.com/dev/calendar/examples/show_data.html
 
 Countdown:
     -> https://www.sitepoint.com/build-javascript-countdown-timer-no-dependencies/
