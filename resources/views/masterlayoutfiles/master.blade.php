@@ -39,6 +39,12 @@
       <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
       <script src="bootstrap-3.3.6-dist/js/ie10-viewport-bug-workaround.js"></script>
       <script src="bootstrap-3.3.6-dist/js/offcanvas.js"></script>
+
+      <!-- optional scriptreferences -->
+      @section('scriptrefs_optional')
+
+      @show
+      <!-- end of optional scriptreferences -->
   </head>
 
   <body>

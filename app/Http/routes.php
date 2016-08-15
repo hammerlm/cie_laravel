@@ -32,4 +32,8 @@ Route::get('/newssinglefe', function () {
 Route::get('/playercardsfe', function () {
     return view('showplayercardlistfe');
 });
+
+Route::get('/createnewssinglebe', function () {
+    return view('createnewssinglebe');
+});
 // END #1
