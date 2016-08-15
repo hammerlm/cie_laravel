@@ -11,12 +11,12 @@
                 {{Form::text('title',null,array('class' => 'form-control', 'placeholder'=>'Titel'))}}
             </div>
             <div class="form-group">
-                {{Form::label('title', 'Betreff')}}
-                {{Form::textarea('title',null,array('class' => 'form-control', 'placeholder'=>'Betreff'))}}
+                {{Form::label('subject', 'Betreff')}}
+                {{Form::textarea('subject',null,array('class' => 'form-control', 'placeholder'=>'Betreff', 'id' => 'msgsubject'))}}
             </div>
             <div class="form-group">
                 {{Form::label('body', 'Inhalt')}}
-                {{Form::textarea('body',null,array('class' => 'form-control', 'placeholder'=>'Content', 'id' => 'summernote'))}}
+                {{Form::textarea('body',null,array('class' => 'form-control', 'placeholder'=>'Content', 'id' => 'msgbody'))}}
             </div>
             <div class="form-group">
                 {{Form::submit('Publish Post',array('class' => 'btn btn-primary btn-sm'))}}
@@ -25,7 +25,12 @@
     {{Form::close()}}
     <script>
         $(document).ready(function() {
-            $('#summernote').summernote();
+            $('#msgsubject').summernote({
+                height:100,
+            });
+            $('#msgbody').summernote({
+                height:250,
+            });
         });
     </script>
 @stop
