@@ -36,4 +36,24 @@ Route::get('/playercardsfe', function () {
 Route::get('/createnewssinglebe', function () {
     return view('createnewssinglebe');
 });
+
+Route::get('/gamedaylistfe', function () {
+    return view('showgamedaylistfe');
+});
+
+Route::get('/gamedaysinglefe', function () {
+    return view('showgamedaysinglefe');
+});
+
+Route::get('/editnewssinglebe', function () {
+    return view('editgamedaysinglebe');
+});
+
+Route::get('/managegamedaylocationsbe', function () {
+    return view('managegamedaylocationsbe');
+});
+
+Route::get('/newslistbe', function () {
+    return view('shownewslistbe');
+});
 // END #1
