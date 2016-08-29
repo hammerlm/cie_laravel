@@ -56,4 +56,12 @@ Route::get('/managegamedaylocationsbe', function () {
 Route::get('/newslistbe', function () {
     return view('shownewslistbe');
 });
+
+Route::get('/userlistbe', function () {
+    return view('showuserlistbe');
+});
+
+Route::get('/editusersinglebe', function () {
+    return view('editusersinglebe');
+});
 // END #1
