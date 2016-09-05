@@ -64,4 +64,8 @@ Route::get('/userlistbe', function () {
 Route::get('/editusersinglebe', function () {
     return view('editusersinglebe');
 });
+
+Route::get('/managepermissionsbe', function () {
+    return view('managepermissionsbe');
+});
 // END #1
