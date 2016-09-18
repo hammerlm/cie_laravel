@@ -1,4 +1,4 @@
-@extends('masterlayoutfiles.frontendmaster')
+@extends('dummycontentviews.masterlayoutfiles.frontendmaster')
 @section('rightcol_content_lvl2')
     <div class="row">
         <div class="col-lg-4">

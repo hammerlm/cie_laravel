@@ -1,4 +1,4 @@
-@extends('masterlayoutfiles.master')
+@extends('dummycontentviews.masterlayoutfiles.master')
 @section('leftcol_content')
     <div align="center" class="panel panel-info">
         <div class="panel-heading">

@@ -1,4 +1,4 @@
-@extends('masterlayoutfiles.master')
+@extends('dummycontentviews.masterlayoutfiles.master')
 @section('leftcol_content')
     <ul class="nav nav-pills nav-stacked">
         <li role="presentation" class="active"><a href="#">Home</a></li>

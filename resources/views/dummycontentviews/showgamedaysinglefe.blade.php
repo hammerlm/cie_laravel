@@ -1,4 +1,4 @@
-@extends('masterlayoutfiles.frontendmaster')
+@extends('dummycontentviews.masterlayoutfiles.frontendmaster')
 @section('rightcol_content_lvl2')
     <div align="center" class="panel panel-info">
         <div class="panel-heading">

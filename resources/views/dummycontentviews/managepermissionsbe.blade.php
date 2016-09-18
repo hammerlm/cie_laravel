@@ -1,4 +1,4 @@
-@extends('masterlayoutfiles.backendmaster')
+@extends('dummycontentviews.masterlayoutfiles.backendmaster')
 @section('rightcol_content_lvl2')
     <div class="row">
         <div class="col-md-6">
