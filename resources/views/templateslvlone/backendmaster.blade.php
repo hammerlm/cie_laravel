@@ -1,4 +1,4 @@
-@extends('templates_lvl1.templates_lvl2.master')
+@extends('templateslvlone.templateslvltwo.master')
 @section('leftcol_content')
     <ul class="nav nav-pills nav-stacked">
         <li role="presentation" class="active"><a href="#">Home</a></li>

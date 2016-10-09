@@ -1,4 +1,4 @@
-@extends('templates_lvl1.templates_lvl2.master')
+@extends('templateslvlone.templateslvltwo.master')
 @section('leftcol_content')
     <div align="center" class="panel panel-info">
         <div class="panel-heading">
@@ -28,12 +28,12 @@
                 </div>
             </div>
             <hr/>
-            <h5>Momentan angemeldete Speler: 7</h5>
+            <h5>Momentan angemeldete Spieler: 7</h5>
             <!-- Custom styles for this countdownfeature -->
             <link href="bootstrap-3.3.6-dist/css/plugins/custom_cd.css" rel="stylesheet">
             <script type="text/javascript">
                 // This variable contains the deadlinedatetime
-                var deadline_cd = 'September 17 2016 15:00:00 GMT+0200';
+                var deadline_cd = 'November 17 2016 15:00:00 GMT+0200';
                 // This functions subtracts the datetime now from the enddatetime and returns the timedifference
                 function getTimeRemaining_cd(endtime_cd){
                     var t_cd = Date.parse(endtime_cd) - Date.parse(new Date());

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\User;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\View;
+use Illuminate\Support\Facades\Gate;
 
 class HomeViewController extends Controller
 {
@@ -12,6 +14,9 @@ class HomeViewController extends Controller
      */
     public function index()
     {
-        return view('templates_lvl1.shownewslistfe');
+        if (Gate::allows('authenticate')) {
+            echo "yes";
+        }
+        return view('templateslvlone.shownewslistfe');
     }
 }
