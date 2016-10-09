@@ -26,6 +26,35 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies($gate);
 
-        //
+        $gate->define('manage-news', function ($user) {
+
+            return true;
+        });
+
+        $gate->define('manage-gamedays', function ($user) {
+
+            return true;
+        });
+
+        $gate->define('manage-users', function ($user) {
+
+            return true;
+        });
+
+        $gate->define('manage-playercards', function ($user) {
+
+            return true;
+        });
+
+        $gate->define('manage-permissions', function ($user) {
+
+            return true;
+        });
+
+        // $gate->define('view-statistics', function ($user) {
+
+           // return true;
+        // });
+
     }
 }

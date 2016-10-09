@@ -160,6 +160,7 @@ return [
          * Added by Michael Hammerl manually
          */
         Collective\Html\HtmlServiceProvider::class,
+        Barryvdh\Debugbar\ServiceProvider::class,
     ],
 
     /*

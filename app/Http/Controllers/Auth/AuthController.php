@@ -7,6 +7,8 @@ use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
@@ -68,5 +70,23 @@ class AuthController extends Controller
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
         ]);
+    }
+
+    public function authenticated() {
+        $user = Auth::user();
+        $roles = [];
+        session(['roles' => $roles]);
+        $roles = $results = DB::select(
+            DB::raw(
+                "select distinct r.id, r.name
+from roles r inner join role_rolegroup rr on rr.role_id = r.id
+inner join rolegroups rg on rr.rolegroup_id = rg.id
+inner join rolegroup_user ru on ru.rolegroup_id = rg.id
+inner join users u on u.id = ru.user_id
+where ru.user_id = :userid"), array(
+            'userid' => $user->id,
+        ));
+        session(['roles' => $roles]);
+        return redirect('/home');
     }
 }
