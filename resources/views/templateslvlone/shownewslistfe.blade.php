@@ -1,4 +1,4 @@
-@extends('templateslvlone.frontendmaster')
+@extends('templateslvlone.templateslvltwo.frontendmaster')
 @section('rightcol_content_lvl2')
     <div class="row">
         <div class="col-lg-12">

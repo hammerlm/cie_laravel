@@ -8,37 +8,37 @@
     <meta name="description" content="Root-Masterlayout">
     <meta name="author" content="">
 
-    <title>Backend-Master-Layout</title>
+    <title>{{$pagetitle}}</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="bootstrap-3.3.6-dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ asset('bootstrap-3.3.6-dist/css/bootstrap.min.css')}}" rel="stylesheet">
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <link href="bootstrap-3.3.6-dist/assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+    <link href="{{ asset('bootstrap-3.3.6-dist/assets/css/ie10-viewport-bug-workaround.css')}}" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="bootstrap-3.3.6-dist/css/offcanvas.css" rel="stylesheet">
+    <link href="{{ asset('bootstrap-3.3.6-dist/css/offcanvas.css')}}" rel="stylesheet">
 
     <!-- Custom styles generally -->
-    <link href="bootstrap-3.3.6-dist/css/custom.css" rel="stylesheet">
+    <link href="{{ asset('bootstrap-3.3.6-dist/css/custom.css')}}" rel="stylesheet">
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
-    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-    <script src="bootstrap-3.3.6-dist/assets/js/ie-emulation-modes-warning.js"></script>
+    <!--[if lt IE 9]><script src="{{ asset('../../assets/js/ie8-responsive-file-warning.js')}}"></script><![endif]-->
+    <script src="{{ asset('bootstrap-3.3.6-dist/assets/js/ie-emulation-modes-warning.js')}}"></script>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+      <script src="{{ asset('https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js')}}"></script>
+      <script src="{{ asset('https://oss.maxcdn.com/respond/1.4.2/respond.min.js')}}"></script>
     <![endif]-->
 
       <!-- Bootstrap core JavaScript
     ================================================== -->
       <!-- Placed at the beginning of the document -->
-      <script src="bootstrap-3.3.6-dist/js/jquery-2.2.4.min.js"></script>
-      <script src="bootstrap-3.3.6-dist/js/bootstrap.min.js"></script>
+      <script src="{{ asset('bootstrap-3.3.6-dist/js/jquery-2.2.4.min.js')}}"></script>
+      <script src="{{ asset('bootstrap-3.3.6-dist/js/bootstrap.min.js')}}"></script>
       <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-      <script src="bootstrap-3.3.6-dist/js/ie10-viewport-bug-workaround.js"></script>
-      <script src="bootstrap-3.3.6-dist/js/offcanvas.js"></script>
+      <script src="{{ asset('bootstrap-3.3.6-dist/js/ie10-viewport-bug-workaround.js')}}"></script>
+      <script src="{{ asset('bootstrap-3.3.6-dist/js/offcanvas.js')}}"></script>
 
       <!-- optional scriptreferences -->
       @section('scriptrefs_optional')
@@ -70,24 +70,32 @@
             <li>
                 <a href="#"><span class="glyphicon glyphicon-gift" aria-hidden="true"></span> Playercards</a>
             </li>
-            <li>
-                <a href="#"><span class="glyphicon glyphicon-dashboard" aria-hidden="true"></span> Backend</a>
-            </li>
+              @can('authenticate')
+                <li>
+                    <a href="#"><span class="glyphicon glyphicon-dashboard" aria-hidden="true"></span> Backend</a>
+                </li>
+              @endcan
               <li>
                 <a href="#"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span> Impressum</a>
-            </li>
-            <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> User<b class="caret"></b></a>
-                <ul class="dropdown-menu">
-                    <li>
-                        <a href="#"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Einstellungen</a>
-                    </li>
-                    <li class="divider"></li>
-                    <li>
-                        <a href="#"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Abmelden</a>
-                    </li>
-                </ul>
-            </li>
+              </li>
+              @if(Gate::allows('authenticate'))
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> {{$user->name}}<b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="#"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Einstellungen</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="/logout"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Abmelden</a>
+                        </li>
+                    </ul>
+                </li>
+              @else
+                  <li>
+                      <a href="/login"><span class="glyphicon glyphicon-log-in" aria-hidden="true"></span> Anmelden</a>
+                  </li>
+              @endif
           </ul>
         </div><!-- /.nav-collapse -->
       </div><!-- /.container -->
@@ -98,15 +106,14 @@
         <div class="row">
             <div class="col-lg-12">
                 <h1 class="page-header">
-                    Mainheading
+                    {{$pagetitle}}
                 </h1>
                 <ol class="breadcrumb">
+                    @foreach($path as $pathstring)
                     <li>
-                        <span class="glyphicon glyphicon-dashboard" aria-hidden="true"></span> Toplevel
+                        <span class="glyphicon glyphicon-dashboard" aria-hidden="true"></span> {{$pathstring}}
                     </li>
-                    <li class="active">
-                        <span class="glyphicon glyphicon-comment" aria-hidden="true"></span> Subpage
-                    </li>
+                    @endforeach
                 </ol>
             </div>
         </div>

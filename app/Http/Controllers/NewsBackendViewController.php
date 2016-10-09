@@ -9,17 +9,17 @@ use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Auth;
 use App\News;
 
-class HomeViewController extends Controller
+class NewsBackendViewController extends Controller
 {
     /**
      * Shows all recent news-contributions
      */
-    public function index()
+    public function create()
     {
-        return view('templateslvlone.shownewslistfe')->with([
+        return view('templateslvlone.createnewssinglebe')->with([
                 'user' => Auth::user(),
-                'path'=>array("Frontend","Home"),
-                'pagetitle' => "Newsübersicht"
+                'path'=>array("Backend","News","Neuen Beitrag erstellen"),
+                'pagetitle' => "Newserstellung"
         ]);
     }
 }

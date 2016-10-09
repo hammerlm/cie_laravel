@@ -1,4 +1,4 @@
-@extends('templateslvlone.templateslvltwo.master')
+@extends('templateslvlone.templateslvltwo.templateslvlthree.master')
 @section('leftcol_content')
     <div align="center" class="panel panel-info">
         <div class="panel-heading">
@@ -30,7 +30,7 @@
             <hr/>
             <h5>Momentan angemeldete Spieler: 7</h5>
             <!-- Custom styles for this countdownfeature -->
-            <link href="bootstrap-3.3.6-dist/css/plugins/custom_cd.css" rel="stylesheet">
+            <link href="{{ asset('bootstrap-3.3.6-dist/css/plugins/custom_cd.css')}}" rel="stylesheet">
             <script type="text/javascript">
                 // This variable contains the deadlinedatetime
                 var deadline_cd = 'November 17 2016 15:00:00 GMT+0200';
@@ -81,8 +81,8 @@
     </div>
     <!-- This is the beginning of the zabuto-calendar-code -->
     <!-- include the calendar js and css files -->
-    <script src="bootstrap-3.3.6-dist/js/plugins/zabuto_calendar.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="bootstrap-3.3.6-dist/css/plugins/zabuto_calendar.min.css">
+    <script src="{{ asset('bootstrap-3.3.6-dist/js/plugins/zabuto_calendar.min.js')}}"></script>
+    <link rel="stylesheet" type="text/css" href="{{ asset('bootstrap-3.3.6-dist/css/plugins/zabuto_calendar.min.css')}}">
 
     <!-- define the calendar element -->
     <div id="my-calendar"></div>
