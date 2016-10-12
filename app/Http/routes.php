@@ -17,6 +17,10 @@ Route::group(['middleware' => \App\Http\Middleware\ResetSessionRolesArrayIfNotAu
     Route::post('login', 'Auth\AuthController@login');
     Route::get('logout', 'Auth\AuthController@logout');
 
+    // Registration Routes...
+    Route::get('register', 'Auth\AuthController@showRegistrationForm');
+    Route::post('register', 'Auth\AuthController@register');
+
     // Password Reset Routes...
     Route::get('password/reset/{token?}', 'Auth\PasswordController@showResetForm');
     Route::post('password/email', 'Auth\PasswordController@sendResetLinkEmail');
@@ -33,7 +37,7 @@ Route::group(['middleware' => \App\Http\Middleware\ResetSessionRolesArrayIfNotAu
     Route::group(['middleware' => 'auth'], function()
     {
         // place your route definitions here
-        Route::get('backend/news', 'NewsBackendViewController@create');
+        Route::get('backend/news/create', 'NewsBackendViewController@create');
     });
 });
 

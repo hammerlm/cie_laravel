@@ -26,8 +26,6 @@ class AddFkGamedaysTable extends Migration
      */
     public function down()
     {
-        Schema::table('gamedays', function ($table) {
-            $table->dropForeign(['locations_id']);
-        });
+
     }
 }

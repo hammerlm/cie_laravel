@@ -31,36 +31,89 @@ class AuthServiceProvider extends ServiceProvider
             return Auth::check();
         });
 
-        $gate->define('manage-news', function ($user) {
-
-
-            return true;
+        $gate->define('manage-news', function () {
+            $roles = session('roles');
+            if(isset($roles)) {
+                foreach($roles as $role) {
+                    if($role->name == "newsmanager") {
+                        return true;
+                    }
+                }
+            }
+            return false;
         });
 
-        $gate->define('manage-gamedays', function ($user) {
-
-            return true;
+        $gate->define('manage-gamedays', function () {
+            $roles = session('roles');
+            if(isset($roles)) {
+                foreach($roles as $role) {
+                    if($role->name == "gamedaymanager") {
+                        return true;
+                    }
+                }
+            }
+            return false;
         });
 
-        $gate->define('manage-users', function ($user) {
-
-            return true;
+        $gate->define('manage-users', function () {
+            $roles = session('roles');
+            if(isset($roles)) {
+                foreach($roles as $role) {
+                    if($role->name == "usermanager") {
+                        return true;
+                    }
+                }
+            }
+            return false;
         });
 
-        $gate->define('manage-playercards', function ($user) {
-
-            return true;
+        $gate->define('manage-playercards', function () {
+            $roles = session('roles');
+            if(isset($roles)) {
+                foreach($roles as $role) {
+                    if($role->name == "playercardmanager") {
+                        return true;
+                    }
+                }
+            }
+            return false;
         });
 
-        $gate->define('manage-permissions', function ($user) {
-
-            return true;
+        $gate->define('manage-permissions', function () {
+            $roles = session('roles');
+            if(isset($roles)) {
+                foreach($roles as $role) {
+                    if($role->name == "permissionmanager") {
+                        return true;
+                    }
+                }
+            }
+            return false;
         });
 
-        // $gate->define('view-statistics', function ($user) {
+        $gate->define('view-statistics', function () {
+            $roles = session('roles');
+            if(isset($roles)) {
+                foreach($roles as $role) {
+                    if($role->name == "statisticviewer") {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        });
 
-           // return true;
-        // });
+        $gate->define('troubleshoot', function () {
+            $roles = session('roles');
+            if(isset($roles)) {
+                foreach($roles as $role) {
+                    if($role->name == "troubleshooter") {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        });
 
     }
 }

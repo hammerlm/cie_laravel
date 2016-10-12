@@ -30,10 +30,6 @@ class AddFkLogsTable extends Migration
      */
     public function down()
     {
-        Schema::table('news', function ($table) {
-            $table->dropForeign(['user_id']);
-            $table->dropForeign(['affecteduser_id']);
-            $table->dropForeign(['logcategory_id']);
-        });
+
     }
 }

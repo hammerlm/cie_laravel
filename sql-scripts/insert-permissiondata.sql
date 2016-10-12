@@ -97,4 +97,4 @@ from roles r inner join role_rolegroup rr on rr.role_id = r.id
 inner join rolegroups rg on rr.rolegroup_id = rg.id
 inner join rolegroup_user ru on ru.rolegroup_id = rg.id
 inner join users u on u.id = ru.user_id
-where ru.user_id = 3;
+where ru.user_id = 1;
