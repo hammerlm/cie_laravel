@@ -29,6 +29,7 @@ Route::group(['middleware' => \App\Http\Middleware\ResetSessionRolesArrayIfNotAu
     //Applicationroutes
     Route::get('home', 'HomeViewController@index');
     Route::get('/', 'HomeViewController@index');
+    Route::get('/news/{id}', 'HomeViewController@show');
 
 
     /**
@@ -36,8 +37,9 @@ Route::group(['middleware' => \App\Http\Middleware\ResetSessionRolesArrayIfNotAu
      */
     Route::group(['middleware' => 'auth'], function()
     {
-        // place your route definitions here
+        Route::get('backend/news/{id}/edit', 'NewsBackendViewController@edit');
         Route::get('backend/news/create', 'NewsBackendViewController@create');
+        Route::post('backend/news', 'NewsBackendViewController@store');
     });
 });
 

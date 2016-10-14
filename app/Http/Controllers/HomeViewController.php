@@ -16,10 +16,25 @@ class HomeViewController extends Controller
      */
     public function index()
     {
+        $newslist = News::with('categories', 'creator')->orderBy('created_at', 'desc')->paginate(6);
         return view('templateslvlone.shownewslistfe')->with([
                 'user' => Auth::user(),
                 'path'=>array("Frontend","Home"),
-                'pagetitle' => "Newsübersicht"
+                'pagetitle' => "Newsübersicht",
+            'newslist' => $newslist
+        ]);
+    }
+
+    /**
+     * Shows the singleview of a newsentry
+     */
+    public function show($id) {
+        $newsentry = News::find($id);
+        return view('templateslvlone.shownewssinglefe')->with([
+            'user' => Auth::user(),
+            'path'=>array("Frontend","News","News-Einzelansicht"),
+            'pagetitle' => "News-Einzelansicht",
+            'newsentry' => $newsentry
         ]);
     }
 }
