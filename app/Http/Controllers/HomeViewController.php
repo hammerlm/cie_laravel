@@ -21,7 +21,8 @@ class HomeViewController extends Controller
                 'user' => Auth::user(),
                 'path'=>array("Frontend","Home"),
                 'pagetitle' => "Newsübersicht",
-            'newslist' => $newslist
+                'newslist' => $newslist,
+                'lastnewsentryid' => News::orderBy('created_at', 'desc')->first()->id
         ]);
     }
 

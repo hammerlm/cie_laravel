@@ -27,7 +27,7 @@ Route::group(['middleware' => \App\Http\Middleware\ResetSessionRolesArrayIfNotAu
     Route::post('password/reset', 'Auth\PasswordController@reset');
 
     //Applicationroutes
-    Route::get('home', 'HomeViewController@index');
+    Route::get('/home', 'HomeViewController@index');
     Route::get('/', 'HomeViewController@index');
     Route::get('/news/{id}', 'HomeViewController@show');
 
@@ -37,9 +37,12 @@ Route::group(['middleware' => \App\Http\Middleware\ResetSessionRolesArrayIfNotAu
      */
     Route::group(['middleware' => 'auth'], function()
     {
-        Route::get('backend/news/{id}/edit', 'NewsBackendViewController@edit');
-        Route::get('backend/news/create', 'NewsBackendViewController@create');
-        Route::post('backend/news', 'NewsBackendViewController@store');
+        Route::get('/backend/news/{id}/edit', 'NewsBackendViewController@edit');
+        Route::get('/backend/news/create', 'NewsBackendViewController@create');
+        Route::get('/backend/news', 'NewsBackendViewController@index');
+        Route::post('/backend/news', 'NewsBackendViewController@store');
+        Route::put('/backend/news/{id}', 'NewsBackendViewController@update');
+        Route::delete('/backend/news/{id}', 'NewsBackendViewController@destroy');
     });
 });
 

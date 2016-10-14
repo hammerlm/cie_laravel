@@ -5,7 +5,7 @@
             <h1>{{$newsentry->title}}</h1>
             <hr/>
             <h5>Erstellt am {{$newsentry->created_at}}, von <a href="/users/{{$newsentry->creator->id}}">{{$newsentry->creator->name}}</a></h5>
-            <h5>Zuletzt editiert am {{$newsentry->updated_at}}, von <a href="/users/{{$newsentry->creator->id}}">{{$newsentry->creator->name}}</a></h5>
+            <h5>Zuletzt editiert am {{$newsentry->updated_at}}, von <a href="/users/{{$newsentry->modifier->id}}">{{$newsentry->modifier->name}}</a></h5>
             <h5>Kategorien:
                 @foreach($newsentry->categories as $category)
                     <span class="label label-default">{{$category->name}}</span>

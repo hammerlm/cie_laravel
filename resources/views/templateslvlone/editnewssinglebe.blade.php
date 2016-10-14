@@ -15,7 +15,7 @@
             {{Form::textarea('body',$newsentry->body,array('class' => 'form-control', 'placeholder'=>'Content', 'id' => 'msgbody'))}}
         </div>
         <div class="form-group">
-            {{Form::label('category', 'Kategorien')}}
+            {{Form::label('categories', 'Kategorien')}}
             <table class="table table-striped table-hover">
                 <tr>
                     <th>Name</th>

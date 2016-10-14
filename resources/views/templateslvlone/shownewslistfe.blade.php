@@ -1,55 +1,58 @@
 @extends('templateslvlone.templateslvltwo.frontendmaster')
 @section('rightcol_content_lvl2')
     @if(count($newslist) > 0)
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="jumbotron">
-                    <h2>{{$newslist[0]->title}} <span class="label label-default">New</span></h2>
-                    <p class="jumbop">
-                        Artikel vom {{$newslist[0]->created_at}}, von <a href="/users/{{$newslist[0]->creator->id}}">{{$newslist[0]->creator->name}}</a>
-                    </p>
-                    <p class="jumbop">
-                        {{ substr(strip_tags($newslist[0]->body), 0, 400) }}
-                        ...
-                    </p>
-                    <hr/>
-                    <p class="jumbop">
-                        @foreach($newslist[0]->categories as $category)
-                        <span class="label label-default">{{$category->name}}</span>
-                        @endforeach
-                    </p>
-                    <hr/>
-                    <p align="right"><a class="btn btn-primary btn-lg" href="/news/{{$newslist[0]->id}}" role="button">Mehr...</a></p>
+        @foreach($newslist as $newsentry)
+            @if($newsentry->id == $lastnewsentryid)
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="jumbotron">
+                        <h2>{{$newsentry->title}} <span class="label label-default">New</span></h2>
+                        <p class="jumbop">
+                            Artikel vom {{$newsentry->created_at}}, von <a href="/users/{{$newsentry->creator->id}}">{{$newsentry->creator->name}}</a>
+                        </p>
+                        <p class="jumbop">
+                            {{ substr(strip_tags($newsentry->body), 0, 400) }}
+                            ...
+                        </p>
+                        <hr/>
+                        <p class="jumbop">
+                            @foreach($newsentry->categories as $category)
+                            <span class="label label-default">{{$category->name}}</span>
+                            @endforeach
+                        </p>
+                        <hr/>
+                        <p align="right"><a class="btn btn-primary btn-lg" href="/news/{{$newslist[0]->id}}" role="button">Mehr...</a></p>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-12">
-                @if(count($newslist) > 1)
-                    @for($i = 1; $i < count($newslist); $i++)
+            @else
+                <div class="row">
+                    <div class="col-lg-12">
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                <h3>{{$newslist[$i]->title}}</h3>
+                                <h3>{{$newsentry->title}}</h3>
                             </div>
                             <div class="panel-body">
-                                Artikel vom {{$newslist[$i]->created_at}}, von <a href="/users/{{$newslist[$i]->creator->id}}">{{$newslist[$i]->creator->name}}</a>
+                                Artikel vom {{$newsentry->created_at}}, von <a href="/users/{{$newsentry->creator->id}}">{{$newsentry->creator->name}}</a>
                             </div>
                             <div class="panel-body">
-                                {{ substr(strip_tags($newslist[$i]->body), 0, 400) }}
+                                {{ substr(strip_tags($newsentry->body), 0, 400) }}
                                 ...
                                 <br/>
-                                <a href="/news/{{$newslist[$i]->id}}">[mehr...]</a>
+                                <a href="/news/{{$newsentry->id}}">[mehr...]</a>
                             </div>
                             <div class="panel-footer">
-                                @foreach($newslist[$i]->categories as $category)
+                                @foreach($newsentry->categories as $category)
                                     <span class="label label-default">{{$category->name}}</span>
                                 @endforeach
                             </div>
                         </div>
-                    @endfor
-                @endif
-            </div>
-        </div>
+                    </div>
+                </div>
+            @endif
+        @endforeach
+        <hr/>
+        {!! $newslist->render() !!}
     @else
         <div class="alert alert-info" role="alert">Derzeit sind leider noch keine Newsbeiträge vorhanden!</div>
     @endif
