@@ -56,8 +56,8 @@
     @else
         <div class="alert alert-info" role="alert">Derzeit sind leider noch keine Newsbeiträge vorhanden!</div>
     @endif
-    <hr/>
     @can('manage-news')
+    <hr/>
         {!! Form::open(['url' => url('/backend/news/create'), 'method' => 'GET']) !!}
         {!! Form::submit('Neuen Newsbeitrag erstellen', ["class" => "btn btn-default"]) !!}
         {!! Form::close() !!}

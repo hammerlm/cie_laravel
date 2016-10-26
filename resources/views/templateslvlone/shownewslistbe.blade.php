@@ -25,4 +25,13 @@
             </tbody>
         </table>
     </div>
+    <hr/>
+    {!! $newslist->render() !!}
+    @can('manage-news')
+    <hr/>
+    {!! Form::open(['url' => url('/backend/news/create'), 'method' => 'GET']) !!}
+    {!! Form::submit('Neuen Newsbeitrag erstellen', ["class" => "btn btn-default"]) !!}
+    {!! Form::close() !!}
+    @endcan
+@stop
 @stop

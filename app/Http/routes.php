@@ -30,6 +30,7 @@ Route::group(['middleware' => \App\Http\Middleware\ResetSessionRolesArrayIfNotAu
     Route::get('/home', 'HomeViewController@index');
     Route::get('/', 'HomeViewController@index');
     Route::get('/news/{id}', 'HomeViewController@show');
+    Route::get('/gamedays', 'GamedayFrontendViewController@index');
 
 
     /**
@@ -43,6 +44,9 @@ Route::group(['middleware' => \App\Http\Middleware\ResetSessionRolesArrayIfNotAu
         Route::post('/backend/news', 'NewsBackendViewController@store');
         Route::put('/backend/news/{id}', 'NewsBackendViewController@update');
         Route::delete('/backend/news/{id}', 'NewsBackendViewController@destroy');
+
+        Route::get('/backend/gamedays', 'GamedayBAckendViewController@index');
+        Route::get('/backend/gamedays/create', 'GamedayBAckendViewController@create');
     });
 });
 
