@@ -1,9 +1,18 @@
 @extends('templateslvlone.templateslvltwo.templateslvlthree.master')
 @section('leftcol_content')
     <ul class="nav nav-pills nav-stacked">
-        <li role="presentation" class="active"><a href="#">Home</a></li>
-        <li role="presentation"><a href="#">Profile</a></li>
-        <li role="presentation"><a href="#">Messages</a></li>
+        @can('manage-news')
+            <li role="presentation"><a href="/backend/news">News</a></li>
+        @endcan
+        @can('manage-gamedays')
+        <li role="presentation"><a href="/backend/gamedays">Spieltageverwaltung</a></li>
+        @endcan
+        @can('manage-gamedays')
+        <li role="presentation"><a href="/backend/users">Benutzerverwaltung</a></li>
+        @endcan
+        @can('manage-playercards')
+        <li role="presentation"><a href="/backend/playercards">Playercardsverwaltung</a></li>
+        @endcan
     </ul>
 @stop
 @section('rightcol_content')

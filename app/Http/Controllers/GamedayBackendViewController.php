@@ -16,10 +16,10 @@ class GamedayBackendViewController extends Controller
 {
     public function index() {
         if (Gate::allows('manage-gamedays') && Gate::allows('authenticate')) {
-            $gamedaylist = Gameday::with('locations', 'users')->orderBy('time', 'desc')->paginate(15);
-            return view('templateslvlone.showgamedaylistfe')->with([
+            $gamedaylist = Gameday::with('location', 'users')->orderBy('time', 'desc')->paginate(15);
+            return view('templateslvlone.showgamedaylistbe')->with([
                 'user' => Auth::user(),
-                'path'=>array("Backend","Home"),
+                'path'=>array("Backend","Spieltageübersicht"),
                 'pagetitle' => "Spieltageübersicht",
                 'gamedaylist' => $gamedaylist
             ]);
@@ -28,7 +28,7 @@ class GamedayBackendViewController extends Controller
                 'user' => Auth::user(),
                 'path'=>array("Backend","Info"),
                 'pagetitle' => "Info",
-                'infomsg' => "Um die Spieltagsübersicht im Verwaltungsbereich sehen zu können, müssen Sie die Rolle 'gamedaymanager' zugeteilt haben!",
+                'infomsg' => "Um die Spieltageübersicht im Verwaltungsbereich sehen zu können, müssen Sie die Rolle 'gamedaymanager' zugeteilt haben!",
                 'infolvl' => "warning",
                 'nexturl' => "/gamedays",
                 'nexturldescription' => "Weiter"
@@ -43,7 +43,7 @@ class GamedayBackendViewController extends Controller
                 'user' => Auth::user(),
                 'path'=>array("Backend","Spieltage","Spieltag erstellen"),
                 'pagetitle' => "Spieltagserstellung",
-                'locationlist' => Location::all()
+                'locationlist' => Location::lists('name', 'id')
             ]);
         } else {
             return view('templateslvlone.backendinformationmessagepage')->with([
@@ -61,7 +61,14 @@ class GamedayBackendViewController extends Controller
     public function edit($id)
     {
         if (Gate::allows('manage-gamedays') && Gate::allows('authenticate')) {
-
+            return view('templateslvlone.editgamedaysinglebe')->with([
+                'user' => Auth::user(),
+                'path'=>array("Backend","Spieltage","Spieltag bearbeiten"),
+                'pagetitle' => "Spieltagsbearbeitung",
+                'locationlist' => Location::lists('name', 'id'),
+                'allusers' => User::all(),
+                'gameday' => Gameday::find($id)
+            ]);
         } else {
             return view('templateslvlone.backendinformationmessagepage')->with([
                 'user' => Auth::user(),
@@ -78,7 +85,36 @@ class GamedayBackendViewController extends Controller
     public function store(Request $request)
     {
         if (Gate::allows('manage-gamedays') && Gate::allows('authenticate')) {
-
+            try {
+                DB::beginTransaction();
+                $gamedayentry = new Gameday();
+                $gamedayentry->location_id = $request->location;
+                $gamedayentry->time = $request->input('date') . ' ' . $request->input('time') . ':00';
+                $gamedayentry->notes = $request->input('notes');
+                $gamedayentry->save();
+                DB::commit();
+                return view('templateslvlone.backendinformationmessagepage')->with([
+                    'user' => Auth::user(),
+                    'path'=>array("Backend","Info"),
+                    'pagetitle' => "Info",
+                    'infomsg' => "Spieltagdatensatz wurde erfolgreich erstellt",
+                    'infolvl' => "success",
+                    'nexturl' => "/gamedays/" . $gamedayentry->id,
+                    'nexturldescription' => "Weiter zur Einzelansicht"
+                ]);
+            } catch ( Exception $e ){
+                //If there are any exceptions, rollback the transaction
+                DB::rollback();
+                return view('templateslvlone.backendinformationmessagepage')->with([
+                    'user' => Auth::user(),
+                    'path'=>array("Backend","Info"),
+                    'pagetitle' => "Info",
+                    'infomsg' => "Sorry, es ist ein Fehler aufgetreten: " . $e->getMessage(),
+                    'infolvl' => "danger",
+                    'nexturl' => "/home",
+                    'nexturldescription' => "Weiter"
+                ]);
+            }
         } else {
             return view('templateslvlone.backendinformationmessagepage')->with([
                 'user' => Auth::user(),
@@ -95,9 +131,40 @@ class GamedayBackendViewController extends Controller
     public function update(Request $request, $id) {
         if (Gate::allows('manage-gamedays') && Gate::allows('authenticate')) {
             try {
-
+                DB::beginTransaction();
+                $gamedayentry = Gameday::find($id);
+                $gamedayentry->location_id = $request->location;
+                $gamedayentry->time = $request->input('date') . ' ' . $request->input('time') . ':00';
+                $gamedayentry->notes = $request->input('notes');
+                $gamedayentry->save();
+                $userlist = $request->input('participantlist');
+                DB::table('gameday_user')->where('gameday_id', '=', $gamedayentry->id)->delete();
+                for($i = 0; $i < count($userlist); $i++) {
+                    $user = User::find($userlist[$i]);
+                    $gamedayentry->users()->attach($user);
+                }
+                DB::commit();
+                return view('templateslvlone.backendinformationmessagepage')->with([
+                    'user' => Auth::user(),
+                    'path'=>array("Backend","Info"),
+                    'pagetitle' => "Info",
+                    'infomsg' => "Spieltagdatensatz wurde erfolgreich bearbeitet.",
+                    'infolvl' => "success",
+                    'nexturl' => "/gamedays/" . $gamedayentry->id,
+                    'nexturldescription' => "Weiter zur Einzelansicht"
+                ]);
             } catch ( Exception $e ){
-
+                //If there are any exceptions, rollback the transaction
+                DB::rollback();
+                return view('templateslvlone.backendinformationmessagepage')->with([
+                    'user' => Auth::user(),
+                    'path'=>array("Backend","Info"),
+                    'pagetitle' => "Info",
+                    'infomsg' => "Sorry, es ist ein Fehler aufgetreten: " . $e->getMessage(),
+                    'infolvl' => "danger",
+                    'nexturl' => "/home",
+                    'nexturldescription' => "Weiter"
+                ]);
             }
         } else {
             return view('templateslvlone.backendinformationmessagepage')->with([
@@ -114,7 +181,32 @@ class GamedayBackendViewController extends Controller
 
     public function destroy($id) {
         if (Gate::allows('manage-gamedays') && Gate::allows('authenticate')) {
-
+            try {
+                DB::beginTransaction();
+                Gameday::destroy($id);
+                DB::commit();
+                return view('templateslvlone.backendinformationmessagepage')->with([
+                    'user' => Auth::user(),
+                    'path'=>array("Backend","Info"),
+                    'pagetitle' => "Info",
+                    'infomsg' => "Spieltagdatensatz wurde erfolgreich gelöscht",
+                    'infolvl' => "success",
+                    'nexturl' => "/gamedays",
+                    'nexturldescription' => "Weiter"
+                ]);
+            } catch ( Exception $e ){
+                //If there are any exceptions, rollback the transaction
+                DB::rollback();
+                return view('templateslvlone.backendinformationmessagepage')->with([
+                    'user' => Auth::user(),
+                    'path'=>array("Backend","Info"),
+                    'pagetitle' => "Info",
+                    'infomsg' => "Sorry, es ist ein Fehler aufgetreten: " . $e->getMessage(),
+                    'infolvl' => "danger",
+                    'nexturl' => "/home",
+                    'nexturldescription' => "Weiter"
+                ]);
+            }
         } else {
             return view('templateslvlone.backendinformationmessagepage')->with([
                 'user' => Auth::user(),

@@ -65,25 +65,25 @@
                 <a href="#"><span class="glyphicon glyphicon-picture" aria-hidden="true"></span> Bilder</a>
             </li>
             <li>
-                <a href="#"><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> Eistermine</a>
+                <a href="/gamedays"><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> Eistermine</a>
             </li>
             <li>
-                <a href="#"><span class="glyphicon glyphicon-gift" aria-hidden="true"></span> Playercards</a>
+                <a href="/players"><span class="glyphicon glyphicon-gift" aria-hidden="true"></span> Spieler</a>
             </li>
-              @can('authenticate')
-                <li>
-                    <a href="#"><span class="glyphicon glyphicon-dashboard" aria-hidden="true"></span> Backend</a>
-                </li>
+              @can('have-a-role')
+              <li>
+                  <a href="/backend"><span class="glyphicon glyphicon-dashboard" aria-hidden="true"></span> Backend</a>
+              </li>
               @endcan
               <li>
-                <a href="#"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span> Impressum</a>
+                <a href="/impressum"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span> Impressum</a>
               </li>
               @if(Gate::allows('authenticate'))
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> {{$user->name}}<b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <li>
-                            <a href="#"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Einstellungen</a>
+                            <a href="/backend/users/{{$user->id}}/edit"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Einstellungen</a>
                         </li>
                         <li class="divider"></li>
                         <li>

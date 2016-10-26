@@ -115,5 +115,15 @@ class AuthServiceProvider extends ServiceProvider
             return false;
         });
 
+        $gate->define('have-a-role', function () {
+            if(Auth::check()) {
+                $roles = session('roles');
+                if(count($roles) > 0) {
+                    return true;
+                }
+            }
+            return false;
+        });
+
     }
 }

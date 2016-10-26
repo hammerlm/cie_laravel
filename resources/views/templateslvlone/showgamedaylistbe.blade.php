@@ -1,4 +1,4 @@
-@extends('templateslvlone.templateslvltwo.frontendmaster')
+@extends('templateslvlone.templateslvltwo.backendmaster')
 @section('rightcol_content_lvl2')
     @if(count($gamedaylist) > 0)
     <div class="table-responsive">

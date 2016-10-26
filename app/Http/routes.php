@@ -30,7 +30,9 @@ Route::group(['middleware' => \App\Http\Middleware\ResetSessionRolesArrayIfNotAu
     Route::get('/home', 'HomeViewController@index');
     Route::get('/', 'HomeViewController@index');
     Route::get('/news/{id}', 'HomeViewController@show');
+
     Route::get('/gamedays', 'GamedayFrontendViewController@index');
+    Route::get('/gamedays/{id}', 'GamedayFrontendViewController@show');
 
 
     /**
@@ -45,8 +47,12 @@ Route::group(['middleware' => \App\Http\Middleware\ResetSessionRolesArrayIfNotAu
         Route::put('/backend/news/{id}', 'NewsBackendViewController@update');
         Route::delete('/backend/news/{id}', 'NewsBackendViewController@destroy');
 
-        Route::get('/backend/gamedays', 'GamedayBAckendViewController@index');
-        Route::get('/backend/gamedays/create', 'GamedayBAckendViewController@create');
+        Route::get('/backend/gamedays', 'GamedayBackendViewController@index');
+        Route::get('/backend/gamedays/{id}/edit', 'GamedayBackendViewController@edit');
+        Route::get('/backend/gamedays/create', 'GamedayBackendViewController@create');
+        Route::post('/backend/gamedays', 'GamedayBackendViewController@store');
+        Route::put('/backend/gamedays/{id}', 'GamedayBackendViewController@update');
+        Route::delete('/backend/gamedays/{id}', 'GamedayBackendViewController@destroy');
     });
 });
 

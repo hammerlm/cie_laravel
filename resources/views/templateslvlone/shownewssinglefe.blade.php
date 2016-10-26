@@ -17,14 +17,14 @@
             </p>
         </div>
     </div>
-    <hr/>
     @can('manage-news')
+    <hr/>
     {!! Form::open(['url' => url('/backend/news/' . $newsentry->id . '/edit'), 'method' => 'GET']) !!}
-    {!! Form::submit('Diesen Newsbeitrag bearbeiten', ["class" => "btn btn-default"]) !!}
+    {!! Form::submit('Diesen Newsbeitrag bearbeiten', ["class" => "btn btn-default btn-sm"]) !!}
     {!! Form::close() !!}
     <hr/>
     {!! Form::open(['url' => url('/backend/news/' . $newsentry->id), 'method' => 'DELETE']) !!}
-    {!! Form::submit('Diesen Newsbeitrag löschen', ["class" => "btn btn-danger"]) !!}
+    {!! Form::submit('Diesen Newsbeitrag löschen', ["class" => "btn btn-danger btn-sm"]) !!}
     {!! Form::close() !!}
     @endcan
 @stop
