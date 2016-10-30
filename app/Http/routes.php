@@ -53,6 +53,14 @@ Route::group(['middleware' => \App\Http\Middleware\ResetSessionRolesArrayIfNotAu
         Route::post('/backend/gamedays', 'GamedayBackendViewController@store');
         Route::put('/backend/gamedays/{id}', 'GamedayBackendViewController@update');
         Route::delete('/backend/gamedays/{id}', 'GamedayBackendViewController@destroy');
+
+        Route::get('/backend/users', 'UserBackendViewController@index');
+        Route::get('/backend/users/{id}/edit', 'UserBackendViewController@edit');
+        Route::get('/backend/users/create', 'UserBackendViewController@create');
+        Route::post('/backend/users', 'UserBackendViewController@store');
+        Route::put('/backend/users/{id}', 'UserBackendViewController@update');
+
+        Route::put('/backend/playercards/{id}', 'PlayercardBackendViewController@update');
     });
 });
 

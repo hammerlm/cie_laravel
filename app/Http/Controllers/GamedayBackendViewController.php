@@ -102,7 +102,7 @@ class GamedayBackendViewController extends Controller
                     'nexturl' => "/gamedays/" . $gamedayentry->id,
                     'nexturldescription' => "Weiter zur Einzelansicht"
                 ]);
-            } catch ( Exception $e ){
+            } catch ( \Exception $e ){
                 //If there are any exceptions, rollback the transaction
                 DB::rollback();
                 return view('templateslvlone.backendinformationmessagepage')->with([
@@ -153,7 +153,7 @@ class GamedayBackendViewController extends Controller
                     'nexturl' => "/gamedays/" . $gamedayentry->id,
                     'nexturldescription' => "Weiter zur Einzelansicht"
                 ]);
-            } catch ( Exception $e ){
+            } catch ( \Exception $e ){
                 //If there are any exceptions, rollback the transaction
                 DB::rollback();
                 return view('templateslvlone.backendinformationmessagepage')->with([
@@ -194,7 +194,7 @@ class GamedayBackendViewController extends Controller
                     'nexturl' => "/gamedays",
                     'nexturldescription' => "Weiter"
                 ]);
-            } catch ( Exception $e ){
+            } catch ( \Exception $e ){
                 //If there are any exceptions, rollback the transaction
                 DB::rollback();
                 return view('templateslvlone.backendinformationmessagepage')->with([
