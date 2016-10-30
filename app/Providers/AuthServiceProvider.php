@@ -103,11 +103,23 @@ class AuthServiceProvider extends ServiceProvider
             return false;
         });
 
-        $gate->define('troubleshoot', function () {
+        $gate->define('view-logs', function () {
             $roles = session('roles');
             if(isset($roles)) {
                 foreach($roles as $role) {
-                    if($role->name == "troubleshooter") {
+                    if($role->name == "logviewer") {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        });
+
+        $gate->define('manage-users-anyway', function () {
+            $roles = session('roles');
+            if(isset($roles)) {
+                foreach($roles as $role) {
+                    if($role->name == "manage-permissions" || $role->name == "manage-users" || $role->name == "manage-playercards") {
                         return true;
                     }
                 }

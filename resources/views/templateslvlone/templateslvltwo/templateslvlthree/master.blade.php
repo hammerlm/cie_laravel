@@ -68,9 +68,9 @@
                 <a href="/gamedays"><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> Eistermine</a>
             </li>
             <li>
-                <a href="/players"><span class="glyphicon glyphicon-gift" aria-hidden="true"></span> Spieler</a>
+                <a href="/team"><span class="glyphicon glyphicon-gift" aria-hidden="true"></span> Team</a>
             </li>
-              @can('have-a-role')
+              @can('authenticate')
               <li>
                   <a href="/backend"><span class="glyphicon glyphicon-dashboard" aria-hidden="true"></span> Backend</a>
               </li>

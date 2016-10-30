@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use App\Rolegroup;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Gate;
@@ -14,7 +15,7 @@ use DB;
 class UserBackendViewController extends Controller
 {
     public function index() {
-        if (Gate::allows('manage-users') && Gate::allows('authenticate')) {
+        if (Gate::allows('authenticate')) {
             $userlist = User::all();
             return view('templateslvlone.showuserlistbe')->with([
                 'user' => Auth::user(),
@@ -58,12 +59,13 @@ class UserBackendViewController extends Controller
 
     public function edit($id)
     {
-        if (Gate::allows('manage-gamedays') && Gate::allows('authenticate')) {
+        if ((Gate::allows('manage-users') || $id == Auth::user()->id) && Gate::allows('authenticate')) {
             return view('templateslvlone.editusersinglebe')->with([
                 'user' => Auth::user(),
                 'path'=>array("Backend","Benutzer","Benutzer bearbeiten"),
                 'pagetitle' => "Benutzerbearbeitung",
-                'userentry' => User::find($id)
+                'userentry' => User::find($id),
+                'rolegrouplist' => Rolegroup::all()
             ]);
         } else {
             return view('templateslvlone.backendinformationmessagepage')->with([
@@ -159,7 +161,7 @@ class UserBackendViewController extends Controller
     }
 
     public function update(Request $request, $id) {
-        if (Gate::allows('manage-users') && Gate::allows('authenticate')) {
+        if ((Gate::allows('manage-users') || $id == Auth::user()->id) && Gate::allows('authenticate')) {
             try {
                 DB::beginTransaction();
                 $user = User::find($id);

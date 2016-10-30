@@ -13,7 +13,12 @@
             @foreach($userlist as $userentry)
             <tr>
                 <td>{{$userentry->id}}</td>
-                <td><a href="/users/{{$userentry->id}}">{{$userentry->name}}</a> <a href="/backend/users/{{$userentry->id}}/edit"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a></td>
+                <td><a href="/users/{{$userentry->id}}">{{$userentry->name}}</a>
+                @if(Gate::allows('manage-users') || $user->id == $userentry->id)
+                    <a href="/backend/users/{{$userentry->id}}/edit"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
+                @endif
+                </td>
+
                 <td>{{$userentry->email}}</td>
             </tr>
             @endforeach

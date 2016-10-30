@@ -5,12 +5,33 @@
     <div class="panel with-nav-tabs panel-default">
         <div class="panel-heading">
             <ul class="nav nav-tabs">
-                <li class="active"><a href="#tab1default" data-toggle="tab">AAA-Bearbeitung</a></li>
-                <li><a href="#tab2default" data-toggle="tab">Playercard-Bearbeitung</a></li>
+                @php($active_passed = false)
+                @if(Gate::allows('manage-users') || $user->id == $userentry->id)
+                <li class="active"><a href="#tab1default" data-toggle="tab">Allgemein</a></li>
+                @php($active_passed = true)
+                @endif
+                @can('manage-playercards')
+                <li
+                    @if(!$active_passed)
+                    class="active"
+                    @endif
+                ><a href="#tab2default" data-toggle="tab">Playercardeinstellungen</a></li>
+                @php($active_passed = true)
+                @endcan
+                @can('manage-permissions')
+                <li
+                        @if(!$active_passed)
+                        class="active"
+                        @endif
+                        ><a href="#tab3default" data-toggle="tab">Autorisierung</a></li>
+                @php($active_passed = true)
+                @endcan
             </ul>
         </div>
         <div class="panel-body">
             <div class="tab-content">
+                @php($active_passed2 = false)
+                @if(Gate::allows('manage-users') || $user->id == $userentry->id)
                 <div class="tab-pane fade in active" id="tab1default">
                     <div class="row">
                         <div class="col-lg-12">
@@ -61,7 +82,14 @@
                         </div>
                     </div>
                 </div>
-                <div class="tab-pane fade" id="tab2default">
+                @php($active_passed2 = true)
+                @endif
+                @can('manage-playercards')
+                <div class="tab-pane fade
+                @if(!$active_passed2)
+                        in active
+                @endif
+                " id="tab2default">
                     <div class="row">
                         <div class="col-lg-12">
                             {{Form::open(['url' => '/backend/playercards/' . $userentry->id, 'method' => 'PUT'])}}
@@ -105,6 +133,39 @@
                         </div>
                     </div>
                 </div>
+                @php($active_passed2 = true)
+                @endcan
+                @can('manage-permissions')
+                <div class="tab-pane fade
+                @if(!$active_passed2)
+                        in active
+                @endif
+                " id="tab3default">
+                    {{Form::open(['url' => '/backend/permissions/' . $userentry->id, 'method' => 'PUT'])}}
+                    <div class="box-body">
+                        <div class="form-group">
+                            {{Form::label('rolegroups', 'Zugeteilte Rollengruppen')}}
+                            <table class="table table-striped table-hover">
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Auswahl</th>
+                                </tr>
+                                @foreach ($rolegrouplist as $rolegroupentry)
+                                    <tr>
+                                        <td>{{ $rolegroupentry->name }}</td>
+                                        <td align="center">{!! Form::checkbox("rolegrouplist[]", $rolegroupentry->id, $userentry->rolegroups->contains($rolegroupentry)) !!}</td>
+                                    </tr>
+                                @endforeach
+                            </table>
+                        </div>
+                        <div class="form-group">
+                            {{Form::submit('Speichern',array('class' => 'btn btn-primary btn-sm'))}}
+                        </div>
+                    </div>
+                    {{Form::close()}}
+                </div>
+                @php($active_passed2 = true)
+                @endcan
             </div>
         </div>
     </div>

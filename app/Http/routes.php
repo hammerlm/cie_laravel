@@ -17,22 +17,19 @@ Route::group(['middleware' => \App\Http\Middleware\ResetSessionRolesArrayIfNotAu
     Route::post('login', 'Auth\AuthController@login');
     Route::get('logout', 'Auth\AuthController@logout');
 
-    // Registration Routes...
-    Route::get('register', 'Auth\AuthController@showRegistrationForm');
-    Route::post('register', 'Auth\AuthController@register');
-
-    // Password Reset Routes...
-    Route::get('password/reset/{token?}', 'Auth\PasswordController@showResetForm');
-    Route::post('password/email', 'Auth\PasswordController@sendResetLinkEmail');
-    Route::post('password/reset', 'Auth\PasswordController@reset');
-
-    //Applicationroutes
+    /**
+     * Frontendroutes
+     */
     Route::get('/home', 'HomeViewController@index');
     Route::get('/', 'HomeViewController@index');
     Route::get('/news/{id}', 'HomeViewController@show');
 
     Route::get('/gamedays', 'GamedayFrontendViewController@index');
     Route::get('/gamedays/{id}', 'GamedayFrontendViewController@show');
+
+    Route::get('/team', 'UserFrontendViewController@index');
+
+    Route::get('/users/{id}', 'UserFrontendViewController@show');
 
 
     /**
@@ -55,12 +52,15 @@ Route::group(['middleware' => \App\Http\Middleware\ResetSessionRolesArrayIfNotAu
         Route::delete('/backend/gamedays/{id}', 'GamedayBackendViewController@destroy');
 
         Route::get('/backend/users', 'UserBackendViewController@index');
+        Route::get('/backend/', 'UserBackendViewController@index');
         Route::get('/backend/users/{id}/edit', 'UserBackendViewController@edit');
         Route::get('/backend/users/create', 'UserBackendViewController@create');
         Route::post('/backend/users', 'UserBackendViewController@store');
         Route::put('/backend/users/{id}', 'UserBackendViewController@update');
 
         Route::put('/backend/playercards/{id}', 'PlayercardBackendViewController@update');
+
+        Route::put('/backend/permissions/{id}', 'UserToRgBackendViewController@update');
     });
 });
 

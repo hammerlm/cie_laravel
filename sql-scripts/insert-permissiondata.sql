@@ -4,6 +4,10 @@ select * from users;
 select * from roles;
 select * from rolegroups;
 
+select * from role_rolegroup;
+
+delete from role_rolegroup where role_id = 8 and rolegroup_id = 8;
+
 insert into roles (id,name,description)
 VALUES (1,"newsmanager","role required to manage news");
 insert into roles (id,name,description)
@@ -18,6 +22,8 @@ insert into roles (id,name,description)
 VALUES (6,"troubleshooter","role required to be authorized for troubleshooting");
 insert into roles (id,name,description)
 VALUES (7,"statisticviewer","role required to be authorized for viewing the statistic-page");
+insert into roles (id,name,description)
+VALUES (8,"logviewer","role required to be authorized for viewing the logentries");
 
 insert into rolegroups (id,name,description)
 VALUES(1,"newsmanager","rolegroup required to manage news");
@@ -37,6 +43,8 @@ insert into rolegroups (id,name,description)
 VALUES (8,"webmaster","rolegroup required to be authorized for everything except troubleshooting");
 insert into rolegroups (id,name,description)
 VALUES (9,"administrator","rolegroup required to be authorized for everything");
+insert into rolegroups (id,name,description)
+VALUES (10,"logviewer","rolegroup required to be authorized for viewing the logentries");
 
 insert into role_rolegroup (rolegroup_id,role_id)
 VALUES (1,1);
@@ -65,6 +73,8 @@ VALUES (8,5);
 insert into role_rolegroup (rolegroup_id,role_id)
 VALUES (8,7);
 insert into role_rolegroup (rolegroup_id,role_id)
+VALUES (8,8);
+insert into role_rolegroup (rolegroup_id,role_id)
 VALUES (9,1);
 insert into role_rolegroup (rolegroup_id,role_id)
 VALUES (9,2);
@@ -78,6 +88,11 @@ insert into role_rolegroup (rolegroup_id,role_id)
 VALUES (9,6);
 insert into role_rolegroup (rolegroup_id,role_id)
 VALUES (9,7);
+insert into role_rolegroup (rolegroup_id,role_id)
+VALUES (9,8);
+insert into role_rolegroup (rolegroup_id,role_id)
+VALUES (10,8);
+
 
 insert into rolegroup_user (rolegroup_id, user_id)
 VALUES (9,1);
@@ -97,4 +112,4 @@ from roles r inner join role_rolegroup rr on rr.role_id = r.id
 inner join rolegroups rg on rr.rolegroup_id = rg.id
 inner join rolegroup_user ru on ru.rolegroup_id = rg.id
 inner join users u on u.id = ru.user_id
-where ru.user_id = 1;
+where ru.user_id = 9;
