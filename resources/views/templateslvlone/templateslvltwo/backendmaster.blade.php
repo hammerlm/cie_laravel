@@ -2,16 +2,13 @@
 @section('leftcol_content')
     <ul class="nav nav-pills nav-stacked">
         @can('manage-news')
-            <li role="presentation"><a href="/backend/news">News</a></li>
+            <li @if($selectedmenuitem_v == "News") class="active" @endif role="presentation"><a href="/backend/news">News</a></li>
         @endcan
         @can('manage-gamedays')
-        <li role="presentation"><a href="/backend/gamedays">Spieltageverwaltung</a></li>
+        <li @if($selectedmenuitem_v == "Gamedays") class="active" @endif role="presentation"><a href="/backend/gamedays">Spieltageverwaltung</a></li>
         @endcan
         @can('manage-gamedays')
-        <li role="presentation"><a href="/backend/users">Benutzerverwaltung</a></li>
-        @endcan
-        @can('manage-playercards')
-        <li role="presentation"><a href="/backend/playercards">Playercardsverwaltung</a></li>
+        <li @if($selectedmenuitem_v == "Team") class="active" @endif role="presentation"><a href="/backend/users">Benutzerverwaltung</a></li>
         @endcan
     </ul>
 @stop

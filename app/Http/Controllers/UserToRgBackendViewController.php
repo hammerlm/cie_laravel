@@ -30,16 +30,43 @@ class UserToRgBackendViewController extends Controller
                     'user' => Auth::user(),
                     'path'=>array("Backend","Info"),
                     'pagetitle' => "Info",
+                    'selectedmenuitem_h' => 'Backend',
+                    'selectedmenuitem_v' => 'Team',
+                    'paththumbnails'=>array("dashboard", "thumbs-up"),
                     'infomsg' => "Änderungen der Rollengruppenzuteilungen wurden erfolgreich bearbeitet.",
                     'infolvl' => "success",
                     'nexturl' => "/users/" . $userentry->id,
                     'nexturldescription' => "Weiter zur Einzelansicht"
                 ]);
             } catch (\Exception $e) {
-
+//If there are any exceptions, rollback the transaction
+                DB::rollback();
+                return view('templateslvlone.backendinformationmessagepage')->with([
+                    'user' => Auth::user(),
+                    'path'=>array("Backend","Info"),
+                    'pagetitle' => "Info",
+                    'selectedmenuitem_h' => 'Backend',
+                    'selectedmenuitem_v' => 'Team',
+                    'paththumbnails'=>array("dashboard", "thumbs-down"),
+                    'infomsg' => "Sorry, es ist ein Fehler aufgetreten: " . $e->getMessage(),
+                    'infolvl' => "danger",
+                    'nexturl' => "/home",
+                    'nexturldescription' => "Weiter"
+                ]);
             }
         } else {
-
+            return view('templateslvlone.backendinformationmessagepage')->with([
+                'user' => Auth::user(),
+                'path'=>array("Backend","Info"),
+                'pagetitle' => "Info",
+                'selectedmenuitem_h' => 'Backend',
+                'selectedmenuitem_v' => 'Team',
+                'paththumbnails'=>array("dashboard", "thumbs-down"),
+                'infomsg' => "Um die Autorisierungseinstellungen eines Benutzers bearbeiten zu können, müssen Sie die Rolle 'permissionmanager' zugeteilt haben!",
+                'infolvl' => "warning",
+                'nexturl' => "/team",
+                'nexturldescription' => "Weiter"
+            ]);
         }
     }
 

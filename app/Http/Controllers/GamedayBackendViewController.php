@@ -19,8 +19,11 @@ class GamedayBackendViewController extends Controller
             $gamedaylist = Gameday::with('location', 'users')->orderBy('time', 'desc')->paginate(15);
             return view('templateslvlone.showgamedaylistbe')->with([
                 'user' => Auth::user(),
-                'path'=>array("Backend","Spieltageübersicht"),
-                'pagetitle' => "Spieltageübersicht",
+                'path'=>array("Backend","Eistermine"),
+                'pagetitle' => "Eisterminübersicht",
+                'selectedmenuitem_h' => 'Backend',
+                'selectedmenuitem_v' => 'Gamedays',
+                'paththumbnails'=>array("dashboard", "list-alt"),
                 'gamedaylist' => $gamedaylist
             ]);
         } else {
@@ -28,6 +31,9 @@ class GamedayBackendViewController extends Controller
                 'user' => Auth::user(),
                 'path'=>array("Backend","Info"),
                 'pagetitle' => "Info",
+                'selectedmenuitem_h' => 'Backend',
+                'selectedmenuitem_v' => 'Gamedays',
+                'paththumbnails'=>array("dashboard", "thumbs-down"),
                 'infomsg' => "Um die Spieltageübersicht im Verwaltungsbereich sehen zu können, müssen Sie die Rolle 'gamedaymanager' zugeteilt haben!",
                 'infolvl' => "warning",
                 'nexturl' => "/gamedays",
@@ -41,8 +47,11 @@ class GamedayBackendViewController extends Controller
         if (Gate::allows('manage-gamedays') && Gate::allows('authenticate')) {
             return view('templateslvlone.creategamedaysinglebe')->with([
                 'user' => Auth::user(),
-                'path'=>array("Backend","Spieltage","Spieltag erstellen"),
-                'pagetitle' => "Spieltagserstellung",
+                'path'=>array("Backend","Eistermine","Eistermin erstellen"),
+                'pagetitle' => "Eisterminerstellung",
+                'selectedmenuitem_h' => 'Backend',
+                'selectedmenuitem_v' => 'Gamedays',
+                'paththumbnails'=>array("dashboard", "list-alt", "plus"),
                 'locationlist' => Location::lists('name', 'id')
             ]);
         } else {
@@ -50,6 +59,9 @@ class GamedayBackendViewController extends Controller
                 'user' => Auth::user(),
                 'path'=>array("Backend","Info"),
                 'pagetitle' => "Info",
+                'selectedmenuitem_h' => 'Backend',
+                'selectedmenuitem_v' => 'Gamedays',
+                'paththumbnails'=>array("dashboard", "thumbs-down"),
                 'infomsg' => "Um einen Spieltagsdatensatz erstellen zu können, müssen Sie die Rolle 'gamedaymanager' zugeteilt haben!",
                 'infolvl' => "warning",
                 'nexturl' => "/gamedays",
@@ -63,8 +75,11 @@ class GamedayBackendViewController extends Controller
         if (Gate::allows('manage-gamedays') && Gate::allows('authenticate')) {
             return view('templateslvlone.editgamedaysinglebe')->with([
                 'user' => Auth::user(),
-                'path'=>array("Backend","Spieltage","Spieltag bearbeiten"),
-                'pagetitle' => "Spieltagsbearbeitung",
+                'path'=>array("Backend","Eistermine","Eistermin bearbeiten"),
+                'pagetitle' => "Eisterminbearbeitung",
+                'selectedmenuitem_h' => 'Backend',
+                'selectedmenuitem_v' => 'Gamedays',
+                'paththumbnails'=>array("dashboard", "list-alt", "pencil"),
                 'locationlist' => Location::lists('name', 'id'),
                 'allusers' => User::all(),
                 'gameday' => Gameday::find($id)
@@ -74,6 +89,9 @@ class GamedayBackendViewController extends Controller
                 'user' => Auth::user(),
                 'path'=>array("Backend","Info"),
                 'pagetitle' => "Info",
+                'selectedmenuitem_h' => 'Backend',
+                'selectedmenuitem_v' => 'Gamedays',
+                'paththumbnails'=>array("dashboard", "thumbs-down"),
                 'infomsg' => "Um einen Spieltagsdatensatz bearbeiten zu können, müssen Sie die Rolle 'gamedaymanager' zugeteilt haben!",
                 'infolvl' => "warning",
                 'nexturl' => "/gamedays",
@@ -91,12 +109,16 @@ class GamedayBackendViewController extends Controller
                 $gamedayentry->location_id = $request->location;
                 $gamedayentry->time = $request->input('date') . ' ' . $request->input('time') . ':00';
                 $gamedayentry->notes = $request->input('notes');
+                $gamedayentry->playercount_redundant = 0;
                 $gamedayentry->save();
                 DB::commit();
                 return view('templateslvlone.backendinformationmessagepage')->with([
                     'user' => Auth::user(),
                     'path'=>array("Backend","Info"),
                     'pagetitle' => "Info",
+                    'selectedmenuitem_h' => 'Backend',
+                    'selectedmenuitem_v' => 'Gamedays',
+                    'paththumbnails'=>array("dashboard", "thumbs-up"),
                     'infomsg' => "Spieltagdatensatz wurde erfolgreich erstellt",
                     'infolvl' => "success",
                     'nexturl' => "/gamedays/" . $gamedayentry->id,
@@ -109,6 +131,9 @@ class GamedayBackendViewController extends Controller
                     'user' => Auth::user(),
                     'path'=>array("Backend","Info"),
                     'pagetitle' => "Info",
+                    'selectedmenuitem_h' => 'Backend',
+                    'selectedmenuitem_v' => 'Gamedays',
+                    'paththumbnails'=>array("dashboard", "thumbs-down"),
                     'infomsg' => "Sorry, es ist ein Fehler aufgetreten: " . $e->getMessage(),
                     'infolvl' => "danger",
                     'nexturl' => "/home",
@@ -120,6 +145,9 @@ class GamedayBackendViewController extends Controller
                 'user' => Auth::user(),
                 'path'=>array("Backend","Info"),
                 'pagetitle' => "Info",
+                'selectedmenuitem_h' => 'Backend',
+                'selectedmenuitem_v' => 'Gamedays',
+                'paththumbnails'=>array("dashboard", "thumbs-down"),
                 'infomsg' => "Um einen Spieltagsdatensatz erstellen zu können, müssen Sie die Rolle 'gamedaymanager' zugeteilt haben!",
                 'infolvl' => "warning",
                 'nexturl' => "/gamedays",
@@ -136,6 +164,7 @@ class GamedayBackendViewController extends Controller
                 $gamedayentry->location_id = $request->location;
                 $gamedayentry->time = $request->input('date') . ' ' . $request->input('time') . ':00';
                 $gamedayentry->notes = $request->input('notes');
+                $gamedayentry->playercount_redundant = count($request->input('participantlist'));
                 $gamedayentry->save();
                 $userlist = $request->input('participantlist');
                 DB::table('gameday_user')->where('gameday_id', '=', $gamedayentry->id)->delete();
@@ -148,6 +177,9 @@ class GamedayBackendViewController extends Controller
                     'user' => Auth::user(),
                     'path'=>array("Backend","Info"),
                     'pagetitle' => "Info",
+                    'selectedmenuitem_h' => 'Backend',
+                    'selectedmenuitem_v' => 'Gamedays',
+                    'paththumbnails'=>array("dashboard", "thumbs-up"),
                     'infomsg' => "Spieltagdatensatz wurde erfolgreich bearbeitet.",
                     'infolvl' => "success",
                     'nexturl' => "/gamedays/" . $gamedayentry->id,
@@ -160,6 +192,9 @@ class GamedayBackendViewController extends Controller
                     'user' => Auth::user(),
                     'path'=>array("Backend","Info"),
                     'pagetitle' => "Info",
+                    'selectedmenuitem_h' => 'Backend',
+                    'selectedmenuitem_v' => 'Gamedays',
+                    'paththumbnails'=>array("dashboard", "thumbs-down"),
                     'infomsg' => "Sorry, es ist ein Fehler aufgetreten: " . $e->getMessage(),
                     'infolvl' => "danger",
                     'nexturl' => "/home",
@@ -171,6 +206,9 @@ class GamedayBackendViewController extends Controller
                 'user' => Auth::user(),
                 'path'=>array("Backend","Info"),
                 'pagetitle' => "Info",
+                'selectedmenuitem_h' => 'Backend',
+                'selectedmenuitem_v' => 'Gamedays',
+                'paththumbnails'=>array("dashboard", "thumbs-down"),
                 'infomsg' => "Um einen Spieltagsdatensatz bearbeiten zu können, müssen Sie die Rolle 'gamedaymanager' zugeteilt haben!",
                 'infolvl' => "warning",
                 'nexturl' => "/gamedays",
@@ -189,6 +227,9 @@ class GamedayBackendViewController extends Controller
                     'user' => Auth::user(),
                     'path'=>array("Backend","Info"),
                     'pagetitle' => "Info",
+                    'selectedmenuitem_h' => 'Backend',
+                    'selectedmenuitem_v' => 'Gamedays',
+                    'paththumbnails'=>array("dashboard", "thumbs-up"),
                     'infomsg' => "Spieltagdatensatz wurde erfolgreich gelöscht",
                     'infolvl' => "success",
                     'nexturl' => "/gamedays",
@@ -201,6 +242,9 @@ class GamedayBackendViewController extends Controller
                     'user' => Auth::user(),
                     'path'=>array("Backend","Info"),
                     'pagetitle' => "Info",
+                    'selectedmenuitem_h' => 'Backend',
+                    'selectedmenuitem_v' => 'Gamedays',
+                    'paththumbnails'=>array("dashboard", "thumbs-down"),
                     'infomsg' => "Sorry, es ist ein Fehler aufgetreten: " . $e->getMessage(),
                     'infolvl' => "danger",
                     'nexturl' => "/home",
@@ -212,6 +256,9 @@ class GamedayBackendViewController extends Controller
                 'user' => Auth::user(),
                 'path'=>array("Backend","Info"),
                 'pagetitle' => "Info",
+                'selectedmenuitem_h' => 'Backend',
+                'selectedmenuitem_v' => 'Gamedays',
+                'paththumbnails'=>array("dashboard", "thumbs-down"),
                 'infomsg' => "Um einen Spieltagsdatensatz löschen zu können, müssen Sie die Rolle 'gamedaymanager' zugeteilt haben!",
                 'infolvl' => "warning",
                 'nexturl' => "/gamedays",

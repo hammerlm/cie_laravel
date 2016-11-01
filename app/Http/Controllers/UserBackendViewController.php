@@ -20,7 +20,10 @@ class UserBackendViewController extends Controller
             return view('templateslvlone.showuserlistbe')->with([
                 'user' => Auth::user(),
                 'path'=>array("Backend","Benutzerübersicht"),
-                'pagetitle' => "Spieltageübersicht",
+                'pagetitle' => "Benutzerübersicht",
+                'selectedmenuitem_h' => 'Backend',
+                'selectedmenuitem_v' => 'Team',
+                'paththumbnails'=>array("dashboard", "star"),
                 'userlist' => $userlist
             ]);
         } else {
@@ -28,6 +31,9 @@ class UserBackendViewController extends Controller
                 'user' => Auth::user(),
                 'path'=>array("Backend","Info"),
                 'pagetitle' => "Info",
+                'selectedmenuitem_h' => 'Backend',
+                'selectedmenuitem_v' => 'Team',
+                'paththumbnails'=>array("dashboard", "thumbs-down"),
                 'infomsg' => "Um die Benutzerliste im Verwaltungsbereich sehen zu können, müssen Sie die Rolle 'usermanager' zugeteilt haben!",
                 'infolvl' => "warning",
                 'nexturl' => "/team",
@@ -42,13 +48,19 @@ class UserBackendViewController extends Controller
             return view('templateslvlone.createusersinglebe')->with([
                 'user' => Auth::user(),
                 'path'=>array("Backend","Benutzer","Benutzer erstellen"),
-                'pagetitle' => "Benutzererstellung"
+                'pagetitle' => "Benutzererstellung",
+                'selectedmenuitem_h' => 'Backend',
+                'selectedmenuitem_v' => 'Team',
+                'paththumbnails'=>array("dashboard", "star", "plus")
             ]);
         } else {
             return view('templateslvlone.backendinformationmessagepage')->with([
                 'user' => Auth::user(),
                 'path'=>array("Backend","Info"),
                 'pagetitle' => "Info",
+                'selectedmenuitem_h' => 'Backend',
+                'selectedmenuitem_v' => 'Team',
+                'paththumbnails'=>array("dashboard", "thumbs-down"),
                 'infomsg' => "Um einen Benutzer erstellen zu können, müssen Sie die Rolle 'usermanager' zugeteilt haben!",
                 'infolvl' => "warning",
                 'nexturl' => "/team",
@@ -64,6 +76,9 @@ class UserBackendViewController extends Controller
                 'user' => Auth::user(),
                 'path'=>array("Backend","Benutzer","Benutzer bearbeiten"),
                 'pagetitle' => "Benutzerbearbeitung",
+                'selectedmenuitem_h' => 'Backend',
+                'selectedmenuitem_v' => 'Team',
+                'paththumbnails'=>array("dashboard", "star", "pencil"),
                 'userentry' => User::find($id),
                 'rolegrouplist' => Rolegroup::all()
             ]);
@@ -72,6 +87,9 @@ class UserBackendViewController extends Controller
                 'user' => Auth::user(),
                 'path'=>array("Backend","Info"),
                 'pagetitle' => "Info",
+                'selectedmenuitem_h' => 'Backend',
+                'selectedmenuitem_v' => 'Team',
+                'paththumbnails'=>array("dashboard", "thumbs-down"),
                 'infomsg' => "Um einen Benutzer bearbeiten zu können, müssen Sie die Rolle 'usermanager' zugeteilt haben!",
                 'infolvl' => "warning",
                 'nexturl' => "/gamedays",
@@ -86,7 +104,7 @@ class UserBackendViewController extends Controller
             try {
                 DB::beginTransaction();
                 if($request->input('email') != "" && $request->input('name') != "") {
-                    if($request->input('password') == $request->input('password-confirm')) {
+                    if($request->input('password') == $request->input('password_confirmation')) {
                         if($request->input('password') != "") {
                             $request->merge(['password' => Hash::make($request->input('password'))]);
                             $user = User::create($request->all());
@@ -95,6 +113,9 @@ class UserBackendViewController extends Controller
                                 'user' => Auth::user(),
                                 'path'=>array("Backend","Info"),
                                 'pagetitle' => "Info",
+                                'selectedmenuitem_h' => 'Backend',
+                                'selectedmenuitem_v' => 'Team',
+                                'paththumbnails'=>array("dashboard", "thumbs-down"),
                                 'infomsg' => "Das Passwort muss mindestens 1 Zeichen beinhalten.",
                                 'infolvl' => "danger",
                                 'nexturl' => "/backend/users/create",
@@ -107,6 +128,9 @@ class UserBackendViewController extends Controller
                             'user' => Auth::user(),
                             'path'=>array("Backend","Info"),
                             'pagetitle' => "Info",
+                            'selectedmenuitem_h' => 'Backend',
+                            'selectedmenuitem_v' => 'Team',
+                            'paththumbnails'=>array("dashboard", "thumbs-down"),
                             'infomsg' => "Die Passwörter stimmen nicht überein.",
                             'infolvl' => "danger",
                             'nexturl' => "/backend/users/create",
@@ -118,6 +142,9 @@ class UserBackendViewController extends Controller
                         'user' => Auth::user(),
                         'path'=>array("Backend","Info"),
                         'pagetitle' => "Info",
+                        'selectedmenuitem_h' => 'Backend',
+                        'selectedmenuitem_v' => 'Team',
+                        'paththumbnails'=>array("dashboard", "thumbs-down"),
                         'infomsg' => "Bitte geben Sie einen Namen und eine E-Mail-Adresse ein.",
                         'infolvl' => "danger",
                         'nexturl' => "/backend/users/create",
@@ -129,6 +156,9 @@ class UserBackendViewController extends Controller
                     'user' => Auth::user(),
                     'path'=>array("Backend","Info"),
                     'pagetitle' => "Info",
+                    'selectedmenuitem_h' => 'Backend',
+                    'selectedmenuitem_v' => 'Team',
+                    'paththumbnails'=>array("dashboard", "thumbs-up"),
                     'infomsg' => "Benutzer wurde erfolgreich erstellt",
                     'infolvl' => "success",
                     'nexturl' => "/users/" . $user->id,
@@ -141,6 +171,9 @@ class UserBackendViewController extends Controller
                     'user' => Auth::user(),
                     'path'=>array("Backend","Info"),
                     'pagetitle' => "Info",
+                    'selectedmenuitem_h' => 'Backend',
+                    'selectedmenuitem_v' => 'Team',
+                    'paththumbnails'=>array("dashboard", "thumbs-down"),
                     'infomsg' => "Sorry, es ist ein Fehler aufgetreten: " . $e->getMessage(),
                     'infolvl' => "danger",
                     'nexturl' => "/home",
@@ -152,6 +185,9 @@ class UserBackendViewController extends Controller
                 'user' => Auth::user(),
                 'path'=>array("Backend","Info"),
                 'pagetitle' => "Info",
+                'selectedmenuitem_h' => 'Backend',
+                'selectedmenuitem_v' => 'Team',
+                'paththumbnails'=>array("dashboard", "thumbs-down"),
                 'infomsg' => "Um einen Benutzer erstellen zu können, müssen Sie die Rolle 'usermanager' zugeteilt haben!",
                 'infolvl' => "warning",
                 'nexturl' => "/team",
@@ -183,6 +219,9 @@ class UserBackendViewController extends Controller
                                     'user' => Auth::user(),
                                     'path'=>array("Backend","Info"),
                                     'pagetitle' => "Info",
+                                    'selectedmenuitem_h' => 'Backend',
+                                    'selectedmenuitem_v' => 'Team',
+                                    'paththumbnails'=>array("dashboard", "thumbs-down"),
                                     'infomsg' => "Das Passwort muss mindestens 1 Zeichen beinhalten.",
                                     'infolvl' => "danger",
                                     'nexturl' => "/backend/users/" . $id . "/edit",
@@ -195,6 +234,9 @@ class UserBackendViewController extends Controller
                                 'user' => Auth::user(),
                                 'path'=>array("Backend","Info"),
                                 'pagetitle' => "Info",
+                                'selectedmenuitem_h' => 'Backend',
+                                'selectedmenuitem_v' => 'Team',
+                                'paththumbnails'=>array("dashboard", "thumbs-down"),
                                 'infomsg' => "Die Passwörter stimmen nicht überein.",
                                 'infolvl' => "danger",
                                 'nexturl' => "/backend/users/" . $id . "/edit",
@@ -207,6 +249,9 @@ class UserBackendViewController extends Controller
                         'user' => Auth::user(),
                         'path'=>array("Backend","Info"),
                         'pagetitle' => "Info",
+                        'selectedmenuitem_h' => 'Backend',
+                        'selectedmenuitem_v' => 'Team',
+                        'paththumbnails'=>array("dashboard", "thumbs-down"),
                         'infomsg' => "Bitte geben Sie einen Namen und eine E-Mail-Adresse ein.",
                         'infolvl' => "danger",
                         'nexturl' => "/backend/users/" . $id . "/edit",
@@ -219,6 +264,9 @@ class UserBackendViewController extends Controller
                     'user' => Auth::user(),
                     'path'=>array("Backend","Info"),
                     'pagetitle' => "Info",
+                    'selectedmenuitem_h' => 'Backend',
+                    'selectedmenuitem_v' => 'Team',
+                    'paththumbnails'=>array("dashboard", "thumbs-up"),
                     'infomsg' => "Benutzer wurde erfolgreich bearbeitet.",
                     'infolvl' => "success",
                     'nexturl' => "/users/" . $user->id,
@@ -231,6 +279,9 @@ class UserBackendViewController extends Controller
                     'user' => Auth::user(),
                     'path'=>array("Backend","Info"),
                     'pagetitle' => "Info",
+                    'selectedmenuitem_h' => 'Backend',
+                    'selectedmenuitem_v' => 'Team',
+                    'paththumbnails'=>array("dashboard", "thumbs-down"),
                     'infomsg' => "Sorry, es ist ein Fehler aufgetreten: " . $e->getMessage(),
                     'infolvl' => "danger",
                     'nexturl' => "/home",
@@ -242,6 +293,9 @@ class UserBackendViewController extends Controller
                 'user' => Auth::user(),
                 'path'=>array("Backend","Info"),
                 'pagetitle' => "Info",
+                'selectedmenuitem_h' => 'Backend',
+                'selectedmenuitem_v' => 'Team',
+                'paththumbnails'=>array("dashboard", "thumbs-down"),
                 'infomsg' => "Um einen Benutzer bearbeiten zu können, müssen Sie die Rolle 'usermanager' zugeteilt haben!",
                 'infolvl' => "warning",
                 'nexturl' => "/team",

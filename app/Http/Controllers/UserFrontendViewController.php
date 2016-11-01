@@ -16,8 +16,12 @@ class UserFrontendViewController extends Controller
     public function index() {
         return view('templateslvlone.showusersfe')->with([
             'user' => Auth::user(),
-            'path'=>array("Frontend","Team"),
+            'path'=>array("Team"),
             'pagetitle' => "Teamübersicht",
+            'selectedmenuitem_h' => 'Team',
+            'paththumbnails'=>array("star"),
+            'nextgd' => \App\HelperClassCustom::getnextgameday(),
+            'timedifftonextgd' => \App\HelperClassCustom::gettimedifferencecomparedtonow(\App\HelperClassCustom::getnextgameday()),
             'playercardlist' => User::where('show_playercard', '=', true)->get(),
             'userlist' => User::all()
         ]);
@@ -26,8 +30,12 @@ class UserFrontendViewController extends Controller
     public function show($id) {
         return view('templateslvlone.showusersinglefe')->with([
             'user' => Auth::user(),
-            'path'=>array("Frontend","Team"),
-            'pagetitle' => "Teamübersicht",
+            'path'=>array("Team", "Benutzer-Einzelansicht"),
+            'pagetitle' => "Benutzer-Einzelansicht",
+            'selectedmenuitem_h' => 'Team',
+            'paththumbnails'=>array("star", "user"),
+            'nextgd' => \App\HelperClassCustom::getnextgameday(),
+            'timedifftonextgd' => \App\HelperClassCustom::gettimedifferencecomparedtonow(\App\HelperClassCustom::getnextgameday()),
             'userentry' => User::find($id)
         ]);
     }

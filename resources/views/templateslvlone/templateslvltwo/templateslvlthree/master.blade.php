@@ -64,18 +64,18 @@
             <li>
                 <a href="#"><span class="glyphicon glyphicon-picture" aria-hidden="true"></span> Bilder</a>
             </li>
-            <li>
+            <li @if($selectedmenuitem_h == "Gamedays") class="active" @endif>
                 <a href="/gamedays"><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> Eistermine</a>
             </li>
-            <li>
+            <li @if($selectedmenuitem_h == "Team") class="active" @endif>
                 <a href="/team"><span class="glyphicon glyphicon-gift" aria-hidden="true"></span> Team</a>
             </li>
               @can('authenticate')
-              <li>
+              <li @if($selectedmenuitem_h == "Backend") class="active" @endif>
                   <a href="/backend"><span class="glyphicon glyphicon-dashboard" aria-hidden="true"></span> Backend</a>
               </li>
               @endcan
-              <li>
+              <li @if($selectedmenuitem_h == "Impressum") class="active" @endif>
                 <a href="/impressum"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span> Impressum</a>
               </li>
               @if(Gate::allows('authenticate'))
@@ -109,11 +109,11 @@
                     {{$pagetitle}}
                 </h1>
                 <ol class="breadcrumb">
-                    @foreach($path as $pathstring)
+                    @for($i = 0; $i < count($path); $i++)
                     <li>
-                        <span class="glyphicon glyphicon-dashboard" aria-hidden="true"></span> {{$pathstring}}
+                        <span class="glyphicon glyphicon-{{$paththumbnails[$i]}}" aria-hidden="true"></span> {{$path[$i]}}
                     </li>
-                    @endforeach
+                    @endfor
                 </ol>
             </div>
         </div>

@@ -19,8 +19,12 @@ class HomeViewController extends Controller
         $newslist = News::with('categories', 'creator')->orderBy('created_at', 'desc')->paginate(6);
         return view('templateslvlone.shownewslistfe')->with([
                 'user' => Auth::user(),
-                'path'=>array("Frontend","Home"),
+                'path'=>array("Home", "Newsübersicht"),
                 'pagetitle' => "Newsübersicht",
+                'selectedmenuitem_h' => 'Home',
+                'paththumbnails'=>array("home", "th-list"),
+                'nextgd' => \App\HelperClassCustom::getnextgameday(),
+                'timedifftonextgd' => \App\HelperClassCustom::gettimedifferencecomparedtonow(\App\HelperClassCustom::getnextgameday()),
                 'newslist' => $newslist,
                 'lastnewsentryid' => News::orderBy('created_at', 'desc')->first()->id
         ]);
@@ -33,8 +37,12 @@ class HomeViewController extends Controller
         $newsentry = News::find($id);
         return view('templateslvlone.shownewssinglefe')->with([
             'user' => Auth::user(),
-            'path'=>array("Frontend","News","News-Einzelansicht"),
+            'path'=>array("News","News-Einzelansicht"),
             'pagetitle' => "News-Einzelansicht",
+            'selectedmenuitem_h' => 'Home',
+            'paththumbnails'=>array("th-list", "comment"),
+            'nextgd' => \App\HelperClassCustom::getnextgameday(),
+            'timedifftonextgd' => \App\HelperClassCustom::gettimedifferencecomparedtonow(\App\HelperClassCustom::getnextgameday()),
             'newsentry' => $newsentry
         ]);
     }
