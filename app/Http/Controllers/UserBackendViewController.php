@@ -71,7 +71,7 @@ class UserBackendViewController extends Controller
 
     public function edit($id)
     {
-        if ((Gate::allows('manage-users') || $id == Auth::user()->id) && Gate::allows('authenticate')) {
+        if ((Gate::allows('manage-users-anyway') || $id == Auth::user()->id) && Gate::allows('authenticate')) {
             return view('templateslvlone.editusersinglebe')->with([
                 'user' => Auth::user(),
                 'path'=>array("Backend","Benutzer","Benutzer bearbeiten"),

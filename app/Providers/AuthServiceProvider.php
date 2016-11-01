@@ -119,7 +119,7 @@ class AuthServiceProvider extends ServiceProvider
             $roles = session('roles');
             if(isset($roles)) {
                 foreach($roles as $role) {
-                    if($role->name == "manage-permissions" || $role->name == "manage-users" || $role->name == "manage-playercards") {
+                    if($role->name == "permissionmanager" || $role->name == "usermanager" || $role->name == "playercardmanager") {
                         return true;
                     }
                 }
