@@ -8,6 +8,7 @@
                 <th>#</th>
                 <th>Ort</th>
                 <th>Zeitstempel</th>
+                <th>Spieleranzahl</th>
                 <th>Aktion</th>
             </tr>
             </thead>
@@ -17,6 +18,7 @@
                     <td>{{$gameday->id}}</td>
                     <td>{{$gameday->location->name}}</td>
                     <td>{{$gameday->time}}</td>
+                    <td>{{$gameday->playercount_redundant}}</td>
                     <td>
                         <a href="/gamedays/{{$gameday->id}}"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></a>
                         @can('manage-gamedays')
@@ -31,11 +33,11 @@
     <hr/>
     {!! $gamedaylist->render() !!}
     @else
-        <div class="alert alert-info" role="alert">Derzeit sind leider noch keine Spieltageinträge vorhanden!</div>
+        <div class="alert alert-info" role="alert">Derzeit sind leider noch keine Eistermineinträge vorhanden!</div>
     @endif
     @can('manage-gamedays')
     {!! Form::open(['url' => url('/backend/gamedays/create'), 'method' => 'GET']) !!}
-    {!! Form::submit('Neuen Spieltageintrag erstellen', ["class" => "btn btn-default btn-sm"]) !!}
+    {!! Form::submit('Neuen Eistermineintrag erstellen', ["class" => "btn btn-default btn-sm"]) !!}
     {!! Form::close() !!}
     @endcan
 @stop

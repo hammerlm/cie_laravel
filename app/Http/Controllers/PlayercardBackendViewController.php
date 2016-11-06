@@ -13,6 +13,7 @@ use DB;
 
 class PlayercardBackendViewController extends Controller
 {
+    //this function updates the userentry with the id $id from the db, based on the http-request
     public function update(Request $request, $id) {
         if (Gate::allows('manage-playercards') && Gate::allows('authenticate')) {
             try {
@@ -47,7 +48,12 @@ class PlayercardBackendViewController extends Controller
                     $user->show_playercard = 0;
                 }
                 $user->save();
-
+                $log = new Log();
+                $log->description = "The playercardsettings of the user " . $user->name . " were edited by user " . Auth::user()->name . ".";
+                $log->description_idformat = "The playercardsettings of the user with id=" . $user->id . " were edited by the user with id=" . Auth::user()->id . ".";
+                $log->user_id = Auth::user()->id;
+                $log->affecteduser_id = $user->id;
+                $log->logcategory_id = 2;
                 DB::commit();
                 return view('templateslvlone.backendinformationmessagepage')->with([
                     'user' => Auth::user(),
@@ -64,6 +70,13 @@ class PlayercardBackendViewController extends Controller
             } catch ( \Exception $e ){
                 //If there are any exceptions, rollback the transaction
                 DB::rollback();
+                $log = new Log();
+                $log->description = "The playercardsettings of the user " . User::find($id)->name . " could not be edited by user " . Auth::user()->name . ".";
+                $log->description_idformat = "The playercardsettings of the user with id=" . $id . " could not be edited by the user with id=" . Auth::user()->id . ".";
+                $log->user_id = Auth::user()->id;
+                $log->affecteduser_id = $id;
+                $log->logcategory_id = 2;
+                $log->save();
                 return view('templateslvlone.backendinformationmessagepage')->with([
                     'user' => Auth::user(),
                     'path'=>array("Backend","Info"),

@@ -7,19 +7,16 @@
                 <th>#</th>
                 <th>Titel</th>
                 <th>Zeitstempel</th>
-                <th>Aktion</th>
             </tr>
             </thead>
             <tbody>
             @foreach($newslist as $newsentry)
                 <tr>
                     <td>{{$newsentry->id}}</td>
-                    <td>{{$newsentry->title}}</td>
-                    <td>{{$newsentry->created_at}}</td>
                     <td>
-                        <a style="color:orangered" href="/backend/news/{{$newsentry->id}}/edit"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
-                        <a href="/news/{{$newsentry->id}}"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></a>
+                        <a href="/news/{{$newsentry->id}}">{{$newsentry->title}}</a> <a style="color:orangered" href="/backend/news/{{$newsentry->id}}/edit"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
                     </td>
+                    <td>{{$newsentry->created_at}}</td>
                 </tr>
             @endforeach
             </tbody>

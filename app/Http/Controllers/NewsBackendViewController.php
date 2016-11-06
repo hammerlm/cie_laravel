@@ -2,18 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\User;
-use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\News;
 use App\Category;
+use App\Log;
 use DB;
 
 class NewsBackendViewController extends Controller
 {
+    //this function returns all newsentries from the db and packs it into the shownewslistbe-view
     public function index() {
         if (Gate::allows('manage-news') && Gate::allows('authenticate')) {
 
@@ -42,9 +41,8 @@ class NewsBackendViewController extends Controller
             ]);
         }
     }
-    /**
-     * Shows the Newsentrycreationpage
-     */
+
+    //this function returns the creation-view for newsentries
     public function create()
     {
         if (Gate::allows('manage-news') && Gate::allows('authenticate')) {
@@ -74,9 +72,7 @@ class NewsBackendViewController extends Controller
         }
     }
 
-    /**
-     * Shows the Newsentrymodificationpage
-     */
+    //this function returns the edit-view for newsentries
     public function edit($id)
     {
         if (Gate::allows('manage-news') && Gate::allows('authenticate')) {
@@ -106,6 +102,7 @@ class NewsBackendViewController extends Controller
         }
     }
 
+    //this function stores a newsentry into the db, based on the http-request
     public function store(Request $request)
     {
         if (Gate::allows('manage-news') && Gate::allows('authenticate')) {
@@ -122,6 +119,12 @@ class NewsBackendViewController extends Controller
                     $category = Category::find($categorylist[$i]);
                     $newsentry->categories()->attach($category);
                 }
+                $log = new Log();
+                $log->description = "The newsentry with the id=" . $newsentry->id . " was created by user " . Auth::user()->name . ".";
+                $log->description_idformat = "The newsentry with the id=" . $newsentry->id . " was created by the user with id=" . Auth::user()->id . ".";
+                $log->user_id = Auth::user()->id;
+                $log->logcategory_id = 1;
+                $log->save();
                 DB::commit();
                 return view('templateslvlone.backendinformationmessagepage')->with([
                     'user' => Auth::user(),
@@ -137,6 +140,12 @@ class NewsBackendViewController extends Controller
                 ]);
             } catch ( \Exception $e ){
                 //If there are any exceptions, rollback the transaction
+                $log = new Log();
+                $log->description = "The newsentry could not be created by user " . Auth::user()->name . ".";
+                $log->description_idformat = "The newsentry could not be created by the user with id=" . Auth::user()->id . ".";
+                $log->user_id = Auth::user()->id;
+                $log->logcategory_id = 1;
+                $log->save();
                 DB::rollback();
                 return view('templateslvlone.backendinformationmessagepage')->with([
                     'user' => Auth::user(),
@@ -167,6 +176,7 @@ class NewsBackendViewController extends Controller
         }
     }
 
+    //this function updates the newsentry with the id $id from the db, based on the http-request
     public function update(Request $request, $id) {
         if (Gate::allows('manage-news') && Gate::allows('authenticate')) {
             try {
@@ -182,6 +192,12 @@ class NewsBackendViewController extends Controller
                     $category = Category::find($categorylist[$i]);
                     $newsentry->categories()->attach($category);
                 }
+                $log = new Log();
+                $log->description = "The newsentry with the id=" . $newsentry->id . " was edited by user " . Auth::user()->name . ".";
+                $log->description_idformat = "The newsentry with the id=" . $newsentry->id . " was edited by the user with id=" . Auth::user()->id . ".";
+                $log->user_id = Auth::user()->id;
+                $log->logcategory_id = 1;
+                $log->save();
                 DB::commit();
                 return view('templateslvlone.backendinformationmessagepage')->with([
                     'user' => Auth::user(),
@@ -198,6 +214,12 @@ class NewsBackendViewController extends Controller
             } catch ( \Exception $e ){
                 //If there are any exceptions, rollback the transaction
                 DB::rollback();
+                $log = new Log();
+                $log->description = "The newsentry with the id=" . $id . " could not be edited by user " . Auth::user()->name . ".";
+                $log->description_idformat = "The newsentry with the id=" . $id . " could not be edited by the user with id=" . Auth::user()->id . ".";
+                $log->user_id = Auth::user()->id;
+                $log->logcategory_id = 1;
+                $log->save();
                 return view('templateslvlone.backendinformationmessagepage')->with([
                     'user' => Auth::user(),
                     'path'=>array("Backend","Info"),
@@ -227,11 +249,18 @@ class NewsBackendViewController extends Controller
         }
     }
 
+    //this function deletes the newsentry with the id $id from the db, based on the http-request
     public function destroy($id) {
         if (Gate::allows('manage-news') && Gate::allows('authenticate')) {
             try {
                 DB::beginTransaction();
                 News::destroy($id);
+                $log = new Log();
+                $log->description = "The newsentry with the id=" . $id . " was deleted by user " . Auth::user()->name . ".";
+                $log->description_idformat = "The newsentry with the id=" . $id . " was deleted by the user with id=" . Auth::user()->id . ".";
+                $log->user_id = Auth::user()->id;
+                $log->logcategory_id = 1;
+                $log->save();
                 DB::commit();
                 return view('templateslvlone.backendinformationmessagepage')->with([
                     'user' => Auth::user(),
@@ -248,6 +277,12 @@ class NewsBackendViewController extends Controller
             } catch ( \Exception $e ){
                 //If there are any exceptions, rollback the transaction
                 DB::rollback();
+                $log = new Log();
+                $log->description = "The newsentry with the id=" . $id . " could not be deleted by user " . Auth::user()->name . ".";
+                $log->description_idformat = "The newsentry with the id=" . $id . " could not be deleted by the user with id=" . Auth::user()->id . ".";
+                $log->user_id = Auth::user()->id;
+                $log->logcategory_id = 1;
+                $log->save();
                 return view('templateslvlone.backendinformationmessagepage')->with([
                     'user' => Auth::user(),
                     'path'=>array("Backend","Info"),

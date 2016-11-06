@@ -98,3 +98,20 @@ inner join rolegroups rg on rr.rolegroup_id = rg.id
 inner join rolegroup_user ru on ru.rolegroup_id = rg.id
 inner join users u on u.id = ru.user_id
 where ru.user_id = 3;
+
+use cie;
+select * from logs;
+select * from logcategories;
+
+insert into logcategories (id,name,description)
+values (1,"news","every event related to news");
+insert into logcategories (id,name,description)
+values (2,"playercardmanagement","every event related to playercards");
+insert into logcategories (id,name,description)
+values (3,"usermanagement","every event related to usermanagement");
+insert into logcategories (id,name,description)
+values (4,"permissionmanagement","every event related to permissionmanagement");
+insert into logcategories (id,name,description)
+values (5,"gamedaymanagement","every event related to gamedaymanagement");
+insert into logcategories (id,name,description)
+values (6,"session","every event related to gamedaymanagement");

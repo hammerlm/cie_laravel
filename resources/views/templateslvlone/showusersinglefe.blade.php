@@ -1,10 +1,12 @@
 @extends('templateslvlone.templateslvltwo.frontendmaster')
 @section('rightcol_content_lvl2')
     <h3>{{$userentry->name}}</h3>
+    @can('authenticate')
     <div class="form-group">
         {{Form::label('email', 'E-Mail')}} <br/>
         {{$userentry->email}}
     </div>
+    @endcan
     <div class="form-group">
         {{Form::label('status', 'Accountstatus')}}<br/>
         @if($userentry->is_disabled)
@@ -13,6 +15,7 @@
         Account ist zur Zeit aktiviert
         @endif
     </div>
+    @can('authenticate')
     <div class="form-group">
         {{Form::label('permissioninfo', 'Zugewiesene Rollengruppen')}}
         <div class="table-responsive">
@@ -36,4 +39,5 @@
             </table>
         </div>
     </div>
+    @endcan
 @stop

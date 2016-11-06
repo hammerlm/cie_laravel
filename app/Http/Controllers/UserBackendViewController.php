@@ -4,8 +4,7 @@ namespace App\Http\Controllers;
 
 use App\User;
 use App\Rolegroup;
-use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\View;
+use App\Log;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
@@ -14,6 +13,7 @@ use DB;
 
 class UserBackendViewController extends Controller
 {
+    //this function returns a userlist for the showuserlistbe-view
     public function index() {
         if (Gate::allows('authenticate')) {
             $userlist = User::all();
@@ -34,7 +34,7 @@ class UserBackendViewController extends Controller
                 'selectedmenuitem_h' => 'Backend',
                 'selectedmenuitem_v' => 'Team',
                 'paththumbnails'=>array("dashboard", "thumbs-down"),
-                'infomsg' => "Um die Benutzerliste im Verwaltungsbereich sehen zu können, müssen Sie die Rolle 'usermanager' zugeteilt haben!",
+                'infomsg' => "Um die Benutzerliste im Verwaltungsbereich sehen zu können, müssen Sie sich anmelden!",
                 'infolvl' => "warning",
                 'nexturl' => "/team",
                 'nexturldescription' => "Weiter"
@@ -42,6 +42,7 @@ class UserBackendViewController extends Controller
         }
     }
 
+    //this function returns the creation-form-view for a user
     public function create()
     {
         if (Gate::allows('manage-users') && Gate::allows('authenticate')) {
@@ -69,6 +70,7 @@ class UserBackendViewController extends Controller
         }
     }
 
+    //this function returns the edit-page-view for a user
     public function edit($id)
     {
         if ((Gate::allows('manage-users-anyway') || $id == Auth::user()->id) && Gate::allows('authenticate')) {
@@ -90,7 +92,7 @@ class UserBackendViewController extends Controller
                 'selectedmenuitem_h' => 'Backend',
                 'selectedmenuitem_v' => 'Team',
                 'paththumbnails'=>array("dashboard", "thumbs-down"),
-                'infomsg' => "Um einen Benutzer bearbeiten zu können, müssen Sie die Rolle 'usermanager' zugeteilt haben!",
+                'infomsg' => "Um einen Benutzer bearbeiten zu können, müssen Sie die Rolle 'usermanager', 'playercardmanager' oder 'permissionmanager' zugeteilt haben!",
                 'infolvl' => "warning",
                 'nexturl' => "/gamedays",
                 'nexturldescription' => "Weiter"
@@ -98,6 +100,7 @@ class UserBackendViewController extends Controller
         }
     }
 
+    //this function stores a user into the db, based on the http-request
     public function store(Request $request)
     {
         if (Gate::allows('manage-users') && Gate::allows('authenticate')) {
@@ -108,6 +111,13 @@ class UserBackendViewController extends Controller
                         if($request->input('password') != "") {
                             $request->merge(['password' => Hash::make($request->input('password'))]);
                             $user = User::create($request->all());
+                            $log = new Log();
+                            $log->description = "The user " . $user->name . " was created by user " . Auth::user()->name . ".";
+                            $log->description_idformat = "The user with id=" . $user->id . " was created by the user with id=" . Auth::user()->id . ".";
+                            $log->user_id = Auth::user()->id;
+                            $log->affecteduser_id = $user->id;
+                            $log->logcategory_id = 3;
+                            $log->save();
                         } else {
                             return view('templateslvlone.backendinformationmessagepage')->with([
                                 'user' => Auth::user(),
@@ -167,6 +177,12 @@ class UserBackendViewController extends Controller
             } catch ( \Exception $e ){
                 //If there are any exceptions, rollback the transaction
                 DB::rollback();
+                $log = new Log();
+                $log->description = "The user could not be created by user " . Auth::user()->name . ".";
+                $log->description_idformat = "The user could not be created by the user with id=" . Auth::user()->id . ".";
+                $log->user_id = Auth::user()->id;
+                $log->logcategory_id = 3;
+                $log->save();
                 return view('templateslvlone.backendinformationmessagepage')->with([
                     'user' => Auth::user(),
                     'path'=>array("Backend","Info"),
@@ -196,6 +212,7 @@ class UserBackendViewController extends Controller
         }
     }
 
+    //this function updates the userentry with the id $id, based on the http-request
     public function update(Request $request, $id) {
         if ((Gate::allows('manage-users') || $id == Auth::user()->id) && Gate::allows('authenticate')) {
             try {
@@ -259,6 +276,13 @@ class UserBackendViewController extends Controller
                     ]);
                 }
                 $user->save();
+                $log = new Log();
+                $log->description = "The user " . $user->name . " was edited by user " . Auth::user()->name . ".";
+                $log->description_idformat = "The user with id=" . $user->id . " was edited by the user with id=" . Auth::user()->id . ".";
+                $log->user_id = Auth::user()->id;
+                $log->affecteduser_id = $user->id;
+                $log->logcategory_id = 3;
+                $log->save();
                 DB::commit();
                 return view('templateslvlone.backendinformationmessagepage')->with([
                     'user' => Auth::user(),
@@ -275,6 +299,13 @@ class UserBackendViewController extends Controller
             } catch ( \Exception $e ){
                 //If there are any exceptions, rollback the transaction
                 DB::rollback();
+                $log = new Log();
+                $log->description = "The user " . $user->name . " could not be edited by user " . Auth::user()->name . ".";
+                $log->description_idformat = "The user with id=" . $user->id . " could not be edited by the user with id=" . Auth::user()->id . ".";
+                $log->user_id = Auth::user()->id;
+                $log->affecteduser_id = $id;
+                $log->logcategory_id = 3;
+                $log->save();
                 return view('templateslvlone.backendinformationmessagepage')->with([
                     'user' => Auth::user(),
                     'path'=>array("Backend","Info"),

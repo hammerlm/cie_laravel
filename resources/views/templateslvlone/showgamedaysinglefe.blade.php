@@ -9,28 +9,31 @@
             <p>
                 {{$gameday->notes}}
             </p>
-            <hr/>
-            <h3>Teilnehmerliste ({{count($gameday->users)}})</h3>
-            <div class="table-responsive">
-                <table class="table">
-                    <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>Name</th>
-                        <th>E-Mail</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    @foreach($gameday->users as $participant)
+            <h3>Teilnehmeranzahl: {{$gameday->playercount_redundant}}</h3>
+            @can('authenticate')
+                <hr/>
+                <h3>Teilnehmerliste</h3>
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
                         <tr>
-                            <td>{{$participant->id}}</td>
-                            <td>{{$participant->name}}</td>
-                            <td>{{$participant->email}}</td>
+                            <th>#</th>
+                            <th>Name</th>
+                            <th>E-Mail</th>
                         </tr>
-                    @endforeach
-                    </tbody>
-                </table>
-            </div>
+                        </thead>
+                        <tbody>
+                        @foreach($gameday->users as $participant)
+                            <tr>
+                                <td>{{$participant->id}}</td>
+                                <td>{{$participant->name}}</td>
+                                <td>{{$participant->email}}</td>
+                            </tr>
+                        @endforeach
+                        </tbody>
+                    </table>
+                </div>
+            @endcan
         </div>
     </div>
     @can('manage-news')

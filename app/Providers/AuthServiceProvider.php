@@ -32,11 +32,13 @@ class AuthServiceProvider extends ServiceProvider
         });
 
         $gate->define('manage-news', function () {
-            $roles = session('roles');
-            if(isset($roles)) {
-                foreach($roles as $role) {
-                    if($role->name == "newsmanager") {
-                        return true;
+            if(Auth::check()){
+                $roles = session('roles');
+                if(isset($roles)) {
+                    foreach($roles as $role) {
+                        if($role->name == "newsmanager") {
+                            return true;
+                        }
                     }
                 }
             }
@@ -44,11 +46,13 @@ class AuthServiceProvider extends ServiceProvider
         });
 
         $gate->define('manage-gamedays', function () {
-            $roles = session('roles');
-            if(isset($roles)) {
-                foreach($roles as $role) {
-                    if($role->name == "gamedaymanager") {
-                        return true;
+            if(Auth::check()){
+                $roles = session('roles');
+                if(isset($roles)) {
+                    foreach($roles as $role) {
+                        if($role->name == "gamedaymanager") {
+                            return true;
+                        }
                     }
                 }
             }
@@ -56,11 +60,13 @@ class AuthServiceProvider extends ServiceProvider
         });
 
         $gate->define('manage-users', function () {
-            $roles = session('roles');
-            if(isset($roles)) {
-                foreach($roles as $role) {
-                    if($role->name == "usermanager") {
-                        return true;
+            if(Auth::check()) {
+                $roles = session('roles');
+                if(isset($roles)) {
+                    foreach($roles as $role) {
+                        if($role->name == "usermanager") {
+                            return true;
+                        }
                     }
                 }
             }
@@ -68,11 +74,13 @@ class AuthServiceProvider extends ServiceProvider
         });
 
         $gate->define('manage-playercards', function () {
-            $roles = session('roles');
-            if(isset($roles)) {
-                foreach($roles as $role) {
-                    if($role->name == "playercardmanager") {
-                        return true;
+            if(Auth::check()) {
+                $roles = session('roles');
+                if(isset($roles)) {
+                    foreach($roles as $role) {
+                        if($role->name == "playercardmanager") {
+                            return true;
+                        }
                     }
                 }
             }
@@ -80,11 +88,13 @@ class AuthServiceProvider extends ServiceProvider
         });
 
         $gate->define('manage-permissions', function () {
-            $roles = session('roles');
-            if(isset($roles)) {
-                foreach($roles as $role) {
-                    if($role->name == "permissionmanager") {
-                        return true;
+            if(Auth::check()) {
+                $roles = session('roles');
+                if(isset($roles)) {
+                    foreach($roles as $role) {
+                        if($role->name == "permissionmanager") {
+                            return true;
+                        }
                     }
                 }
             }
@@ -92,11 +102,13 @@ class AuthServiceProvider extends ServiceProvider
         });
 
         $gate->define('view-statistics', function () {
-            $roles = session('roles');
-            if(isset($roles)) {
-                foreach($roles as $role) {
-                    if($role->name == "statisticviewer") {
-                        return true;
+            if(Auth::check()) {
+                $roles = session('roles');
+                if(isset($roles)) {
+                    foreach($roles as $role) {
+                        if($role->name == "statisticviewer") {
+                            return true;
+                        }
                     }
                 }
             }
@@ -104,11 +116,13 @@ class AuthServiceProvider extends ServiceProvider
         });
 
         $gate->define('view-logs', function () {
-            $roles = session('roles');
-            if(isset($roles)) {
-                foreach($roles as $role) {
-                    if($role->name == "logviewer") {
-                        return true;
+            if(Auth::check()) {
+                $roles = session('roles');
+                if(isset($roles)) {
+                    foreach($roles as $role) {
+                        if($role->name == "logviewer") {
+                            return true;
+                        }
                     }
                 }
             }
@@ -116,26 +130,17 @@ class AuthServiceProvider extends ServiceProvider
         });
 
         $gate->define('manage-users-anyway', function () {
-            $roles = session('roles');
-            if(isset($roles)) {
-                foreach($roles as $role) {
-                    if($role->name == "permissionmanager" || $role->name == "usermanager" || $role->name == "playercardmanager") {
-                        return true;
+            if(Auth::check()) {
+                $roles = session('roles');
+                if(isset($roles)) {
+                    foreach($roles as $role) {
+                        if($role->name == "permissionmanager" || $role->name == "usermanager" || $role->name == "playercardmanager") {
+                            return true;
+                        }
                     }
                 }
             }
             return false;
         });
-
-        $gate->define('have-a-role', function () {
-            if(Auth::check()) {
-                $roles = session('roles');
-                if(count($roles) > 0) {
-                    return true;
-                }
-            }
-            return false;
-        });
-
     }
 }
