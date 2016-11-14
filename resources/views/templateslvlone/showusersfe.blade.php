@@ -10,35 +10,31 @@
         <div class="panel-body">
             <div class="tab-content">
                 <div class="tab-pane fade in active" id="tab1default">
-                    @for ($i = 0; $i < (count($playercardlist) / 3); $i++)
+                    @for ($i = 0; $i < intval((count($playercardlist) / 3)) + 1; $i++)
                         <div class="row">
-                            @for ($j = $i * 3; $j < $i + 3; $j++)
+                            @for ($j = $i * 3; $j < (($i * 3) + 3); $j++)
                                 @if(isset($playercardlist[$j]))
                                     <div class="col-lg-4">
                                         <div class="thumbnail">
                                             <img src="pics/cnorris.jpeg" alt="Chuck Norris">
-                                            <h3 align="center">{{$playercardlist[$j]->name}}</h3>
+                                            <h4 align="center">{{$playercardlist[$j]->name}}</h4>
                                             <div class="caption">
                                                 <!-- Table -->
                                                 <table class="table">
                                                     <tr>
-                                                        <th>Attribut</th>
-                                                        <th>Wert</th>
+                                                        <td>Position</td>
+                                                        <td>{{$playercardlist[$j]->customattribute6}}</td>
                                                     </tr>
                                                     <tr>
-                                                        <td>Alkoholkonsum</td>
-                                                        <td>{{$playercardlist[$j]->customattribute1}}</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Hockeyskills</td>
+                                                        <td>Trikotnummer</td>
                                                         <td>{{$playercardlist[$j]->customattribute2}}</td>
                                                     </tr>
                                                     <tr>
-                                                        <td>Forecheck</td>
+                                                        <td>Alkoholkonsum</td>
                                                         <td>{{$playercardlist[$j]->customattribute3}}</td>
                                                     </tr>
                                                     <tr>
-                                                        <td>Backcheck</td>
+                                                        <td>Hockeyskills</td>
                                                         <td>{{$playercardlist[$j]->customattribute4}}</td>
                                                     </tr>
                                                 </table>
@@ -57,7 +53,6 @@
                             <tr>
                                 <th>#</th>
                                 <th>Name</th>
-                                <th>E-Mail</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -65,11 +60,12 @@
                                 <tr>
                                     <td>{{$userentry->id}}</td>
                                     <td><a href="/users/{{$userentry->id}}">{{$userentry->name}}</a>
-                                        @if(Gate::allows('manage-users-anyway') || $user->id == $userentry->id)
-                                            <a style="color:orangered" href="/backend/users/{{$userentry->id}}/edit"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
+                                        @if(Gate::allows('authenticate'))
+                                            @if(Gate::allows('manage-users-anyway') || $user->id == $userentry->id)
+                                                <a style="color:orangered" href="/backend/users/{{$userentry->id}}/edit"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
+                                            @endif
                                         @endif
                                     </td>
-                                    <td>{{$userentry->email}}</td>
                                 </tr>
                             @endforeach
                             </tbody>

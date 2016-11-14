@@ -83,7 +83,7 @@ class GamedayBackendViewController extends Controller
                 'selectedmenuitem_v' => 'Gamedays',
                 'paththumbnails'=>array("dashboard", "list-alt", "pencil"),
                 'locationlist' => Location::lists('name', 'id'),
-                'allusers' => User::all(),
+                'allusers' => User::all()->sortby('name'),
                 'gameday' => Gameday::find($id)
             ]);
         } else {

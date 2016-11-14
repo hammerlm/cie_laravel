@@ -3,12 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\User;
-use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\View;
+use App\Log;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
 use DB;
 
 class PlayercardBackendViewController extends Controller
@@ -20,12 +18,12 @@ class PlayercardBackendViewController extends Controller
                 DB::beginTransaction();
                 $user = User::find($id);
                 if($request->input('show_pc')) {
-                    $ca1 = $request->input('ca1');
+                    $ca6 = $request->input('ca6');
                     $ca2 = $request->input('ca2');
                     $ca3 = $request->input('ca3');
                     $ca4 = $request->input('ca4');
-                    if(is_numeric($ca1) && is_numeric($ca2) && is_numeric($ca3) && is_numeric($ca4)){
-                        $user->customattribute1 = $ca1;
+                    if($ca6 != "" && is_numeric($ca2) && is_numeric($ca3) && is_numeric($ca4)){
+                        $user->customattribute6 = $ca6;
                         $user->customattribute2 = $ca2;
                         $user->customattribute3 = $ca3;
                         $user->customattribute4 = $ca4;
@@ -54,6 +52,7 @@ class PlayercardBackendViewController extends Controller
                 $log->user_id = Auth::user()->id;
                 $log->affecteduser_id = $user->id;
                 $log->logcategory_id = 2;
+                $log->save();
                 DB::commit();
                 return view('templateslvlone.backendinformationmessagepage')->with([
                     'user' => Auth::user(),

@@ -39,11 +39,11 @@
     @can('manage-news')
     <hr/>
     {!! Form::open(['url' => url('/backend/gamedays/' . $gameday->id . '/edit'), 'method' => 'GET']) !!}
-    {!! Form::submit('Diesen Spieltageintrag bearbeiten', ["class" => "btn btn-default btn-sm"]) !!}
+    {!! Form::submit('Diesen Eistermineintrag bearbeiten', ["class" => "btn btn-default btn-sm"]) !!}
     {!! Form::close() !!}
     <hr/>
     {!! Form::open(['url' => url('/backend/gamedays/' . $gameday->id), 'method' => 'DELETE']) !!}
-    {!! Form::submit('Diesen Spieltageintrag löschen', ["class" => "btn btn-danger btn-sm"]) !!}
+    {!! Form::submit('Diesen Eistermineintrag löschen', ["class" => "btn btn-danger btn-sm"]) !!}
     {!! Form::close() !!}
     @endcan
 @stop

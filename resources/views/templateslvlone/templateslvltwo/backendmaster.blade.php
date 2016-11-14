@@ -5,10 +5,13 @@
             <li @if($selectedmenuitem_v == "News") class="active" @endif role="presentation"><a href="/backend/news">News</a></li>
         @endcan
         @can('manage-gamedays')
-        <li @if($selectedmenuitem_v == "Gamedays") class="active" @endif role="presentation"><a href="/backend/gamedays">Spieltageverwaltung</a></li>
+        <li @if($selectedmenuitem_v == "Gamedays") class="active" @endif role="presentation"><a href="/backend/gamedays">Eisterminverwaltung</a></li>
         @endcan
-        @can('manage-gamedays')
+        @can('authenticate')
         <li @if($selectedmenuitem_v == "Team") class="active" @endif role="presentation"><a href="/backend/users">Benutzerverwaltung</a></li>
+        @endcan
+        @can('view-logs')
+        <li @if($selectedmenuitem_v == "Logs") class="active" @endif role="presentation"><a href="/backend/logs">Logübersicht</a></li>
         @endcan
     </ul>
 @stop

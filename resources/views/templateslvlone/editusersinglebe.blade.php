@@ -94,22 +94,22 @@
                         <div class="col-lg-12">
                             {{Form::open(['url' => '/backend/playercards/' . $userentry->id, 'method' => 'PUT'])}}
                                 <div class="form-group">
-                                    <label for="ca1" class="col-md-4 control-label">Alkoholkonsum</label>
-                                    <input id="ca1" type="number" class="form-control" name="ca1" value="{{$userentry->customattribute1}}" />
+                                    <label for="ca6" class="col-md-4 control-label">Bevorzugte Position</label>
+                                    <input id="ca6" type="text" class="form-control" name="ca6" value="{{$userentry->customattribute6}}" />
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="ca2" class="col-md-4 control-label">Hockeyskills</label>
+                                    <label for="ca2" class="col-md-4 control-label">Bevorzugte Trikotnummer</label>
                                     <input id="ca2" type="number" class="form-control" name="ca2" value="{{$userentry->customattribute2}}" />
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="ca3" class="col-md-4 control-label">Forecheck</label>
+                                    <label for="ca3" class="col-md-4 control-label">Alkoholkonsum</label>
                                     <input id="ca3" type="number" class="form-control" name="ca3"value="{{$userentry->customattribute3}}" />
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="ca4" class="col-md-4 control-label">Backcheck</label>
+                                    <label for="ca4" class="col-md-4 control-label">Hockeysklills</label>
                                     <input id="ca4" type="number" class="form-control" name="ca4"value="{{$userentry->customattribute4}}" />
                                 </div><hr/>
 

@@ -7,6 +7,7 @@
                 <th>#</th>
                 <th>Name</th>
                 <th>E-Mail</th>
+                <th>Playercard aktiviert</th>
             </tr>
             </thead>
             <tbody>
@@ -19,6 +20,7 @@
                     @endif
                 </td>
                 <td>{{$userentry->email}}</td>
+                <td>{{$userentry->show_playercard}}</td>
             </tr>
             @endforeach
             </tbody>

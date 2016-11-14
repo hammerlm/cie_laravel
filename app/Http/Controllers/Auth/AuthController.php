@@ -9,6 +9,7 @@ use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use App\Log;
 
 class AuthController extends Controller
 {
@@ -87,6 +88,12 @@ where ru.user_id = :userid"), array(
             'userid' => $user->id,
         ));
         session(['roles' => $roles]);
+        $log = new Log();
+        $log->description = "User " . Auth::user()->name . " logged in.";
+        $log->description_idformat = "User with id=" . Auth::user()->id . " logged in.";
+        $log->user_id = Auth::user()->id;
+        $log->logcategory_id = 6;
+        $log->save();
         return redirect('/home');
     }
 }
