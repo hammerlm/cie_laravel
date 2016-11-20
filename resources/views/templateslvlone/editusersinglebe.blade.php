@@ -71,13 +71,7 @@
                                             />
                                 </div><hr/>
 
-                                <div class="form-group">
-                                    <div class="col-md-8 col-md-offset-4">
-                                        <button type="submit" class="btn btn-primary">
-                                            <i class="fa fa-btn fa-user"></i> Speichern
-                                        </button>
-                                    </div>
-                                </div>
+                            {{Form::submit('Speichern',array('class' => 'btn btn-primary btn-sm'))}}
                             {{Form::close()}}
                         </div>
                     </div>
@@ -92,6 +86,7 @@
                 " id="tab2default">
                     <div class="row">
                         <div class="col-lg-12">
+                            <h3>Attributeinstellungen</h3>
                             {{Form::open(['url' => '/backend/playercards/' . $userentry->id, 'method' => 'PUT'])}}
                                 <div class="form-group">
                                     <label for="ca6" class="col-md-4 control-label">Bevorzugte Position</label>
@@ -114,6 +109,11 @@
                                 </div><hr/>
 
                                 <div class="form-group">
+                                    <label for="ca5" class="col-md-4 control-label">Priorität</label>
+                                    <input id="ca5" type="number" class="form-control" name="ca5"value="{{$userentry->customattribute5}}" />
+                                </div><hr/>
+
+                                <div class="form-group">
                                     <label for="show_pc" class="col-md-4 control-label">Playercard anzeigen</label>
                                     <input id="show_pc" type="checkbox" class="form-control" name="show_pc"
                                     @if($userentry->show_playercard)
@@ -122,14 +122,34 @@
                                     />
                                 </div><hr/>
 
-                                <div class="form-group">
-                                    <div class="col-md-8 col-md-offset-4">
-                                        <button type="submit" class="btn btn-primary">
-                                            <i class="fa fa-btn fa-user"></i> Speichern
-                                        </button>
+                                {!! Form::submit('Speichern', array('class'=>'btn btn-primary btn-sm')) !!}
+                            {{Form::close()}}
+                            <hr/>
+                            <h3>Bilderupload</h3>
+                            <div class="about-section">
+                                <div class="text-content">
+                                    <div class="span7 offset1">
+                                        @if(Session::has('success'))
+                                            <div class="alert-box success">
+                                                <h2>{!! Session::get('success') !!}</h2>
+                                            </div>
+                                        @endif
+                                        {!! Form::open(array('url'=>'/backend/playercardpictureupload/' . $userentry->id,'method'=>'PUT', 'files'=>true)) !!}
+                                        <div class="control-group">
+                                            <div class="controls">
+                                                {!! Form::file('image') !!}
+                                                <p class="errors">{!!$errors->first('image')!!}</p>
+                                                @if(Session::has('error'))
+                                                    <p class="errors">{!! Session::get('error') !!}</p>
+                                                @endif
+                                            </div>
+                                        </div>
+                                        <div id="success"> </div>
+                                        {!! Form::submit('Hochladen', array('class'=>'btn btn-primary btn-sm')) !!}
+                                        {!! Form::close() !!}
                                     </div>
                                 </div>
-                            {{Form::close()}}
+                            </div>
                         </div>
                     </div>
                 </div>

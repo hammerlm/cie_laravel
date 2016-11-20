@@ -94,12 +94,12 @@
         </div>
         <hr/>
         <div class="form-group">
-            {{Form::submit('Spieltermin bearbeiten',array('class' => 'btn btn-primary btn-sm'))}}
+            {{Form::submit('Speichern',array('class' => 'btn btn-primary btn-sm'))}}
         </div>
     </div>
     {{Form::close()}}
     <hr/>
     {!! Form::open(['url' => url('/backend/gamedays/' . $gameday->id), 'method' => 'DELETE']) !!}
-    {!! Form::submit('Diesen Spieltageintrag löschen', ["class" => "btn btn-danger btn-sm"]) !!}
+    {!! Form::submit('Löschen', ["class" => "btn btn-danger btn-sm"]) !!}
     {!! Form::close() !!}
 @stop

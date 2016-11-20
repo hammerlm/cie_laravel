@@ -17,11 +17,11 @@
                 <tr>
                     <td>{{$gameday->id}}</td>
                     <td>{{$gameday->location->name}}</td>
-                    <td>{{$gameday->time}}</td>
+                    <td>{{ date('d.m.Y H:i', strtotime($gameday->time)) }}</td>
                     <td>{{$gameday->playercount_redundant}}</td>
                     <td>
                         <a href="/gamedays/{{$gameday->id}}"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></a>
-                        <a href="/backend/gamedays/{{$gameday->id}}/edit"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
+                        <a style="color:orangered" href="/backend/gamedays/{{$gameday->id}}/edit"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
                     </td>
                 </tr>
             @endforeach

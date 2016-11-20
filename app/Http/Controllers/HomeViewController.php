@@ -2,10 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\User;
-use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\View;
-use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Auth;
 use App\News;
 
@@ -17,6 +13,10 @@ class HomeViewController extends Controller
     public function index()
     {
         $newslist = News::with('categories', 'creator')->orderBy('created_at', 'desc')->paginate(6);
+        $lastnewsentryid = 0;
+        if(count($newslist) > 0) {
+            $lastnewsentryid = News::orderBy('created_at', 'desc')->first()->id;
+        }
         return view('templateslvlone.shownewslistfe')->with([
                 'user' => Auth::user(),
                 'path'=>array("Home", "Newsübersicht"),
@@ -26,7 +26,7 @@ class HomeViewController extends Controller
                 'nextgd' => \App\HelperClassCustom::getnextgameday(),
                 'timedifftonextgd' => \App\HelperClassCustom::gettimedifferencecomparedtonow(\App\HelperClassCustom::getnextgameday()),
                 'newslist' => $newslist,
-                'lastnewsentryid' => News::orderBy('created_at', 'desc')->first()->id
+                'lastnewsentryid' => $lastnewsentryid
         ]);
     }
 

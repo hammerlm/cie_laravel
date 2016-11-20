@@ -3,13 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\User;
-use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\View;
-use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
-use DB;
 
 class UserFrontendViewController extends Controller
 {
@@ -22,8 +16,8 @@ class UserFrontendViewController extends Controller
             'paththumbnails'=>array("star"),
             'nextgd' => \App\HelperClassCustom::getnextgameday(),
             'timedifftonextgd' => \App\HelperClassCustom::gettimedifferencecomparedtonow(\App\HelperClassCustom::getnextgameday()),
-            'playercardlist' => User::where('show_playercard', '=', true)->get(),
-            'userlist' => User::all()
+            'playercardlist' => User::where('show_playercard', '=', true)->orderby('customattribute5', 'desc')->get(),
+            'userlist' => User::where('is_disabled', '=', false)->get()
         ]);
     }
 

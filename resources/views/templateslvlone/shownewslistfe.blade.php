@@ -8,7 +8,7 @@
                     <div class="jumbotron">
                         <h2>{{$newsentry->title}} <span class="label label-default">New</span></h2>
                         <p class="jumbop">
-                            Artikel vom {{$newsentry->created_at}}, von <a href="/users/{{$newsentry->creator->id}}">{{$newsentry->creator->name}}</a>
+                            Artikel vom {{ date('d.m.Y H:i', strtotime($newsentry->created_at)) }}, von <a href="/users/{{$newsentry->creator->id}}">{{$newsentry->creator->name}}</a>
                         </p>
                         <p class="jumbop">
                             {{ substr(strip_tags($newsentry->body), 0, 400) }}
@@ -33,7 +33,7 @@
                                 <h3>{{$newsentry->title}}</h3>
                             </div>
                             <div class="panel-body">
-                                Artikel vom {{$newsentry->created_at}}, von <a href="/users/{{$newsentry->creator->id}}">{{$newsentry->creator->name}}</a>
+                                Artikel vom {{ date('d.m.Y H:i', strtotime($newsentry->created_at)) }}, von <a href="/users/{{$newsentry->creator->id}}">{{$newsentry->creator->name}}</a>
                             </div>
                             <div class="panel-body">
                                 {{ substr(strip_tags($newsentry->body), 0, 400) }}

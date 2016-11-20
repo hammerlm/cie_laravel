@@ -78,7 +78,7 @@
             {{Form::textarea('notes',null,array('class' => 'form-control', 'placeholder'=>'Content', 'id' => 'msgbody'))}}
         </div>
         <div class="form-group">
-            {{Form::submit('Spieltermin hinzufügen',array('class' => 'btn btn-primary btn-sm'))}}
+            {{Form::submit('Eistermin hinzufügen',array('class' => 'btn btn-primary btn-sm'))}}
         </div>
     </div>
     {{Form::close()}}

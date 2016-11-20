@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Log;
-use DB;
+use Illuminate\Support\Facades\DB;
 
 class UserToRgBackendViewController extends Controller
 {

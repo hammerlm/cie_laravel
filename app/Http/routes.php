@@ -59,6 +59,7 @@ Route::group(['middleware' => \App\Http\Middleware\ResetSessionRolesArrayIfNotAu
         Route::put('/backend/users/{id}', 'UserBackendViewController@update');
 
         Route::put('/backend/playercards/{id}', 'PlayercardBackendViewController@update');
+        Route::put('/backend/playercardpictureupload/{id}', 'PlayercardBackendViewController@upload');
 
         Route::put('/backend/permissions/{id}', 'UserToRgBackendViewController@update');
 

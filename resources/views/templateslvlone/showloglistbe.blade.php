@@ -15,7 +15,7 @@
                 <tr>
                     <td>{{$logentry->id}}</td>
                     <td>{{$logentry->description}}</td>
-                    <td>{{$logentry->created_at}}</td>
+                    <td>{{ date('d.m.Y H:i', strtotime($logentry->created_at)) }}</td>
                 </tr>
             @endforeach
             </tbody>

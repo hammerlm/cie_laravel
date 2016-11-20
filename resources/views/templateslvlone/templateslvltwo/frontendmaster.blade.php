@@ -7,7 +7,7 @@
             </div>
             <div class="panel-body">
                 @if($timedifftonextgd != false)
-                <h4 align="center">{{$nextgd->location->name}} - {{$nextgd->time}}</h4>
+                <a href="/gamedays/{{$nextgd->id}}"><h4 align="center">{{$nextgd->location->name}} - {{ date('d.m.Y H:i', strtotime($nextgd->time)) }}</h4></a>
                 <hr/>
                 <!-- The following section contains all the code to make the countdownfunction work -->
                 <!-- This code is derived from: https://www.sitepoint.com/build-javascript-countdown-timer-no-dependencies/ (SAT-Jul-30-2016) -->

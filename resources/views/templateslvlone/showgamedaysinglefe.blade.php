@@ -2,7 +2,7 @@
 @section('rightcol_content_lvl2')
     <div align="center" class="panel panel-info">
         <div class="panel-heading">
-            <h4>{{$gameday->location->name}} - {{$gameday->time}}</h4>
+            <h4>{{$gameday->location->name}} - {{ date('d.m.Y H:i', strtotime($gameday->time)) }}</h4>
         </div>
         <div class="panel-body">
             <h3>Anmerkungen</h3>

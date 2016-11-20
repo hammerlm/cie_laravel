@@ -62,7 +62,7 @@
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav navbar-right">
             <li>
-                <a href="#"><span class="glyphicon glyphicon-picture" aria-hidden="true"></span> Bilder</a>
+                <a href="https://onedrive.live.com/?authkey=%21ALVTsvEV2qVLtcQ&id=CE49BCB265851FEF%217805&cid=CE49BCB265851FEF"><span class="glyphicon glyphicon-picture" aria-hidden="true"></span> Bilder</a>
             </li>
             <li @if($selectedmenuitem_h == "Gamedays") class="active" @endif>
                 <a href="/gamedays"><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> Eistermine</a>

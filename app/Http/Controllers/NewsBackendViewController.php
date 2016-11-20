@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use App\News;
 use App\Category;
 use App\Log;
-use DB;
+use Illuminate\Support\Facades\DB;
 
 class NewsBackendViewController extends Controller
 {

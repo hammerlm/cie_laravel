@@ -30,7 +30,7 @@
                 </table>
             </div>
             <div class="form-group">
-                {{Form::submit('Publish Post',array('class' => 'btn btn-primary btn-sm'))}}
+                {{Form::submit('Beitrag hinzufügen',array('class' => 'btn btn-primary btn-sm'))}}
             </div>
         </div>
     {{Form::close()}}

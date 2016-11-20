@@ -16,7 +16,7 @@
                     <td>
                         <a href="/news/{{$newsentry->id}}">{{$newsentry->title}}</a> <a style="color:orangered" href="/backend/news/{{$newsentry->id}}/edit"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
                     </td>
-                    <td>{{$newsentry->created_at}}</td>
+                    <td>{{ date('d.m.Y H:i', strtotime($newsentry->created_at)) }}</td>
                 </tr>
             @endforeach
             </tbody>

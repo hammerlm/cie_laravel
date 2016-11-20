@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 use App\Gameday;
 use App\Location;
 use App\Log;
-use DB;
+use Illuminate\Support\Facades\DB;
 
 class GamedayBackendViewController extends Controller
 {
