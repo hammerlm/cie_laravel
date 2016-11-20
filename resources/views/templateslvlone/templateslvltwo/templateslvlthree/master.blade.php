@@ -75,8 +75,8 @@
                   <a href="/backend"><span class="glyphicon glyphicon-dashboard" aria-hidden="true"></span> Backend</a>
               </li>
               @endcan
-              <li @if($selectedmenuitem_h == "Impressum") class="active" @endif>
-                <a href="/impressum"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span> Impressum</a>
+              <li @if($selectedmenuitem_h == "Info") class="active" @endif>
+                <a href="/info"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span> Info</a>
               </li>
               @if(Gate::allows('authenticate'))
                 <li class="dropdown">

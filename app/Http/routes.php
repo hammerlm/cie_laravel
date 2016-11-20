@@ -24,6 +24,8 @@ Route::group(['middleware' => \App\Http\Middleware\ResetSessionRolesArrayIfNotAu
     Route::get('/', 'HomeViewController@index');
     Route::get('/news/{id}', 'HomeViewController@show');
 
+    Route::get('/info', 'InfoFrontendViewController@index');
+
     Route::get('/gamedays', 'GamedayFrontendViewController@index');
     Route::get('/gamedays/{id}', 'GamedayFrontendViewController@show');
 

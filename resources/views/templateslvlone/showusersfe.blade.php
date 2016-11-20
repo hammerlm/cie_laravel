@@ -4,7 +4,9 @@
         <div class="panel-heading">
             <ul class="nav nav-tabs">
                 <li class="active"><a href="#tab1default" data-toggle="tab">Playercardansicht</a></li>
+                @can('authenticate')
                 <li><a href="#tab2default" data-toggle="tab">Spielerliste</a></li>
+                @endcan
             </ul>
         </div>
         <div class="panel-body">
@@ -46,6 +48,7 @@
                         </div>
                     @endfor
                 </div>
+                @can('authenticate')
                 <div class="tab-pane fade" id="tab2default">
                     <div class="table-responsive">
                         <table class="table">
@@ -72,6 +75,7 @@
                         </table>
                     </div>
                 </div>
+                @endcan
             </div>
         </div>
     </div>
