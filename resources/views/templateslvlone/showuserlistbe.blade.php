@@ -12,7 +12,7 @@
             </thead>
             <tbody>
             @foreach($userlist as $userentry)
-            <tr>
+            <tr @if($userentry->is_disabled) style="background-color:orange"@endif>
                 <td>{{$userentry->id}}</td>
                 <td><a href="/users/{{$userentry->id}}">{{$userentry->name}}</a>
                     @if(Gate::allows('manage-users-anyway') || $user->id == $userentry->id)
@@ -20,12 +20,20 @@
                     @endif
                 </td>
                 <td>{{$userentry->email}}</td>
-                <td>{{$userentry->show_playercard}}</td>
+                <td>
+                    @if($userentry->show_playercard)
+                      ja
+                    @else
+                    nein
+                    @endif
+                </td>
             </tr>
             @endforeach
             </tbody>
         </table>
     </div>
+    <h3>Information:</h3>
+    <p>Wenn ein Tabelleneintrag <span style="color:orange">orange</span> hinterlegt ist, bedeutet das, dass der jeweilige Benutzer deaktiviert ist und sich somit nicht authentifizieren kann.</p>
     @can('manage-users')
     <hr/>
     {!! Form::open(['url' => url('/backend/users/create'), 'method' => 'GET']) !!}

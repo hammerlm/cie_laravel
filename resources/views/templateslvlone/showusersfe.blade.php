@@ -12,41 +12,45 @@
         <div class="panel-body">
             <div class="tab-content">
                 <div class="tab-pane fade in active" id="tab1default">
-                    @for ($i = 0; $i < intval((count($playercardlist) / 3)) + 1; $i++)
-                        <div class="row">
-                            @for ($j = $i * 3; $j < (($i * 3) + 3); $j++)
-                                @if(isset($playercardlist[$j]))
-                                    <div class="col-lg-4">
-                                        <div class="thumbnail">
-                                            <img src="{{$playercardlist[$j]->picture_path}}" alt="Chuck Norris">
-                                            <h4 align="center">{{$playercardlist[$j]->name}}</h4>
-                                            <div class="caption">
-                                                <!-- Table -->
-                                                <table class="table">
-                                                    <tr>
-                                                        <td>Position</td>
-                                                        <td>{{$playercardlist[$j]->customattribute6}}</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Trikotnummer</td>
-                                                        <td>{{$playercardlist[$j]->customattribute2}}</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Alkoholkonsum</td>
-                                                        <td>{{$playercardlist[$j]->customattribute3}}</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Hockeyskills</td>
-                                                        <td>{{$playercardlist[$j]->customattribute4}}</td>
-                                                    </tr>
-                                                </table>
+                    @if(count($playercardlist) > 0)
+                        @for ($i = 0; $i < intval((count($playercardlist) / 3)) + 1; $i++)
+                            <div class="row">
+                                @for ($j = $i * 3; $j < (($i * 3) + 3); $j++)
+                                    @if(isset($playercardlist[$j]))
+                                        <div class="col-lg-4">
+                                            <div class="thumbnail">
+                                                <img src="{{$playercardlist[$j]->picture_path}}" alt="Chuck Norris">
+                                                <h4 align="center">{{$playercardlist[$j]->name}}</h4>
+                                                <div class="caption">
+                                                    <!-- Table -->
+                                                    <table class="table">
+                                                        <tr>
+                                                            <td>Position</td>
+                                                            <td>{{$playercardlist[$j]->customattribute6}}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Trikotnummer</td>
+                                                            <td>{{$playercardlist[$j]->customattribute2}}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Alkoholkonsum</td>
+                                                            <td>{{$playercardlist[$j]->customattribute3}}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Hockeyskills</td>
+                                                            <td>{{$playercardlist[$j]->customattribute4}}</td>
+                                                        </tr>
+                                                    </table>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                @endif
-                            @endfor
-                        </div>
-                    @endfor
+                                    @endif
+                                @endfor
+                            </div>
+                        @endfor
+                    @else
+                        <div class="alert alert-info" role="alert">Derzeit sind leider noch keine Playercards vorhanden!</div>
+                    @endif
                 </div>
                 @can('authenticate')
                 <div class="tab-pane fade" id="tab2default">
