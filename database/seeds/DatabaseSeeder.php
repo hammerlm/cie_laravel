@@ -11,17 +11,13 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $location = new \App\Location();
-        $location->name = "Radenthein";
-        $location->description = "Die Nockhalle in Radenthein wurde erst 2008 errichtet.";
-        $location->save();
-        $location2 = new \App\Location();
-        $location2->name = "Villach";
-        $location2->description = "Stadthalle in Villach";
-        $location2->save();
-        $location3 = new \App\Location();
-        $location3->name = "Steindorf";
-        $location3->description = "Ossiacher-See-Halle in Steindorf";
-        $location3->save();
+        $userlist = \App\User::all();
+        for($i = 0; $i < count($userlist); $i++) {
+            $hashpart = substr(\Illuminate\Support\Facades\Hash::make($i),8,10);
+            echo $userlist[$i]->name . " -> " . $hashpart . " \n";
+            $userlist[$i]->password = \Illuminate\Support\Facades\Hash::make($hashpart);
+            $userlist[$i]->save();
+        }
+
     }
 }

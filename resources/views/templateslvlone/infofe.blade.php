@@ -127,9 +127,13 @@
                         Die Kalenderanzeige in der linken Spalte (Desktop) bzw. im oberen Bereich der mobilen Ansicht (Smartphone/Tablet, etc.) wurde mithilfe von
                         <a href="http://zabuto.com/dev/calendar/examples/basic_usage.html">http://zabuto.com/dev/calendar/examples/basic_usage.html</a> entwickelt.
                     </p>
-
-
-
+                    <hr/>
+                    <h2>Bildergallerie</h2>
+                    <p>
+                        Die Bildergallerie ist technisch gesehen kein Teil dieser Homepage (Hauptmenü->Bilder), da Sie auf den Microsoftdienst "OneDrive" ausgelagert
+                        wurde. Deshalb liefert der Menüpunkt "Bilder" einen externen Link.
+                        Der Verantwortliche für diese Bildergallerie ist Christian Warmuth.
+                    </p>
                 </div>
             </div>
         </div>
