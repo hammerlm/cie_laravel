@@ -41,7 +41,7 @@ CREATE TABLE `categories` (
 
 LOCK TABLES `categories` WRITE;
 /*!40000 ALTER TABLE `categories` DISABLE KEYS */;
-INSERT INTO `categories` VALUES (1,'announcements','This category is for every news-entry which deals mainly with announcements.',NULL,NULL),(2,'others','This category is for every news-entry which can\'t be related to any other category.',NULL,NULL),(3,'reviews','This category is for every news-entry that contains information about events which happened in the past.',NULL,NULL),(4,'info','This category is for every news-entry that general information such as maintenance-notifications.',NULL,NULL);
+INSERT INTO `categories` VALUES (1,'Ankuendigungen','This category is for every news-entry which deals mainly with announcements.',NULL,NULL),(2,'Andere','This category is for every news-entry which can\'t be related to any other category.',NULL,NULL),(3,'Rueckblicke','This category is for every news-entry that contains information about events which happened in the past.',NULL,NULL),(4,'Informationen','This category is for every news-entry that general information such as maintenance-notifications.',NULL,NULL);
 /*!40000 ALTER TABLE `categories` ENABLE KEYS */;
 UNLOCK TABLES;
 
