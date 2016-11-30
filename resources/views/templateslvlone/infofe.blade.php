@@ -44,19 +44,43 @@
                 <div class="tab-pane fade" id="tab2default">
                     <h1>Sponsorenunterstützung</h1>
                     <hr/>
-                    <p>Ein großes Dankeschön gilt es auch auf unsere beiden Sponsoren 'Holzbau Sepp GmbH' und 'Franz Krall Personalbeistellung GmbH' auszusprechen, die uns zwei Garnituren Hockeydressen gesponsort haben!</p>
+                    <p>Ein großes Dankeschön gilt es auch unseren Sponsoren auszusprechen, die uns bei der Finanzierung der Hockeydressen und den Eiszeitterminen sehr geholfen haben!</p>
                     <hr/>
                     <h2>Holzbau Sepp GmbH</h2>
                     Kärntnerstraße 50c <br/>
                     A-9586 Fürnitz, Kärnten<br/>
                     Tel.: 0650/6022045<br/>
                     amati@holzbau-sepp.at<br/>
+                    <h3>Logo:</h3>
+                    <img src="pics/logos/franzkrall.png" class="img-responsive" alt="Franz-Krall">
                     <hr/>
                     <h2>Franz Krall Personalbeistellung GmbH</h2>
                     Kärntnerstraße 50c <br/>
                     A-9586 Fürnitz, Kärnten<br/>
                     Tel.: +43 (0) 4257 / 22 101 <br/>
                     office@krall-personal.at<br/>
+                    <h3>Logo:</h3>
+                    <img src="pics/logos/holzbausepp.jpg" class="img-responsive" alt="Holzbau-Sepp">
+                    <hr/>
+                    @can('authenticate')
+                    <h2>Armin's Radlwerkstatt</h2>
+                    Holunderweg 6 <br/>
+                    A-9545 Radenthein, Kärnten<br/>
+                    Tel.: 04246 3487 <br/>
+                    bike@ArminsRadlwerkstatt.at<br/>
+                    <h3>Logo:</h3>
+                    <img src="pics/logos/arminsradlwerkstatt.jpg" class="img-responsive" alt="Armins-Radlwerkstatt">
+                    <hr/>
+                    <h2>pro-fil kunststoff GmbH</h2>
+                    Trabenigerstrasse 1 <br/>
+                    A-9241 Wernberg, Kärnten<br/>
+                    Tel.: +43 (0) 4252 / 30 20 1 <br/>
+                    office@pro-fil-kunststoff.com<br/>
+                    <h3>Logo:</h3>
+                    <img src="pics/logos/profilksgmbh.gif" class="img-responsive" alt="pro-fil">
+                    @endcan
+
+
                 </div>
                 <div class="tab-pane fade" id="tab3default">
                     <h1>Geschichte</h1>

@@ -82,7 +82,7 @@
                 <a href="/gamedays"><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> Eistermine</a>
             </li>
             <li @if($selectedmenuitem_h == "Team") class="active" @endif>
-                <a href="/team"><span class="glyphicon glyphicon-gift" aria-hidden="true"></span> Team</a>
+                <a href="/team"><span class="glyphicon glyphicon-gift" aria-hidden="true"></span> Playercards</a>
             </li>
               @can('authenticate')
               <li @if($selectedmenuitem_h == "Backend") class="active" @endif>
