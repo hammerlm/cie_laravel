@@ -21,6 +21,20 @@
     <!-- Custom styles generally -->
     <link href="{{ asset('bootstrap-3.3.6-dist/css/custom.css')}}" rel="stylesheet">
 
+      <style>
+          html {
+              background: url(../../pics/custombg_{{rand(1, 6)}}.jpg) no-repeat center center fixed;
+              -webkit-background-size: cover;
+              -moz-background-size: cover;
+              -o-background-size: cover;
+              background-size: cover;
+          }
+
+          body {
+              background-color: transparent;
+          }
+      </style>
+
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="{{ asset('../../assets/js/ie8-responsive-file-warning.js')}}"></script><![endif]-->
     <script src="{{ asset('bootstrap-3.3.6-dist/assets/js/ie-emulation-modes-warning.js')}}"></script>
@@ -101,7 +115,11 @@
       </div><!-- /.container -->
     </nav><!-- /.navbar -->
 
-    <div class="container">
+    <div class="container"
+         style="
+         background-color:rgba(255, 255, 255, 0.8);
+         border-radius: 6px;
+            ">
         <!-- Page Heading -->
         <div class="row">
             <div class="col-lg-12">
