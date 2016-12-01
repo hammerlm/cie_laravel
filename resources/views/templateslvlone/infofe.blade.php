@@ -51,14 +51,14 @@
                     A-9586 Fürnitz, Kärnten<br/>
                     Tel.: 0650/6022045<br/>
                     amati@holzbau-sepp.at<br/>
-                    <img src="pics/logos/holzbausepp.png" class="img-responsive" alt="Franz-Krall">
+                    <img src="pics/logos/holzbausepp.jpg" class="img-responsive" alt="Franz-Krall">
                     <hr/>
                     <h2>Franz Krall Personalbeistellung GmbH</h2>
                     Kärntnerstraße 50c <br/>
                     A-9586 Fürnitz, Kärnten<br/>
                     Tel.: +43 (0) 4257 / 22 101 <br/>
                     office@krall-personal.at<br/>
-                    <img src="pics/logos/franzkrall.jpg" class="img-responsive" alt="Holzbau-Sepp">
+                    <img src="pics/logos/franzkrall.png" class="img-responsive" alt="Holzbau-Sepp">
                     <hr/>
                     <h2>Armin's Radlwerkstatt</h2>
                     Holunderweg 6 <br/>
