@@ -52,7 +52,7 @@
                     Tel.: 0650/6022045<br/>
                     amati@holzbau-sepp.at<br/>
                     <h3>Logo:</h3>
-                    <img src="pics/logos/franzkrall.png" class="img-responsive" alt="Franz-Krall">
+                    <img src="pics/logos/holzbausepp.png" class="img-responsive" alt="Franz-Krall">
                     <hr/>
                     <h2>Franz Krall Personalbeistellung GmbH</h2>
                     Kärntnerstraße 50c <br/>
@@ -60,9 +60,8 @@
                     Tel.: +43 (0) 4257 / 22 101 <br/>
                     office@krall-personal.at<br/>
                     <h3>Logo:</h3>
-                    <img src="pics/logos/holzbausepp.jpg" class="img-responsive" alt="Holzbau-Sepp">
+                    <img src="pics/logos/franzkrall.jpg" class="img-responsive" alt="Holzbau-Sepp">
                     <hr/>
-                    @can('authenticate')
                     <h2>Armin's Radlwerkstatt</h2>
                     Holunderweg 6 <br/>
                     A-9545 Radenthein, Kärnten<br/>
@@ -78,7 +77,6 @@
                     office@pro-fil-kunststoff.com<br/>
                     <h3>Logo:</h3>
                     <img src="pics/logos/profilksgmbh.gif" class="img-responsive" alt="pro-fil">
-                    @endcan
 
 
                 </div>
@@ -118,7 +116,7 @@
                     <h2>CSS+JS-Framework</h2>
                     <p>
                         Für ein skalierbares und weitgehend browserunabhängiges Design hat das Framework Bootstrap gesorgt! Bootstrap bietet schon einige vorgefertigte
-                        Komponenten, die man ganz einfach in das eigene HTML-Datei einfügen kann.
+                        Komponenten, die man ganz einfach in die eigene HTML-Datei einfügen kann.
                         <br/>Mehr dazu: <br/>
                         <ul>
                             <li><a href="http://getbootstrap.com/">http://getbootstrap.com/</a></li>
@@ -150,6 +148,11 @@
                     <p>
                         Die Kalenderanzeige in der linken Spalte (Desktop) bzw. im oberen Bereich der mobilen Ansicht (Smartphone/Tablet, etc.) wurde mithilfe von
                         <a href="http://zabuto.com/dev/calendar/examples/basic_usage.html">http://zabuto.com/dev/calendar/examples/basic_usage.html</a> entwickelt.
+                    </p>
+                    <hr/>
+                    <h2>Summernote-Editor</h2>
+                    <p>
+                        Der im Verwaltungsbereich verwendete Newseditor basiert auf <a href="http://summernote.org/">http://summernote.org/</a>.
                     </p>
                     <hr/>
                     <h2>Bildergallerie</h2>
