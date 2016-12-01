@@ -51,7 +51,6 @@
                     A-9586 Fürnitz, Kärnten<br/>
                     Tel.: 0650/6022045<br/>
                     amati@holzbau-sepp.at<br/>
-                    <h3>Logo:</h3>
                     <img src="pics/logos/holzbausepp.png" class="img-responsive" alt="Franz-Krall">
                     <hr/>
                     <h2>Franz Krall Personalbeistellung GmbH</h2>
@@ -59,7 +58,6 @@
                     A-9586 Fürnitz, Kärnten<br/>
                     Tel.: +43 (0) 4257 / 22 101 <br/>
                     office@krall-personal.at<br/>
-                    <h3>Logo:</h3>
                     <img src="pics/logos/franzkrall.jpg" class="img-responsive" alt="Holzbau-Sepp">
                     <hr/>
                     <h2>Armin's Radlwerkstatt</h2>
@@ -67,7 +65,6 @@
                     A-9545 Radenthein, Kärnten<br/>
                     Tel.: 04246 3487 <br/>
                     bike@ArminsRadlwerkstatt.at<br/>
-                    <h3>Logo:</h3>
                     <img src="pics/logos/arminsradlwerkstatt.jpg" class="img-responsive" alt="Armins-Radlwerkstatt">
                     <hr/>
                     <h2>pro-fil kunststoff GmbH</h2>
@@ -75,7 +72,6 @@
                     A-9241 Wernberg, Kärnten<br/>
                     Tel.: +43 (0) 4252 / 30 20 1 <br/>
                     office@pro-fil-kunststoff.com<br/>
-                    <h3>Logo:</h3>
                     <img src="pics/logos/profilksgmbh.gif" class="img-responsive" alt="pro-fil">
 
 
