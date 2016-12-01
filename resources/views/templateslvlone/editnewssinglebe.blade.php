@@ -1,7 +1,7 @@
 @extends('templateslvlone.templateslvltwo.backendmaster')
 @section('scriptrefs_optional')
-    <link href="{{ asset('http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.2/summernote.css')}}" rel="stylesheet">
-    <script src="{{ asset('http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.2/summernote.js')}}"></script>
+    <link href="{{ asset('https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.2/summernote.css')}}" rel="stylesheet">
+    <script src="{{ asset('https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.2/summernote.js')}}"></script>
 @stop
 @section('rightcol_content_lvl2')
     {{Form::open(['url' => '/backend/news/' . $newsentry->id, 'method' => 'PUT'])}}
