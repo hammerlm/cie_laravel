@@ -82,7 +82,7 @@
                     <p>
                         Die Anfänge unseres "Eishockeyprojektes" wurden im Frühjahr 2012 getätigt, als wir die ersten Schritte auf Zauchner Eis wagten. Das Erstaunliche war eigentlich nicht das Eishockeyspiel an sich, sondern die Tatsache, dass die Ursprungsidee in einem Gasthaus bei 6-7 Bier entstand, sich nach dem Ausnüchtern jeder noch daran erinnern konnte und auch verlässlich beim geplanten ersten Eistermin erschienen ist. Das hat dann sogar so gut geklappt, dass aus einer einmaligen Sache eine Selbstverständlichkeit wurde:
                         Es wurden weitere Spiele organisiert (u.a. in Steindorf und Velden), was dazu führte, dass wir seit Herbst 2014 mittlerweile fast jeden Samstag unsere Eiszeiten in unserer Hauptdestination Radenthein herunterspulen. Dank unserem Oberorganisator, Michael Hochsteiner (auch als 'Dr. Stoner bekannt'), wird auch alles zusammengehalten und eine gewisse Ordnung gelebt. Im Jahr 2015 hat sich für unsere Eishockeytruppe auch noch ein eigener Name eingebürgert:
-                        'Carinthian-Ice-Eagles' (DE: 'Kärntner Eisadler') - mit dem Motto 'Pure Passion' (DE: 'Leidenschaft')
+                        'Carinthian-Ice-Eagles' (DE: 'Kärntner Eisadler') - mit dem Motto 'Pure Passion' (DE: 'Pure Leidenschaft')
                     </p>
                 </div>
                 <div class="tab-pane fade" id="tab4default">
