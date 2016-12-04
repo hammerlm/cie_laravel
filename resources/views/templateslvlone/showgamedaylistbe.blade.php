@@ -9,6 +9,7 @@
                 <th>Ort</th>
                 <th>Zeitstempel</th>
                 <th>Spieleranzahl</th>
+                <th>Goalieanzahl</th>
                 <th>Aktion</th>
             </tr>
             </thead>
@@ -19,6 +20,7 @@
                     <td>{{$gameday->location->name}}</td>
                     <td>{{ date('d.m.Y H:i', strtotime($gameday->time)) }}</td>
                     <td>{{$gameday->playercount_redundant}}</td>
+                    <td>{{$gameday->goaliecount_redundant}}</td>
                     <td>
                         <a href="/gamedays/{{$gameday->id}}"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></a>
                         <a style="color:orangered" href="/backend/gamedays/{{$gameday->id}}/edit"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
