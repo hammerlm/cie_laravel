@@ -27,4 +27,8 @@ class User extends Authenticatable
     public function rolegroups() {
         return $this->belongsToMany('App\Rolegroup');
     }
+
+    public function gamedays() {
+        return $this->belongsToMany('App\Gameday')->withPivot('is_goalie');
+    }
 }

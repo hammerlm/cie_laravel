@@ -10,6 +10,9 @@
                 {{$gameday->notes}}
             </p>
             <h3>Teilnehmeranzahl: {{$gameday->playercount_redundant}}</h3>
+            <h4>Spieleranzahl: {{$gameday->playercount_redundant - $gameday->goaliecount_redundant}}</h4>
+            <h4>Goalieanzahl: {{$gameday->goaliecount_redundant}}</h4>
+            <p>Zuletzt aktualisiert: {{ date('d.m.Y H:i', strtotime($gameday->updated_at)) }}</p>
             @can('authenticate')
                 <hr/>
                 <h3>Teilnehmerliste</h3>
@@ -19,20 +22,23 @@
                         <tr>
                             <th>#</th>
                             <th>Name</th>
-                            <th>E-Mail</th>
                         </tr>
                         </thead>
                         <tbody>
                         @foreach($gameday->users as $participant)
-                            <tr>
+                            <tr @if($participant->pivot->is_goalie)
+                                style="background-color:lawngreen"
+                                @endif
+                            >
                                 <td>{{$participant->id}}</td>
                                 <td>{{$participant->name}}</td>
-                                <td>{{$participant->email}}</td>
                             </tr>
                         @endforeach
                         </tbody>
                     </table>
                 </div>
+                <h3>Information:</h3>
+                <p>Wenn ein Tabelleneintrag <span style="background-color:lawngreen">grün</span> hinterlegt ist, bedeutet das, dass der jeweilige Spieler ein Tormann ist.</p>
             @endcan
         </div>
     </div>

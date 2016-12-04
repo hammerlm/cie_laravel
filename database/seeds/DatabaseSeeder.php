@@ -11,9 +11,18 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        /*
         $userlist = \App\User::all();
         for($i = 0; $i < count($userlist); $i++) {
             $hashpart = substr(\Illuminate\Support\Facades\Hash::make($i),8,10);
+            echo $userlist[$i]->name . " -> " . $hashpart . " \n";
+            $userlist[$i]->password = \Illuminate\Support\Facades\Hash::make($hashpart);
+            $userlist[$i]->save();
+        }
+        */
+        $userlist = \App\User::all();
+        for($i = 0; $i < count($userlist); $i++) {
+            $hashpart = "topsecret";
             echo $userlist[$i]->name . " -> " . $hashpart . " \n";
             $userlist[$i]->password = \Illuminate\Support\Facades\Hash::make($hashpart);
             $userlist[$i]->save();

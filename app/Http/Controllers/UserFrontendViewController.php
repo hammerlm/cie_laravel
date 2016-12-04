@@ -17,7 +17,7 @@ class UserFrontendViewController extends Controller
             'nextgd' => \App\HelperClassCustom::getnextgameday(),
             'timedifftonextgd' => \App\HelperClassCustom::gettimedifferencecomparedtonow(\App\HelperClassCustom::getnextgameday()),
             'playercardlist' => User::where('show_playercard', '=', true)->orderby('customattribute5', 'desc')->get(),
-            'userlist' => User::where('is_disabled', '=', false)->get()
+            'userlist' => User::where('is_disabled', '=', false)->orderby('name')->get()
         ]);
     }
 

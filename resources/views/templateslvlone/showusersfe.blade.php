@@ -32,14 +32,16 @@
                                                             <td>Trikotnummer</td>
                                                             <td>{{$playercardlist[$j]->customattribute2}}</td>
                                                         </tr>
-                                                        <tr>
-                                                            <td>Alkoholkonsum</td>
-                                                            <td>{{$playercardlist[$j]->customattribute3}}</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>Hockeyskills</td>
-                                                            <td>{{$playercardlist[$j]->customattribute4}}</td>
-                                                        </tr>
+                                                        @can('authenticate')
+                                                            <tr>
+                                                                <td>Alkoholkonsum</td>
+                                                                <td>{{$playercardlist[$j]->customattribute3}}</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Hockeyskills</td>
+                                                                <td>{{$playercardlist[$j]->customattribute4}}</td>
+                                                            </tr>
+                                                        @endcan
                                                     </table>
                                                 </div>
                                             </div>

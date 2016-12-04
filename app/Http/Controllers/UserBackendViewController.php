@@ -16,7 +16,7 @@ class UserBackendViewController extends Controller
     //this function returns a userlist for the showuserlistbe-view
     public function index() {
         if (Gate::allows('authenticate')) {
-            $userlist = User::all();
+            $userlist = User::orderby('name')->get();
             return view('templateslvlone.showuserlistbe')->with([
                 'user' => Auth::user(),
                 'path'=>array("Backend","Benutzerübersicht"),

@@ -82,12 +82,14 @@
             <table class="table table-striped table-hover">
                 <tr>
                     <th>Name</th>
-                    <th>Auswahl</th>
+                    <th align="center">Teilnahme</th>
+                    <th align="center">... als Tormann?</th>
                 </tr>
                 @foreach ($allusers as $participant)
                     <tr>
                         <td>{{ $participant->name }}</td>
                         <td align="center">{!! Form::checkbox("participantlist[]", $participant->id, $gameday->users->contains($participant)) !!}</td>
+                        <td align="center">{!! Form::checkbox("goalielist[]", $participant->id, $goalies->contains($participant)) !!}</td>
                     </tr>
                 @endforeach
             </table>

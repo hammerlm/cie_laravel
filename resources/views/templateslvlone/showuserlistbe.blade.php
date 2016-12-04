@@ -22,9 +22,9 @@
                 <td>{{$userentry->email}}</td>
                 <td>
                     @if($userentry->show_playercard)
-                      ja
+                        ja
                     @else
-                    nein
+                        nein
                     @endif
                 </td>
             </tr>
@@ -33,7 +33,7 @@
         </table>
     </div>
     <h3>Information:</h3>
-    <p>Wenn ein Tabelleneintrag <span style="color:orange">orange</span> hinterlegt ist, bedeutet das, dass der jeweilige Benutzer deaktiviert ist und sich somit nicht authentifizieren kann.</p>
+    <p>Wenn ein Tabelleneintrag <span style="background-color:orange">orange</span> hinterlegt ist, bedeutet das, dass der jeweilige Benutzer deaktiviert ist und sich somit nicht authentifizieren kann.</p>
     @can('manage-users')
     <hr/>
     {!! Form::open(['url' => url('/backend/users/create'), 'method' => 'GET']) !!}

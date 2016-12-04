@@ -30,7 +30,10 @@
                     </div>
                 </div>
                 <hr/>
-                <h5>Momentan angemeldete Spieler: {{$nextgd->playercount_redundant}}</h5>
+                    <strong><h5>Momentane Teilnehmeranzahl: {{$nextgd->playercount_redundant}}</h5></strong>
+                    <h5>Spieleranzahl: {{$nextgd->playercount_redundant - $nextgd->goaliecount_redundant}}</h5>
+                    <h5>Goalieanzahl: {{$nextgd->goaliecount_redundant}}</h5>
+                    <p>Zuletzt aktualisiert: {{ date('d.m.Y H:i', strtotime($nextgd->updated_at)) }}</p>
                 <!-- Custom styles for this countdownfeature -->
                 <link href="{{ asset('bootstrap-3.3.6-dist/css/plugins/custom_cd.css')}}" rel="stylesheet">
                 <script type="text/javascript">

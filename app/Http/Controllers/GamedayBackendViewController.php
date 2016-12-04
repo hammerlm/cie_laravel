@@ -74,6 +74,7 @@ class GamedayBackendViewController extends Controller
     //this function returns the edit-view for gamedays
     public function edit($id)
     {
+        $gd = Gameday::find($id);
         if (Gate::allows('manage-gamedays') && Gate::allows('authenticate')) {
             return view('templateslvlone.editgamedaysinglebe')->with([
                 'user' => Auth::user(),
@@ -84,7 +85,8 @@ class GamedayBackendViewController extends Controller
                 'paththumbnails'=>array("dashboard", "list-alt", "pencil"),
                 'locationlist' => Location::lists('name', 'id'),
                 'allusers' => User::all()->sortby('name'),
-                'gameday' => Gameday::find($id)
+                'goalies' => $gd->users()->wherePivot('is_goalie', 1)->get(),
+                'gameday' => $gd
             ]);
         } else {
             return view('templateslvlone.backendinformationmessagepage')->with([
@@ -181,13 +183,25 @@ class GamedayBackendViewController extends Controller
                 $gamedayentry->time = $request->input('date') . ' ' . $request->input('time') . ':00';
                 $gamedayentry->notes = $request->input('notes');
                 $gamedayentry->playercount_redundant = count($request->input('participantlist'));
-                $gamedayentry->save();
                 $userlist = $request->input('participantlist');
+                $goalielist = $request->input('goalielist');
                 DB::table('gameday_user')->where('gameday_id', '=', $gamedayentry->id)->delete();
+                $goaliecount = 0;
                 for($i = 0; $i < count($userlist); $i++) {
-                    $user = User::find($userlist[$i]);
-                    $gamedayentry->users()->attach($user);
+                    $is_goalie = 0;
+                    if(in_array($userlist[$i], $goalielist)) {
+                        $is_goalie = 1;
+                        $goaliecount++;
+                    }
+                    DB::table('gameday_user')->insert(
+                        [
+                            'user_id' => $userlist[$i],
+                            'gameday_id' => $gamedayentry->id,
+                            'is_goalie' => $is_goalie
+                        ]);
                 }
+                $gamedayentry->goaliecount_redundant = $goaliecount;
+                $gamedayentry->save();
                 $log = new Log();
                 $log->description = "The gamedayentry with the id=" . $gamedayentry->id . " was edited by user " . Auth::user()->name . ".";
                 $log->description_idformat = "The gamedayentry with the id=" . $gamedayentry->id . " was edited by the user with id=" . Auth::user()->id . ".";
