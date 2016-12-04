@@ -105,11 +105,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="showgamedaylistbe.blade.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="showgamedaylistbe.blade.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/templateslvlone/showgamedaylistbe.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-11.148149">
-              <caret line="22" column="64" selection-start-line="21" selection-start-column="20" selection-end-line="22" selection-end-column="64" />
+            <state vertical-scroll-proportion="0.690367">
+              <caret line="22" column="93" selection-start-line="22" selection-start-column="93" selection-end-line="22" selection-end-column="93" />
               <folding />
             </state>
           </provider>
@@ -125,11 +125,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="showgamedaylistfe.blade.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="showgamedaylistfe.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/templateslvlone/showgamedaylistfe.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.70183486">
-              <caret line="22" column="64" selection-start-line="22" selection-start-column="64" selection-end-line="22" selection-end-column="64" />
+            <state vertical-scroll-proportion="-11.333333">
+              <caret line="22" column="93" selection-start-line="22" selection-start-column="24" selection-end-line="22" selection-end-column="93" />
               <folding />
             </state>
           </provider>
@@ -200,8 +200,8 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/UserBackendViewController.php" />
         <option value="$PROJECT_DIR$/resources/views/templateslvlone/templateslvltwo/frontendmaster.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/templateslvlone/templateslvltwo/templateslvlthree/master.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/templateslvlone/showgamedaylistbe.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/templateslvlone/showgamedaylistfe.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/templateslvlone/showgamedaylistbe.blade.php" />
       </list>
     </option>
   </component>
@@ -1144,18 +1144,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/templateslvlone/showgamedaylistbe.blade.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/templateslvlone/showgamedaylistfe.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.148149">
-          <caret line="22" column="64" selection-start-line="21" selection-start-column="20" selection-end-line="22" selection-end-column="64" />
+        <state vertical-scroll-proportion="-11.333333">
+          <caret line="22" column="93" selection-start-line="22" selection-start-column="24" selection-end-line="22" selection-end-column="93" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/templateslvlone/showgamedaylistfe.blade.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/templateslvlone/showgamedaylistbe.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.70183486">
-          <caret line="22" column="64" selection-start-line="22" selection-start-column="64" selection-end-line="22" selection-end-column="64" />
+        <state vertical-scroll-proportion="0.690367">
+          <caret line="22" column="93" selection-start-line="22" selection-start-column="93" selection-end-line="22" selection-end-column="93" />
           <folding />
         </state>
       </provider>
