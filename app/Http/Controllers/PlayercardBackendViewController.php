@@ -29,7 +29,6 @@ class PlayercardBackendViewController extends Controller
                         $user->customattribute3 = $ca3;
                         $user->customattribute4 = $ca4;
                         $user->customattribute5 = $ca5;
-                        $user->picture_path = "pics/default.png";
                         $user->show_playercard = 1;
                     } else {
                         return view('templateslvlone.backendinformationmessagepage')->with([
@@ -46,7 +45,32 @@ class PlayercardBackendViewController extends Controller
                         ]);
                     }
                 } else {
-                    $user->show_playercard = 0;
+                    $ca6 = $request->input('ca6');
+                    $ca2 = $request->input('ca2');
+                    $ca3 = $request->input('ca3');
+                    $ca4 = $request->input('ca4');
+                    $ca5 = $request->input('ca5');
+                    if($ca6 != "" && is_numeric($ca2) && is_numeric($ca3) && is_numeric($ca4) && is_numeric($ca5)){
+                        $user->customattribute6 = $ca6;
+                        $user->customattribute2 = $ca2;
+                        $user->customattribute3 = $ca3;
+                        $user->customattribute4 = $ca4;
+                        $user->customattribute5 = $ca5;
+                        $user->show_playercard = 0;
+                    } else {
+                        return view('templateslvlone.backendinformationmessagepage')->with([
+                            'user' => Auth::user(),
+                            'path'=>array("Backend","Info"),
+                            'pagetitle' => "Info",
+                            'selectedmenuitem_h' => 'Backend',
+                            'selectedmenuitem_v' => 'Team',
+                            'paththumbnails'=>array("dashboard", "thumbs-down"),
+                            'infomsg' => "Die eingegebenen Parameter passen nicht.",
+                            'infolvl' => "danger",
+                            'nexturl' => "/backend/users/" . $id . "/edit",
+                            'nexturldescription' => "Weiter"
+                        ]);
+                    }
                 }
                 $user->save();
                 $log = new Log();

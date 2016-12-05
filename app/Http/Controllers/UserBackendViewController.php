@@ -111,6 +111,8 @@ class UserBackendViewController extends Controller
                         if($request->input('password') != "") {
                             $request->merge(['password' => Hash::make($request->input('password'))]);
                             $user = User::create($request->all());
+                            $user->picture_path="pics/default.png";
+                            $user->save();
                             $log = new Log();
                             $log->description = "The user " . $user->name . " was created by user " . Auth::user()->name . ".";
                             $log->description_idformat = "The user with id=" . $user->id . " was created by the user with id=" . Auth::user()->id . ".";
