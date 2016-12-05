@@ -23,7 +23,7 @@
 
       <style>
           html {
-              background: url(../../pics/custombg_{{rand(1, 7)}}.jpg) no-repeat center center fixed;
+              background: url(/pics/custombg_{{rand(1, 7)}}.jpg) no-repeat center center fixed;
               -webkit-background-size: cover;
               -moz-background-size: cover;
               -o-background-size: cover;

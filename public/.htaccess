@@ -17,4 +17,8 @@
     # Handle Authorization Header
     RewriteCond %{HTTP:Authorization} .
     RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+
+    #force HTTPS-connections - custom from https://kb.plesk.com/de/112135
+    RewriteCond %{HTTPS} !=on
+        RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R,QSA]
 </IfModule>
