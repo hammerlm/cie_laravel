@@ -13,7 +13,7 @@
             <div class="tab-content">
                 <div class="tab-pane fade in active" id="tab1default">
                     @if(count($playercardlist) > 0)
-                        @for ($i = 0; $i < intval((count($playercardlist) / 3)) + 1; $i++)
+                        @for ($i = 0; $i < intval((count($playercardlist) / 2)) + 1; $i++)
                             <div class="row">
                                 @for ($j = $i * 2; $j < (($i * 2) + 2); $j++)
                                     @if(isset($playercardlist[$j]))

@@ -5,10 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bd235261-f194-44be-b3ff-fa9b6742d6ba" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/UserFrontendViewController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/UserFrontendViewController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/templateslvlone/templateslvltwo/templateslvlthree/master.blade.php" afterPath="$PROJECT_DIR$/resources/views/templateslvlone/templateslvltwo/templateslvlthree/master.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/templateslvlone/showusersfe.blade.php" afterPath="$PROJECT_DIR$/resources/views/templateslvlone/showusersfe.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="cie_laravel-master.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -66,11 +63,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UserFrontendViewController.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="UserFrontendViewController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/UserFrontendViewController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.36">
-              <caret line="18" column="122" selection-start-line="18" selection-start-column="122" selection-end-line="18" selection-end-column="122" />
+            <state vertical-scroll-proportion="-12.0">
+              <caret line="19" column="88" selection-start-line="19" selection-start-column="88" selection-end-line="19" selection-end-column="88" />
               <folding />
             </state>
           </provider>
@@ -86,11 +83,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="showusersfe.blade.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="showusersfe.blade.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/templateslvlone/showusersfe.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-14.148149">
-              <caret line="52" column="51" selection-start-line="52" selection-start-column="51" selection-end-line="52" selection-end-column="51" />
+            <state vertical-scroll-proportion="0.17177914">
+              <caret line="14" column="51" selection-start-line="14" selection-start-column="51" selection-end-line="14" selection-end-column="51" />
               <folding />
             </state>
           </provider>
@@ -201,8 +198,8 @@
         <option value="$PROJECT_DIR$/resources/views/templateslvlone/showgamedaylistbe.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/templateslvlone/showgamedaylistfe.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/templateslvlone/templateslvltwo/templateslvlthree/master.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/templateslvlone/showusersfe.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/UserFrontendViewController.php" />
+        <option value="$PROJECT_DIR$/resources/views/templateslvlone/showusersfe.blade.php" />
       </list>
     </option>
   </component>
@@ -761,7 +758,7 @@
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.018036073" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3296582" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2183021" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2183021" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1143,18 +1140,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/templateslvlone/showusersfe.blade.php">
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/UserFrontendViewController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-14.148149">
-          <caret line="52" column="51" selection-start-line="52" selection-start-column="51" selection-end-line="52" selection-end-column="51" />
+        <state vertical-scroll-proportion="-12.0">
+          <caret line="19" column="88" selection-start-line="19" selection-start-column="88" selection-end-line="19" selection-end-column="88" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/UserFrontendViewController.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/templateslvlone/showusersfe.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.36">
-          <caret line="18" column="122" selection-start-line="18" selection-start-column="122" selection-end-line="18" selection-end-column="122" />
+        <state vertical-scroll-proportion="0.17177914">
+          <caret line="14" column="51" selection-start-line="14" selection-start-column="51" selection-end-line="14" selection-end-column="51" />
           <folding />
         </state>
       </provider>
