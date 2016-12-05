@@ -119,6 +119,7 @@
          style="
          background-color:rgba(255, 255, 255, 0.8);
          border-radius: 6px;
+         margin-bottom: 20px;
             ">
         <!-- Page Heading -->
         <div class="row">

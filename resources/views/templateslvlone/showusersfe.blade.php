@@ -15,9 +15,9 @@
                     @if(count($playercardlist) > 0)
                         @for ($i = 0; $i < intval((count($playercardlist) / 3)) + 1; $i++)
                             <div class="row">
-                                @for ($j = $i * 3; $j < (($i * 3) + 3); $j++)
+                                @for ($j = $i * 2; $j < (($i * 2) + 2); $j++)
                                     @if(isset($playercardlist[$j]))
-                                        <div class="col-lg-4">
+                                        <div class="col-lg-6">
                                             <div class="thumbnail">
                                                 <img src="{{$playercardlist[$j]->picture_path}}" alt="Chuck Norris">
                                                 <h4 align="center">{{$playercardlist[$j]->name}}</h4>
@@ -34,7 +34,7 @@
                                                         </tr>
                                                         @can('authenticate')
                                                             <tr>
-                                                                <td>Alkoholkonsum</td>
+                                                                <td>Bierkonsum</td>
                                                                 <td>{{$playercardlist[$j]->customattribute3}}</td>
                                                             </tr>
                                                             <tr>
@@ -50,6 +50,7 @@
                                 @endfor
                             </div>
                         @endfor
+                        {{$playercardlist->render()}}
                     @else
                         <div class="alert alert-info" role="alert">Derzeit sind leider noch keine Playercards vorhanden!</div>
                     @endif
