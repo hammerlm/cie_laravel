@@ -34,6 +34,14 @@
                     <h5>Spieleranzahl: {{$nextgd->playercount_redundant - $nextgd->goaliecount_redundant}}</h5>
                     <h5>Goalieanzahl: {{$nextgd->goaliecount_redundant}}</h5>
                     <p>Zuletzt aktualisiert: {{ date('d.m.Y H:i', strtotime($nextgd->updated_at)) }}</p>
+                    @if(($nextgd->playercount_redundant - $nextgd->goaliecount_redundant) == 20)
+                         <hr/>
+                        <div class="alert alert-danger" role="alert">!! Maximale Feldspieleranzahl erreicht !!</div>
+                    @endif
+                    @if($nextgd->goaliecount_redundant == 2)
+                        <hr/>
+                        <div class="alert alert-danger" role="alert">!! Maximale Tormannanzahl erreicht !!</div>
+                    @endif
                 <!-- Custom styles for this countdownfeature -->
                 <link href="{{ asset('bootstrap-3.3.6-dist/css/plugins/custom_cd.css')}}" rel="stylesheet">
                 <script type="text/javascript">
@@ -101,8 +109,15 @@
     <div id="my-calendar"></div>
     <!-- initialize the calendar on ready -->
     <script type="application/javascript">
+        var eventData = [
+            {"date":"{{date('Y-m-d', strtotime($nextgd->time)) }}","badge":true,"title":"Nächster Eistermin","modal":true}
+        ];
         $(document).ready(function () {
-            $("#my-calendar").zabuto_calendar({today: true});
+            $("#my-calendar").zabuto_calendar({
+                today: true,
+                cell_border: true,
+                data:eventData
+            });
         });
     </script>
     <!-- This is the end of the zabuto-calendar-code -->

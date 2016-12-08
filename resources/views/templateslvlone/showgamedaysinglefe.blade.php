@@ -42,7 +42,7 @@
             @endcan
         </div>
     </div>
-    @can('manage-news')
+    @can('manage-gamedays')
     <hr/>
     {!! Form::open(['url' => url('/backend/gamedays/' . $gameday->id . '/edit'), 'method' => 'GET']) !!}
     {!! Form::submit('Diesen Eistermineintrag bearbeiten', ["class" => "btn btn-default btn-sm"]) !!}

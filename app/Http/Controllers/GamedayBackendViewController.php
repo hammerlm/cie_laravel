@@ -185,6 +185,9 @@ class GamedayBackendViewController extends Controller
                 $gamedayentry->playercount_redundant = count($request->input('participantlist'));
                 $userlist = $request->input('participantlist');
                 $goalielist = $request->input('goalielist');
+                if(!isset($goalielist)) {
+                    $goalielist = array();
+                }
                 DB::table('gameday_user')->where('gameday_id', '=', $gamedayentry->id)->delete();
                 $goaliecount = 0;
                 for($i = 0; $i < count($userlist); $i++) {
