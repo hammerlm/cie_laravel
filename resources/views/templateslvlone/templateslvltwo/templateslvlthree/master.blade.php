@@ -154,7 +154,7 @@
         <div class="row">
             <footer class="footer">
               <div class="container">
-                <p class="text-muted">2016/11 Michael Hammerl</p>
+                <p class="text-muted">2016/11 Hammerl Michael</p>
               </div>
             </footer>
         </div>

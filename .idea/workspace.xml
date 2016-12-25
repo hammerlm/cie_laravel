@@ -4,7 +4,10 @@
     <bookmark url="file://$PROJECT_DIR$/resources/views/dummycontentviews/managepermissionsbe.blade.php" line="57" mnemonic="7" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bd235261-f194-44be-b3ff-fa9b6742d6ba" name="Default" comment="" />
+    <list default="true" id="bd235261-f194-44be-b3ff-fa9b6742d6ba" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/templateslvlone/templateslvltwo/templateslvlthree/master.blade.php" afterPath="$PROJECT_DIR$/resources/views/templateslvlone/templateslvltwo/templateslvlthree/master.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+    </list>
     <ignored path="cie_laravel-master.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -111,21 +114,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="master.blade.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="master.blade.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/templateslvlone/templateslvltwo/templateslvlthree/master.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-23.333334">
-              <caret line="35" column="44" selection-start-line="35" selection-start-column="44" selection-end-line="35" selection-end-column="44" />
+            <state vertical-scroll-proportion="0.6195122">
+              <caret line="156" column="61" selection-start-line="156" selection-start-column="61" selection-end-line="156" selection-end-column="61" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GamedayBackendViewController.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="GamedayBackendViewController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/GamedayBackendViewController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.7652733">
-              <caret line="190" column="42" selection-start-line="190" selection-start-column="42" selection-end-line="190" selection-end-column="42" />
+            <state vertical-scroll-proportion="-11.148149">
+              <caret line="316" column="23" selection-start-line="316" selection-start-column="23" selection-end-line="316" selection-end-column="23" />
               <folding />
             </state>
           </provider>
@@ -190,13 +193,13 @@
         <option value="$PROJECT_DIR$/public/.htaccess_copyready" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/NewsBackendViewController.php" />
         <option value="$PROJECT_DIR$/resources/views/templateslvlone/editgamedaysinglebe.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/GamedayBackendViewController.php" />
         <option value="$PROJECT_DIR$/resources/views/templateslvlone/templateslvltwo/frontendmaster.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/templateslvlone/showgamedaysinglefe.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/templateslvlone/shownewssinglefe.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/templateslvlone/editnewssinglebe.blade.php" />
         <option value="$PROJECT_DIR$/public/bootstrap-3.3.6-dist/css/plugins/custom_cd.css" />
         <option value="$PROJECT_DIR$/public/bootstrap-3.3.6-dist/css/custom.css" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/GamedayBackendViewController.php" />
         <option value="$PROJECT_DIR$/resources/views/templateslvlone/templateslvltwo/templateslvlthree/master.blade.php" />
       </list>
     </option>
@@ -223,7 +226,7 @@
   <component name="ProjectFrameBounds">
     <option name="x" value="63" />
     <option name="y" value="24" />
-    <option name="width" value="1477" />
+    <option name="width" value="1467" />
     <option name="height" value="1010" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
@@ -785,18 +788,18 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="63" y="24" width="1477" height="1010" extended-state="4" />
-    <editor active="false" />
+    <frame x="63" y="24" width="1467" height="1010" extended-state="4" />
+    <editor active="true" />
     <layout>
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2571628" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26108375" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.0139762405" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.013370866" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3296582" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25137818" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2590959" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1111,7 +1114,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="56" column="111" selection-start-line="56" selection-start-column="8" selection-end-line="56" selection-end-column="111" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1179,18 +1181,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/templateslvlone/templateslvltwo/templateslvlthree/master.blade.php">
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/GamedayBackendViewController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-23.333334">
-          <caret line="35" column="44" selection-start-line="35" selection-start-column="44" selection-end-line="35" selection-end-column="44" />
+        <state vertical-scroll-proportion="-11.148149">
+          <caret line="316" column="23" selection-start-line="316" selection-start-column="23" selection-end-line="316" selection-end-column="23" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/GamedayBackendViewController.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/templateslvlone/templateslvltwo/templateslvlthree/master.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.7652733">
-          <caret line="190" column="42" selection-start-line="190" selection-start-column="42" selection-end-line="190" selection-end-column="42" />
+        <state vertical-scroll-proportion="0.6195122">
+          <caret line="156" column="61" selection-start-line="156" selection-start-column="61" selection-end-line="156" selection-end-column="61" />
           <folding />
         </state>
       </provider>
