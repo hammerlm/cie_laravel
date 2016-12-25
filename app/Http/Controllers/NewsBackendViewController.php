@@ -185,6 +185,7 @@ class NewsBackendViewController extends Controller
                 $newsentry->title = $request->input('title');
                 $newsentry->body = $request->input('body');
                 $newsentry->modifier_id = Auth::user()->id;
+                $newsentry->updated_at = \Carbon\Carbon::now();
                 $newsentry->save();
                 $categorylist = $request->input('categorylist');
                 DB::table('category_news')->where('news_id', '=', $newsentry->id)->delete();
