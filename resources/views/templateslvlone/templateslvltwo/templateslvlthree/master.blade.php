@@ -10,6 +10,8 @@
 
     <title>{{$pagetitle}}</title>
 
+      <link rel="icon" href="/pics/logos/fo_c.png">
+
     <!-- Bootstrap core CSS -->
     <link href="{{ asset('bootstrap-3.3.6-dist/css/bootstrap.min.css')}}" rel="stylesheet">
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
@@ -23,7 +25,7 @@
 
       <style>
           html {
-              background: url(/pics/custombg_{{rand(1, 7)}}.jpg) no-repeat center center fixed;
+              background: url(/pics/custombg_{{rand(1, 14)}}.jpg) no-repeat center center fixed;
               -webkit-background-size: cover;
               -moz-background-size: cover;
               -o-background-size: cover;

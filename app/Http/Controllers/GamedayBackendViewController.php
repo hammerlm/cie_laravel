@@ -183,6 +183,8 @@ class GamedayBackendViewController extends Controller
                 $gamedayentry->time = $request->input('date') . ' ' . $request->input('time') . ':00';
                 $gamedayentry->notes = $request->input('notes');
                 $gamedayentry->playercount_redundant = count($request->input('participantlist'));
+                $gamedayentry->show_maxfplayersalert = $request->input('maxfplayersalert');
+                $gamedayentry->show_maxgoaliesalert = $request->input('maxgoaliesalert');
                 $userlist = $request->input('participantlist');
                 $goalielist = $request->input('goalielist');
                 if(!isset($goalielist)) {
@@ -204,6 +206,7 @@ class GamedayBackendViewController extends Controller
                         ]);
                 }
                 $gamedayentry->goaliecount_redundant = $goaliecount;
+                $gamedayentry->updated_at = \Carbon\Carbon::now();
                 $gamedayentry->save();
                 $log = new Log();
                 $log->description = "The gamedayentry with the id=" . $gamedayentry->id . " was edited by user " . Auth::user()->name . ".";

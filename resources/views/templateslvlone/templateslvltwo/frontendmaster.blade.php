@@ -34,11 +34,11 @@
                     <h5>Spieleranzahl: {{$nextgd->playercount_redundant - $nextgd->goaliecount_redundant}}</h5>
                     <h5>Goalieanzahl: {{$nextgd->goaliecount_redundant}}</h5>
                     <p>Zuletzt aktualisiert: {{ date('d.m.Y H:i', strtotime($nextgd->updated_at)) }}</p>
-                    @if(($nextgd->playercount_redundant - $nextgd->goaliecount_redundant) == 20)
+                    @if($nextgd->show_maxfplayersalert)
                          <hr/>
                         <div class="alert alert-danger" role="alert">!! Maximale Feldspieleranzahl erreicht !!</div>
                     @endif
-                    @if($nextgd->goaliecount_redundant == 2)
+                    @if($nextgd->show_maxgoaliesalert)
                         <hr/>
                         <div class="alert alert-danger" role="alert">!! Maximale Tormannanzahl erreicht !!</div>
                     @endif
@@ -109,14 +109,17 @@
     <div id="my-calendar"></div>
     <!-- initialize the calendar on ready -->
     <script type="application/javascript">
-        var eventData = [
+                @if($timedifftonextgd != false)
+                var eventData = [
             {"date":"{{date('Y-m-d', strtotime($nextgd->time)) }}","badge":true,"title":"Nächster Eistermin","modal":true}
         ];
+        @endif
         $(document).ready(function () {
             $("#my-calendar").zabuto_calendar({
                 today: true,
-                cell_border: true,
-                data:eventData
+                cell_border: true
+                @if($timedifftonextgd != false),
+                data:eventData @endif
             });
         });
     </script>

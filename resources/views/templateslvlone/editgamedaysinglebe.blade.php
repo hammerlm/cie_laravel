@@ -78,6 +78,22 @@
             {{Form::textarea('notes',$gameday->notes,array('class' => 'form-control', 'placeholder'=>'Content', 'id' => 'msgbody'))}}
         </div>
         <div class="form-group">
+            {{Form::label('maxfplayersalert', 'Maximale Feldspieleranzahl erreicht?')}} <br/>
+            @if($gameday->show_maxfplayersalert)
+                {!! Form::checkbox("maxfplayersalert", $gameday->id,  true)!!}
+            @else
+                {!! Form::checkbox("maxfplayersalert", $gameday->id,  false)!!}
+            @endif
+        </div>
+        <div class="form-group">
+            {{Form::label('maxgoaliesalert', 'Maximale Tormannanzahl erreicht?')}} <br/>
+            @if($gameday->show_maxgoaliesalert)
+                {!! Form::checkbox("maxgoaliesalert", $gameday->id,  true)!!}
+            @else
+                {!! Form::checkbox("maxgoaliesalert", $gameday->id,  false)!!}
+            @endif
+        </div>
+        <div class="form-group">
             {{Form::label('participants', 'Teilnehmer')}}
             <table class="table table-striped table-hover">
                 <tr>

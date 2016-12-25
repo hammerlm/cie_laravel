@@ -41,4 +41,8 @@
             });
         });
     </script>
+    <hr/>
+    {!! Form::open(['url' => url('/backend/news/' . $newsentry->id), 'method' => 'DELETE']) !!}
+    {!! Form::submit('Löschen', ["class" => "btn btn-danger btn-sm"]) !!}
+    {!! Form::close() !!}
 @stop
