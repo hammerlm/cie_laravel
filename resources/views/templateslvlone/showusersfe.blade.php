@@ -19,7 +19,7 @@
                                     @if(isset($playercardlist[$j]))
                                         <div class="col-lg-6">
                                             <div class="thumbnail">
-                                                <img src="{{$playercardlist[$j]->picture_path}}" alt="Chuck Norris">
+                                                <img style="max-width: 250px" src="{{$playercardlist[$j]->picture_path}}">
                                                 <h4 align="center">{{$playercardlist[$j]->name}}</h4>
                                                 <div class="caption">
                                                     <!-- Table -->
