@@ -29,6 +29,6 @@ class User extends Authenticatable
     }
 
     public function gamedays() {
-        return $this->belongsToMany('App\Gameday')->withPivot('is_goalie');
+        return $this->belongsToMany('App\Gameday')->withPivot('is_goalie', 'is_coach', 'is_ref');
     }
 }

@@ -19,7 +19,7 @@
                     <td>{{$gameday->id}}</td>
                     <td>{{$gameday->location->name}}</td>
                     <td>{{ date('d.m.Y H:i', strtotime($gameday->time)) }}</td>
-                    <td>{{$gameday->playercount_redundant - $gameday->goaliecount_redundant}}</td>
+                    <td>{{$gameday->playercount_redundant}}</td>
                     <td>{{$gameday->goaliecount_redundant}}</td>
                     <td>
                         <a href="/gamedays/{{$gameday->id}}"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></a>

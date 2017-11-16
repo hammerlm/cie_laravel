@@ -1,7 +1,7 @@
 @extends('templateslvlone.templateslvltwo.templateslvlthree.master')
 @section('leftcol_content')
 
-        <div align="center" class="panel panel-info">
+        <div align="center" class="panel panel-default">
             <div class="panel-heading">
                 <h4>Nächster Eistermin</h4>
             </div>
@@ -29,11 +29,32 @@
                         <div class="smalltext_cd">Sekunden</div>
                     </div>
                 </div>
-                <hr/>
-                    <strong><h5>Momentane Teilnehmeranzahl: {{$nextgd->playercount_redundant}}</h5></strong>
-                    <h5>Spieleranzahl: {{$nextgd->playercount_redundant - $nextgd->goaliecount_redundant}}</h5>
-                    <h5>Goalieanzahl: {{$nextgd->goaliecount_redundant}}</h5>
-                    <p>Zuletzt aktualisiert: {{ date('d.m.Y H:i', strtotime($nextgd->updated_at)) }}</p>
+                    <div class="table-responsive">
+                        <table class="table">
+                            <tbody>
+                                <tr>
+                                    <td>Spieleranzahl</td>
+                                    <td>{{$nextgd->playercount_redundant}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Goalieanzahl</td>
+                                    <td>{{$nextgd->goaliecount_redundant}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Traineranzahl</td>
+                                    <td>{{$nextgd->coachcount_redundant}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Schirianzahl</td>
+                                    <td>{{$nextgd->refcount_redundant}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Zuletzt aktualisiert</td>
+                                    <td>{{ date('d.m.Y H:i', strtotime($nextgd->updated_at)) }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                     @if($nextgd->show_maxfplayersalert)
                          <hr/>
                         <div class="alert alert-danger" role="alert">!! Maximale Feldspieleranzahl erreicht !!</div>

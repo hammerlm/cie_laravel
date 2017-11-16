@@ -1,18 +1,41 @@
 @extends('templateslvlone.templateslvltwo.frontendmaster')
 @section('rightcol_content_lvl2')
-    <div align="center" class="panel panel-info">
+    <div align="center" class="panel panel-default">
         <div class="panel-heading">
             <h4>{{$gameday->location->name}} - {{ date('d.m.Y H:i', strtotime($gameday->time)) }}</h4>
         </div>
         <div class="panel-body">
             <h3>Anmerkungen</h3>
+            <hr/>
             <p>
                 {{$gameday->notes}}
             </p>
-            <h3>Teilnehmeranzahl: {{$gameday->playercount_redundant}}</h3>
-            <h4>Spieleranzahl: {{$gameday->playercount_redundant - $gameday->goaliecount_redundant}}</h4>
-            <h4>Goalieanzahl: {{$gameday->goaliecount_redundant}}</h4>
-            <p>Zuletzt aktualisiert: {{ date('d.m.Y H:i', strtotime($gameday->updated_at)) }}</p>
+            <div class="table-responsive">
+                <table class="table">
+                    <tbody>
+                    <tr>
+                        <td>Spieleranzahl</td>
+                        <td>{{$gameday->playercount_redundant}}</td>
+                    </tr>
+                    <tr>
+                        <td>Goalieanzahl</td>
+                        <td>{{$gameday->goaliecount_redundant}}</td>
+                    </tr>
+                    <tr>
+                        <td>Traineranzahl</td>
+                        <td>{{$gameday->coachcount_redundant}}</td>
+                    </tr>
+                    <tr>
+                        <td>Schirianzahl</td>
+                        <td>{{$gameday->refcount_redundant}}</td>
+                    </tr>
+                    <tr>
+                        <td>Zuletzt aktualisiert</td>
+                        <td>{{ date('d.m.Y H:i', strtotime($gameday->updated_at)) }}</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
             @can('authenticate')
                 <hr/>
                 <h3>Teilnehmerliste</h3>
@@ -25,12 +48,19 @@
                         </tr>
                         </thead>
                         <tbody>
+                        <?php $iterationcount = 0; ?>
                         @foreach($gameday->users as $participant)
+                            <?php $iterationcount++; ?>
+
                             <tr @if($participant->pivot->is_goalie)
                                 style="background-color:lawngreen"
+                                @elseif($participant->pivot->is_coach)
+                                style="background-color:lightskyblue"
+                                @elseif($participant->pivot->is_ref)
+                                style="background-color:black;color:white"
                                 @endif
                             >
-                                <td>{{$participant->id}}</td>
+                                <td>{{$iterationcount}}</td>
                                 <td>{{$participant->name}}</td>
                             </tr>
                         @endforeach
@@ -39,6 +69,8 @@
                 </div>
                 <h3>Info:</h3>
                 <p><span style="background-color:lawngreen">grün</span> -> Tormann</p>
+                <p><span style="background-color:lightskyblue">hellblau</span> -> (Spieler)trainer</p>
+                <p><span style="background-color:black;color:white">schwarz</span> -> Schiri</p>
                 <p>transparent/weiß -> Feldspieler</p>
             @endcan
         </div>

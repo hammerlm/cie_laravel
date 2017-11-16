@@ -86,6 +86,8 @@ class GamedayBackendViewController extends Controller
                 'locationlist' => Location::lists('name', 'id'),
                 'allusers' => User::all()->sortby('name'),
                 'goalies' => $gd->users()->wherePivot('is_goalie', 1)->get(),
+                'coaches' => $gd->users()->wherePivot('is_coach', 1)->get(),
+                'refs' => $gd->users()->wherePivot('is_ref', 1)->get(),
                 'gameday' => $gd
             ]);
         } else {
@@ -182,7 +184,6 @@ class GamedayBackendViewController extends Controller
                 $gamedayentry->location_id = $request->location;
                 $gamedayentry->time = $request->input('date') . ' ' . $request->input('time') . ':00';
                 $gamedayentry->notes = $request->input('notes');
-                $gamedayentry->playercount_redundant = count($request->input('participantlist'));
                 $gamedayentry->show_maxfplayersalert = $request->input('maxfplayersalert');
                 $gamedayentry->show_maxgoaliesalert = $request->input('maxgoaliesalert');
                 $userlist = $request->input('participantlist');
@@ -199,24 +200,29 @@ class GamedayBackendViewController extends Controller
                     $reflist = array();
                 }
                 DB::table('gameday_user')->where('gameday_id', '=', $gamedayentry->id)->delete();
+                $playercount = 0;
                 $goaliecount = 0;
                 $coachcount = 0;
                 $refcount = 0;
                 for($i = 0; $i < count($userlist); $i++) {
+                    $playercount++;
                     $is_goalie = 0;
                     if(in_array($userlist[$i], $goalielist)) {
                         $is_goalie = 1;
                         $goaliecount++;
+                        $playercount--;
                     }
                     $is_coach = 0;
                     if(in_array($userlist[$i], $coachlist)) {
                         $is_coach = 1;
                         $coachcount++;
+                        $playercount--;
                     }
                     $is_ref = 0;
                     if(in_array($userlist[$i], $reflist)) {
                         $is_ref = 1;
                         $refcount++;
+                        $playercount--;
                     }
                     DB::table('gameday_user')->insert(
                         [
@@ -227,6 +233,7 @@ class GamedayBackendViewController extends Controller
                             'is_ref' => $is_ref
                         ]);
                 }
+                $gamedayentry->playercount_redundant = $playercount;
                 $gamedayentry->goaliecount_redundant = $goaliecount;
                 $gamedayentry->coachcount_redundant = $coachcount;
                 $gamedayentry->refcount_redundant = $refcount;

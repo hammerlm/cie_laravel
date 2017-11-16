@@ -108,8 +108,8 @@
                         <td>{{ $participant->name }}</td>
                         <td align="center">{!! Form::checkbox("participantlist[]", $participant->id, $gameday->users->contains($participant)) !!}</td>
                         <td align="center">{!! Form::checkbox("goalielist[]", $participant->id, $goalies->contains($participant)) !!}</td>
-                        <td align="center">{!! Form::checkbox("coachlist[]", $participant->id, $goalies->contains($participant)) !!}</td>
-                        <td align="center">{!! Form::checkbox("reflist[]", $participant->id, $goalies->contains($participant)) !!}</td>
+                        <td align="center">{!! Form::checkbox("coachlist[]", $participant->id, $coaches->contains($participant)) !!}</td>
+                        <td align="center">{!! Form::checkbox("reflist[]", $participant->id, $refs->contains($participant)) !!}</td>
                     </tr>
                 @endforeach
             </table>
