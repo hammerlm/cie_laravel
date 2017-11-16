@@ -32,8 +32,9 @@
             </tbody>
         </table>
     </div>
-    <h3>Information:</h3>
-    <p>Wenn ein Tabelleneintrag <span style="background-color:orange">orange</span> hinterlegt ist, bedeutet das, dass der jeweilige Benutzer deaktiviert ist und sich somit nicht authentifizieren kann.</p>
+    <h3>Info:</h3>
+    <p><span style="background-color:orange">orange</span> -> Benutzer deaktiviert</p>
+    <p>transparent/weiß -> Benutzer aktiviert</p>
     @can('manage-users')
     <hr/>
     {!! Form::open(['url' => url('/backend/users/create'), 'method' => 'GET']) !!}

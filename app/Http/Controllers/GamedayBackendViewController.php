@@ -187,25 +187,49 @@ class GamedayBackendViewController extends Controller
                 $gamedayentry->show_maxgoaliesalert = $request->input('maxgoaliesalert');
                 $userlist = $request->input('participantlist');
                 $goalielist = $request->input('goalielist');
+                $coachlist = $request->input('coachlist');
+                $reflist = $request->input('reflist');
                 if(!isset($goalielist)) {
                     $goalielist = array();
                 }
+                if(!isset($coachlist)) {
+                    $coachlist = array();
+                }
+                if(!isset($reflist)) {
+                    $reflist = array();
+                }
                 DB::table('gameday_user')->where('gameday_id', '=', $gamedayentry->id)->delete();
                 $goaliecount = 0;
+                $coachcount = 0;
+                $refcount = 0;
                 for($i = 0; $i < count($userlist); $i++) {
                     $is_goalie = 0;
                     if(in_array($userlist[$i], $goalielist)) {
                         $is_goalie = 1;
                         $goaliecount++;
                     }
+                    $is_coach = 0;
+                    if(in_array($userlist[$i], $coachlist)) {
+                        $is_coach = 1;
+                        $coachcount++;
+                    }
+                    $is_ref = 0;
+                    if(in_array($userlist[$i], $reflist)) {
+                        $is_ref = 1;
+                        $refcount++;
+                    }
                     DB::table('gameday_user')->insert(
                         [
                             'user_id' => $userlist[$i],
                             'gameday_id' => $gamedayentry->id,
-                            'is_goalie' => $is_goalie
+                            'is_goalie' => $is_goalie,
+                            'is_coach' => $is_coach,
+                            'is_ref' => $is_ref
                         ]);
                 }
                 $gamedayentry->goaliecount_redundant = $goaliecount;
+                $gamedayentry->coachcount_redundant = $coachcount;
+                $gamedayentry->refcount_redundant = $refcount;
                 $gamedayentry->updated_at = \Carbon\Carbon::now();
                 $gamedayentry->save();
                 $log = new Log();

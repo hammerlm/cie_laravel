@@ -100,12 +100,16 @@
                     <th>Name</th>
                     <th align="center">Teilnahme</th>
                     <th align="center">... als Tormann?</th>
+                    <th align="center">... als Trainer</th>
+                    <th align="center">... als Referee?</th>
                 </tr>
                 @foreach ($allusers as $participant)
                     <tr>
                         <td>{{ $participant->name }}</td>
                         <td align="center">{!! Form::checkbox("participantlist[]", $participant->id, $gameday->users->contains($participant)) !!}</td>
                         <td align="center">{!! Form::checkbox("goalielist[]", $participant->id, $goalies->contains($participant)) !!}</td>
+                        <td align="center">{!! Form::checkbox("coachlist[]", $participant->id, $goalies->contains($participant)) !!}</td>
+                        <td align="center">{!! Form::checkbox("reflist[]", $participant->id, $goalies->contains($participant)) !!}</td>
                     </tr>
                 @endforeach
             </table>

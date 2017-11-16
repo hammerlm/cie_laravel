@@ -37,8 +37,9 @@
                         </tbody>
                     </table>
                 </div>
-                <h3>Information:</h3>
-                <p>Wenn ein Tabelleneintrag <span style="background-color:lawngreen">grün</span> hinterlegt ist, bedeutet das, dass der jeweilige Spieler ein Tormann ist.</p>
+                <h3>Info:</h3>
+                <p><span style="background-color:lawngreen">grün</span> -> Tormann</p>
+                <p>transparent/weiß -> Feldspieler</p>
             @endcan
         </div>
     </div>
