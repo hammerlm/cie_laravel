@@ -66,9 +66,11 @@
                             </tr>
                             </thead>
                             <tbody>
+                            <?php $iterationcount = 0; ?>
                             @foreach($userlist as $userentry)
+                                <?php $iterationcount++; ?>
                                 <tr>
-                                    <td>{{$userentry->id}}</td>
+                                    <td>{{$iterationcount}}</td>
                                     <td><a href="/users/{{$userentry->id}}">{{$userentry->name}}</a>
                                         @if(Gate::allows('authenticate'))
                                             @if(Gate::allows('manage-users-anyway') || $user->id == $userentry->id)

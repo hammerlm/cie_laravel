@@ -4,7 +4,7 @@
         <table class="table">
             <thead>
             <tr>
-                <th>#</th>
+                <th>id</th>
                 <th>Titel</th>
                 <th>Zeitstempel</th>
             </tr>

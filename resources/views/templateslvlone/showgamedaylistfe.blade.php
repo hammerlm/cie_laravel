@@ -5,7 +5,6 @@
         <table class="table">
             <thead>
             <tr>
-                <th>#</th>
                 <th>Ort</th>
                 <th>Zeitstempel</th>
                 <th>Spieleranzahl</th>
@@ -16,7 +15,6 @@
             <tbody>
             @foreach($gamedaylist as $gameday)
                 <tr>
-                    <td>{{$gameday->id}}</td>
                     <td>{{$gameday->location->name}}</td>
                     <td>{{ date('d.m.Y H:i', strtotime($gameday->time)) }}</td>
                     <td>{{$gameday->playercount_redundant}}</td>

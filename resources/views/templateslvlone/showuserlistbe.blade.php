@@ -5,14 +5,18 @@
             <thead>
             <tr>
                 <th>#</th>
+                <th>id</th>
                 <th>Name</th>
                 <th>E-Mail</th>
                 <th>Playercard aktiviert</th>
             </tr>
             </thead>
             <tbody>
+            <?php $iterationcount = 0; ?>
             @foreach($userlist as $userentry)
+                <?php $iterationcount++; ?>
             <tr @if($userentry->is_disabled) style="background-color:orange"@endif>
+                <td>{{$iterationcount}}</td>
                 <td>{{$userentry->id}}</td>
                 <td><a href="/users/{{$userentry->id}}">{{$userentry->name}}</a>
                     @if(Gate::allows('manage-users-anyway') || $user->id == $userentry->id)

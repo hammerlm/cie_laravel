@@ -5,7 +5,7 @@
         <table class="table">
             <thead>
             <tr>
-                <th>#</th>
+                <th>id</th>
                 <th>Beschreibung</th>
                 <th>Zeitstempel</th>
             </tr>

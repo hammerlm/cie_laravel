@@ -10,7 +10,7 @@
 
     <title>{{$pagetitle}}</title>
 
-      <link rel="icon" href="/pics/logos/fo_c.png">
+      <link rel="icon" href="/pics/logos/cie2.png">
 
     <!-- Bootstrap core CSS -->
     <link href="{{ asset('bootstrap-3.3.6-dist/css/bootstrap.min.css')}}" rel="stylesheet">
