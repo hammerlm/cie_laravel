@@ -95,14 +95,18 @@
         </div>
         <div class="form-group">
             {{Form::label('participants', 'Teilnehmer')}}
-            <table class="table table-striped table-hover">
-                <tr>
-                    <th>Name</th>
-                    <th align="center">Teilnahme</th>
-                    <th align="center">... als Tormann?</th>
-                    <th align="center">... als Trainer</th>
-                    <th align="center">... als Referee?</th>
-                </tr>
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th align="center">Teilnahme</th>
+                        <th align="center">... als Tormann?</th>
+                        <th align="center">... als Trainer</th>
+                        <th align="center">... als Referee?</th>
+                    </tr>
+                    </thead>
+
                 @foreach ($allusers as $participant)
                     <tr>
                         <td>{{ $participant->name }}</td>
@@ -113,6 +117,7 @@
                     </tr>
                 @endforeach
             </table>
+            </div>
         </div>
         <hr/>
         <div class="form-group">
