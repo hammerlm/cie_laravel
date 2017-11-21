@@ -29,7 +29,7 @@
                         <div class="smalltext_cd">Sekunden</div>
                     </div>
                 </div>
-                    <div class="table-responsive" style="margin-left:50px;margin-right:50px;">
+                    <div class="table-responsive">
                         <table class="table">
                             <tbody>
                                 <tr>

@@ -25,7 +25,7 @@
 
       <style>
           html {
-              background: url(/pics/custombg_{{rand(1, 14)}}.jpg) no-repeat center center fixed;
+              background: url(/pics/custombg_{{rand(1, 37)}}.jpg) no-repeat center center fixed;
               -webkit-background-size: cover;
               -moz-background-size: cover;
               -o-background-size: cover;
@@ -39,7 +39,7 @@
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="{{ asset('../../assets/js/ie8-responsive-file-warning.js')}}"></script><![endif]-->
-    <script src="{{ asset('bootstrap-3.3.6-dist/assets/js/ie-emulation-modes-warning.js')}}"></script>
+    <script src="{{ asset('scripting/assets/js/ie-emulation-modes-warning.js')}}"></script>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>

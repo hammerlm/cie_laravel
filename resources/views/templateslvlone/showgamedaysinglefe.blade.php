@@ -10,7 +10,7 @@
             <p>
                 {{$gameday->notes}}
             </p>
-            <div class="table-responsive" style="margin-left:50px;margin-right:50px;">
+            <div class="table-responsive">
                 <table class="table">
                     <tbody>
                     <tr>
