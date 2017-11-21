@@ -64,7 +64,7 @@
   </head>
 
   <body>
-    <nav class="navbar navbar-fixed-top navbar-inverse">
+    <nav class="navbar navbar-fixed-top navbar-default navbar-custom">
       <div class="container-fluid">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -73,7 +73,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="/home">Carinthian-Ice-Eagles</a>
+          <a class="navbar-brand" href="/home" style="color:white;">Carinthian-Ice-Eagles</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav navbar-right">
@@ -95,15 +95,15 @@
                 <a href="/info"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span> Info</a>
               </li>
               @if(Gate::allows('authenticate'))
-                <li class="dropdown">
+                <li class="dropdown" >
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> {{$user->name}}<b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <li>
-                            <a href="/backend/users/{{$user->id}}/edit"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Einstellungen</a>
+                            <a href="/backend/users/{{$user->id}}/edit" style="color:black;"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Einstellungen</a>
                         </li>
                         <li class="divider"></li>
                         <li>
-                            <a href="/logout"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Abmelden</a>
+                            <a href="/logout" style="color:black;" ><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Abmelden</a>
                         </li>
                     </ul>
                 </li>

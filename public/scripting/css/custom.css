@@ -1,7 +1,9 @@
-p.jumbop {
-    font-size: 100%;
+/* navbar */
+.navbar-custom {
+    background-color: #337ab7;
+    border: none;
 }
 
-
-
-
+.nav.navbar-nav li a {
+    color: white;
+}
