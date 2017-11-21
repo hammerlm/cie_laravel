@@ -35,7 +35,7 @@
     <hr/>
     <!-- Linechart -->
 
-    asset('scripting/css/bootstrap.min.css')
+
 
 
     <!-- End Linechart -->
