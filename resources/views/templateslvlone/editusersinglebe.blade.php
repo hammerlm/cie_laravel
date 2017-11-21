@@ -2,7 +2,7 @@
 
 @section('rightcol_content_lvl2')
     <h3>{{$userentry->name}}</h3>
-    <div class="panel with-nav-tabs panel-default">
+    <div class="panel with-nav-tabs panel-info">
         <div class="panel-heading">
             <ul class="nav nav-tabs">
                 @php($active_passed = false)

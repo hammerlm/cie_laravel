@@ -3,7 +3,7 @@
 @section('rightcol_content_lvl2')
     <div class="row">
         <div class="col-lg-12">
-            <div class="panel panel-default">
+            <div class="panel panel-primary">
                 <div class="panel-heading">Benutzererstellung</div>
                 <div class="panel-body">
                     <form class="form-horizontal" role="form" method="POST" action="{{ url('/backend/users/') }}">

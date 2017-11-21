@@ -5,30 +5,31 @@
             @if($newsentry->id == $lastnewsentryid)
             <div class="row">
                 <div class="col-lg-12">
-                    <div class="jumbotron">
-                        <h2>{{$newsentry->title}} <span class="label label-default">New</span></h2>
-                        <p class="jumbop">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <h3>{{$newsentry->title}}</h3>
+                        </div>
+                        <div class="panel-body">
                             Artikel vom {{ date('d.m.Y H:i', strtotime($newsentry->created_at)) }}, von <a href="/users/{{$newsentry->creator->id}}">{{$newsentry->creator->name}}</a>
-                        </p>
-                        <p class="jumbop">
+                        </div>
+                        <div class="panel-body">
                             {{ substr(strip_tags($newsentry->body), 0, 400) }}
                             ...
-                        </p>
-                        <hr/>
-                        <p class="jumbop">
+                            <br/>
+                            <a href="/news/{{$newsentry->id}}">[mehr...]</a>
+                        </div>
+                        <div class="panel-footer">
                             @foreach($newsentry->categories as $category)
-                            <span class="label label-default">{{$category->name}}</span>
+                                <span class="label label-default">{{$category->name}}</span>
                             @endforeach
-                        </p>
-                        <hr/>
-                        <p align="right"><a class="btn btn-primary btn-lg" href="/news/{{$newslist[0]->id}}" role="button">Mehr...</a></p>
+                        </div>
                     </div>
                 </div>
             </div>
             @else
                 <div class="row">
                     <div class="col-lg-12">
-                        <div class="panel panel-default">
+                        <div class="panel panel-info">
                             <div class="panel-heading">
                                 <h3>{{$newsentry->title}}</h3>
                             </div>

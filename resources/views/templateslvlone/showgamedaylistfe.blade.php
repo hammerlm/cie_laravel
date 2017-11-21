@@ -32,6 +32,13 @@
     </div>
     <hr/>
     {!! $gamedaylist->render() !!}
+    <hr/>
+    <!-- Linechart -->
+
+    asset('scripting/css/bootstrap.min.css')
+
+
+    <!-- End Linechart -->
     @else
         <div class="alert alert-info" role="alert">Derzeit sind leider noch keine Eistermineinträge vorhanden!</div>
     @endif

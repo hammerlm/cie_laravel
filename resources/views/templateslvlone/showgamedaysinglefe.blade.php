@@ -1,6 +1,6 @@
 @extends('templateslvlone.templateslvltwo.frontendmaster')
 @section('rightcol_content_lvl2')
-    <div align="center" class="panel panel-default">
+    <div align="center" class="panel panel-info">
         <div class="panel-heading">
             <h4>{{$gameday->location->name}} - {{ date('d.m.Y H:i', strtotime($gameday->time)) }}</h4>
         </div>
@@ -10,7 +10,7 @@
             <p>
                 {{$gameday->notes}}
             </p>
-            <div class="table-responsive">
+            <div class="table-responsive" style="margin-left:50px;margin-right:50px;">
                 <table class="table">
                     <tbody>
                     <tr>

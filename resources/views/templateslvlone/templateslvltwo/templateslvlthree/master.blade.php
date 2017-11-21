@@ -13,15 +13,15 @@
       <link rel="icon" href="/pics/logos/cie2.png">
 
     <!-- Bootstrap core CSS -->
-    <link href="{{ asset('bootstrap-3.3.6-dist/css/bootstrap.min.css')}}" rel="stylesheet">
+    <link href="{{ asset('scripting/css/bootstrap.min.css')}}" rel="stylesheet">
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <link href="{{ asset('bootstrap-3.3.6-dist/assets/css/ie10-viewport-bug-workaround.css')}}" rel="stylesheet">
+    <link href="{{ asset('scripting/assets/css/ie10-viewport-bug-workaround.css')}}" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="{{ asset('bootstrap-3.3.6-dist/css/offcanvas.css')}}" rel="stylesheet">
+    <link href="{{ asset('scripting/css/offcanvas.css')}}" rel="stylesheet">
 
     <!-- Custom styles generally -->
-    <link href="{{ asset('bootstrap-3.3.6-dist/css/custom.css')}}" rel="stylesheet">
+    <link href="{{ asset('scripting/css/custom.css')}}" rel="stylesheet">
 
       <style>
           html {
@@ -50,11 +50,11 @@
       <!-- Bootstrap core JavaScript
     ================================================== -->
       <!-- Placed at the beginning of the document -->
-      <script src="{{ asset('bootstrap-3.3.6-dist/js/jquery-2.2.4.min.js')}}"></script>
-      <script src="{{ asset('bootstrap-3.3.6-dist/js/bootstrap.min.js')}}"></script>
+      <script src="{{ asset('scripting/js/jquery-2.2.4.min.js')}}"></script>
+      <script src="{{ asset('scripting/js/bootstrap.min.js')}}"></script>
       <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-      <script src="{{ asset('bootstrap-3.3.6-dist/js/ie10-viewport-bug-workaround.js')}}"></script>
-      <script src="{{ asset('bootstrap-3.3.6-dist/js/offcanvas.js')}}"></script>
+      <script src="{{ asset('scripting/js/ie10-viewport-bug-workaround.js')}}"></script>
+      <script src="{{ asset('scripting/js/offcanvas.js')}}"></script>
 
       <!-- optional scriptreferences -->
       @section('scriptrefs_optional')

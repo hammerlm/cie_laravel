@@ -1,6 +1,6 @@
 @extends('templateslvlone.templateslvltwo.frontendmaster')
 @section('rightcol_content_lvl2')
-    <div class="panel with-nav-tabs panel-default">
+    <div class="panel with-nav-tabs panel-info">
         <div class="panel-heading">
             <ul class="nav nav-tabs">
                 <li class="active"><a href="#tab1default" data-toggle="tab">Playercardansicht</a></li>

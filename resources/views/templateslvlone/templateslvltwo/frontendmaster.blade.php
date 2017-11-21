@@ -1,7 +1,7 @@
 @extends('templateslvlone.templateslvltwo.templateslvlthree.master')
 @section('leftcol_content')
 
-        <div align="center" class="panel panel-default">
+        <div align="center" class="panel panel-primary">
             <div class="panel-heading">
                 <h4>Nächster Eistermin</h4>
             </div>
@@ -29,23 +29,23 @@
                         <div class="smalltext_cd">Sekunden</div>
                     </div>
                 </div>
-                    <div class="table-responsive">
+                    <div class="table-responsive" style="margin-left:50px;margin-right:50px;">
                         <table class="table">
                             <tbody>
                                 <tr>
-                                    <td>Spieleranzahl</td>
+                                    <td>Spieler</td>
                                     <td>{{$nextgd->playercount_redundant}}</td>
                                 </tr>
                                 <tr>
-                                    <td>Goalieanzahl</td>
+                                    <td>Goalies</td>
                                     <td>{{$nextgd->goaliecount_redundant}}</td>
                                 </tr>
                                 <tr>
-                                    <td>Traineranzahl</td>
+                                    <td>Trainer</td>
                                     <td>{{$nextgd->coachcount_redundant}}</td>
                                 </tr>
                                 <tr>
-                                    <td>Schirianzahl</td>
+                                    <td>Refs</td>
                                     <td>{{$nextgd->refcount_redundant}}</td>
                                 </tr>
                                 <tr>
@@ -64,7 +64,7 @@
                         <div class="alert alert-danger" role="alert">!! Maximale Tormannanzahl erreicht !!</div>
                     @endif
                 <!-- Custom styles for this countdownfeature -->
-                <link href="{{ asset('bootstrap-3.3.6-dist/css/plugins/custom_cd.css')}}" rel="stylesheet">
+                <link href="{{ asset('scripting/css/plugins/custom_cdt.css')}}" rel="stylesheet">
                 <script type="text/javascript">
                     // This variable contains the deadlinedatetime
                     var deadline_cd = 'November 17 2016 15:00:00 GMT+0200';
@@ -123,8 +123,8 @@
         </div>
     <!-- This is the beginning of the zabuto-calendar-code -->
     <!-- include the calendar js and css files -->
-    <script src="{{ asset('bootstrap-3.3.6-dist/js/plugins/zabuto_calendar.min.js')}}"></script>
-    <link rel="stylesheet" type="text/css" href="{{ asset('bootstrap-3.3.6-dist/css/plugins/zabuto_calendar.min.css')}}">
+    <script src="{{ asset('scripting/js/plugins/zabuto_calendar.min.js')}}"></script>
+    <link rel="stylesheet" type="text/css" href="{{ asset('scripting/css/plugins/zabuto_calendar.min.css')}}">
 
     <!-- define the calendar element -->
     <div id="my-calendar"></div>
