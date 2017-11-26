@@ -181,8 +181,8 @@
                             <li style="color:orange">Gesamt</li>
                         </ul>
                         Jedoch gibt es einen zusätzlichen Datensatz namens "Prognose". Dieser berechnet sich aus dem Durchschnitt der vorherigen zehn Datensätze, um eine Schätzgrundlage für den nächsten Eistermin zur Verfügung zu stellen.
-                    Demnach sollten am nächsten Spieltag @if($timedifftonextgd != false)({{date('d.m.Y', strtotime($nextgd->time))}})@endif insgesamt
-                    {{round($chartdata->avg('goaliecount_redundant') + $chartdata->avg('refcount_redundant') + $chartdata->avg('playercount_redundant') + $chartdata->avg('coachcount_redundant'))}} Personen teilnehmen.
+                    Demnach sollten am <span style="font-weight:bold">nächsten Spieltag @if($timedifftonextgd != false)({{date('d.m.Y', strtotime($nextgd->time))}})@endif insgesamt
+                    {{round($chartdata->avg('goaliecount_redundant') + $chartdata->avg('refcount_redundant') + $chartdata->avg('playercount_redundant') + $chartdata->avg('coachcount_redundant'))}} Personen </span>teilnehmen.
                     </p>
                 </div>
             </div>
