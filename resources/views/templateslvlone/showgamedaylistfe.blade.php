@@ -1,4 +1,19 @@
 @extends('templateslvlone.templateslvltwo.frontendmaster')
+@section('scriptrefs_optional')
+    <script async="" src="{{ asset('scripting/js/plugins/analytics.js')}}"></script>
+    <script src="{{ asset('scripting/js/plugins/Chart.js')}}"></script>
+    <style type="text/css">/* Chart.js */
+        @-webkit-keyframes chartjs-render-animation{from{opacity:0.99}to{opacity:1}}@keyframes chartjs-render-animation{from{opacity:0.99}to{opacity:1}}.chartjs-render-monitor{-webkit-animation:chartjs-render-animation 0.001s;animation:chartjs-render-animation 0.001s;}
+    </style>
+    <script src="{{ asset('scripting/js/plugins/utils.js')}}"></script>
+    <style>
+        canvas{
+            -moz-user-select: none;
+            -webkit-user-select: none;
+            -ms-user-select: none;
+        }
+    </style>
+@stop
 @section('rightcol_content_lvl2')
     @if(count($gamedaylist) > 0)
     <div class="panel with-nav-tabs panel-info">
@@ -45,19 +60,7 @@
                 </div>
                 <div class="tab-pane fade" id="tab2default">
                     <!-- Linechart -->
-                    <script async="" src="{{ asset('scripting/js/plugins/analytics.js')}}"></script>
-                    <script src="{{ asset('scripting/js/plugins/Chart.js')}}"></script>
-                    <style type="text/css">/* Chart.js */
-                        @-webkit-keyframes chartjs-render-animation{from{opacity:0.99}to{opacity:1}}@keyframes chartjs-render-animation{from{opacity:0.99}to{opacity:1}}.chartjs-render-monitor{-webkit-animation:chartjs-render-animation 0.001s;animation:chartjs-render-animation 0.001s;}
-                    </style>
-                    <script src="{{ asset('scripting/js/plugins/utils.js')}}"></script>
-                    <style>
-                        canvas{
-                            -moz-user-select: none;
-                            -webkit-user-select: none;
-                            -ms-user-select: none;
-                        }
-                    </style>
+
 
                     <div style="width:75%;"><div style="position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;" class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0"></div></div><div class="chartjs-size-monitor-shrink" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:200%;height:200%;left:0; top:0"></div></div></div>
                         <canvas id="canvas" style="display: block; width: 1338px; height: 669px;" width="1338" height="669" class="chartjs-render-monitor"></canvas>

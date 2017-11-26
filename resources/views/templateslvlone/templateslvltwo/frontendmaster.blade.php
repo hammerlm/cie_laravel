@@ -110,7 +110,12 @@
                             clearInterval(timeinterval_cd);
                         }
                     }
-                    window.onload = function() {
+
+                    window.addEventListener ?
+                    window.addEventListener("load",cd_trigger,false) :
+                    window.attachEvent && window.attachEvent("onload",cd_trigger);
+
+                    function cd_trigger(){
                         updateClock_cd();
                         initializeClock_cd();
                     }
