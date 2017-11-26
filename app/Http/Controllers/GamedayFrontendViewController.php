@@ -16,6 +16,7 @@ class GamedayFrontendViewController extends Controller
             'selectedmenuitem_h' => 'Gamedays',
             'paththumbnails'=>array("list-alt"),
             'nextgd' => \App\HelperClassCustom::getnextgameday(),
+            'chartdata' => \App\HelperClassCustom::getlasttengamedays(),
             'timedifftonextgd' => \App\HelperClassCustom::gettimedifferencecomparedtonow(\App\HelperClassCustom::getnextgameday()),
             'gamedaylist' => $gamedaylist
         ]);

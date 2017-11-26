@@ -10,6 +10,14 @@ class HelperClassCustom
         return Gameday::where('time', '>', \Carbon\Carbon::now())->orderBy('time')->get()->first();
     }
 
+    public static function getlasttengamedays() {
+        return Gameday::where('time', '<', \Carbon\Carbon::now())->orderBy('time', 'desc')->take(10)->get()->reverse();
+    }
+
+    public static function getallpastgamedays() {
+        return Gameday::where('time', '<', \Carbon\Carbon::now())->orderBy('time')->get();
+    }
+
     public static function gettimedifferencecomparedtonow($gd) {
         if(isset($gd)){
             return HelperClassCustom::stime_difference($gd->time, \Carbon\Carbon::now());
